@@ -20,15 +20,63 @@
         <ImageBrush ImageSource="../Source/BG1.png"/>
     </Window.Background>
     <Grid>
-        <materialDesign:Card Width="238" Height="313" Margin="50,70,0,0" Background="#FFFFFF"
+        <Grid.Resources>
+            <Style TargetType="{x:Type Button}">
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="FontFamily" Value="Helvetica"/>
+                <Setter Property="FontWeight" Value="Light"/>
+
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Background="{TemplateBinding Background}" CornerRadius="20"
+                            BorderThickness="2"
+                            BorderBrush="White">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="White"/>
+                        <Setter Property="Opacity" Value="0.4"/>
+                        <Setter Property="Foreground" Value="DeepSkyBlue"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </Grid.Resources>
+        <materialDesign:Card Width="238" Height="323" Margin="50,70,0,0" Background="#FFFFFF"
                              HorizontalAlignment="Left" VerticalAlignment="Top">
             <materialDesign:Card.Clip>
                 <RectangleGeometry Rect="0,0,238,325" RadiusX="10" RadiusY="10" >
                 </RectangleGeometry>
             </materialDesign:Card.Clip>
             <Grid>
+                <Border>
+                    <Border.Background>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#7be9f6" Offset="0.0"/>
+                            <GradientStop Color="#f083da" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                </Border>
                 <TextBlock Text="Đăng Nhập" Height="40" FontWeight="UltraBold" FontSize="30" Foreground="Blue"
                            VerticalAlignment="Top" HorizontalAlignment="Left" Margin="44,20,0,0"/>
+                <materialDesign:PackIcon Kind="AccountBox" Height="20" Width="120"
+                                         HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.354,-0.768" Margin="-27,107,0,196"/>
+                <materialDesign:PackIcon Kind="Lock" Height="20" Width="120"
+                                         HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.354,-0.768" Margin="-27,154,0,0"/>
+                <TextBox HorizontalAlignment="Center"
+                        materialDesign:HintAssist.Hint="Tên đăng nhập"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="58,94,51,194" Width="129" />
+                <PasswordBox HorizontalAlignment="Center"
+                            x:Name="PasswordBox"
+                            materialDesign:HintAssist.Hint="Mật khẩu" Margin="58,146,52,149" Width="129" />
+                <Button VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="30" Width="100" Content="Đăng Nhập" Margin="60,198,64,88"/>
             </Grid>
         </materialDesign:Card>
     </Grid>
