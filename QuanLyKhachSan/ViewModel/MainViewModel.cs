@@ -12,7 +12,6 @@ namespace QuanLyKhachSan.ViewModel
         // xử lý
         public MainViewModel()
         {
-            MessageBox.Show("Data");
         }
     }
 }
