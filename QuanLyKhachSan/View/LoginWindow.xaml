@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLyKhachSan.View"
+        xmlns:uc="clr-namespace:QuanLyKhachSan.UserControlAll"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -12,10 +13,11 @@
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="LoginWindow" Height="500" Width="900"
+        Title="Đăng Nhập" Height="500" Width="900"
         WindowStyle="None"
         ResizeMode="NoResize"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        Name="loginWindow">
     <Window.Background>
         <ImageBrush ImageSource="../Source/BG1.png"/>
     </Window.Background>
@@ -59,12 +61,12 @@
                 <Border>
                     <Border.Background>
                         <LinearGradientBrush>
-                            <GradientStop Color="#7be9f6" Offset="0.0"/>
-                            <GradientStop Color="#f083da" Offset="1"/>
+                            <GradientStop Color="#ff781f" Offset="0.0"/>
+                            <GradientStop Color="#ffaf7a" Offset="0.8"/>
                         </LinearGradientBrush>
                     </Border.Background>
                 </Border>
-                <TextBlock Text="Đăng Nhập" Height="40" FontWeight="UltraBold" FontSize="30" Foreground="Blue"
+                <TextBlock Text="Đăng Nhập" Height="40" FontWeight="Bold" FontSize="30" Foreground="White"
                            VerticalAlignment="Top" HorizontalAlignment="Left" Margin="44,20,0,0"/>
                 <materialDesign:PackIcon Kind="AccountBox" Height="20" Width="120"
                                          HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.354,-0.768" Margin="-27,107,0,196"/>
@@ -79,5 +81,6 @@
                 <Button VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="30" Width="100" Content="Đăng Nhập" Margin="60,198,64,88"/>
             </Grid>
         </materialDesign:Card>
+        <uc:ControlBarUC Tag="{Binding Title, ElementName=loginWindow}" VerticalAlignment="Top" Margin="600,0,0,0"></uc:ControlBarUC>
     </Grid>
 </Window>
