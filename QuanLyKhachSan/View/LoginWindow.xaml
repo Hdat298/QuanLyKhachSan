@@ -36,7 +36,6 @@
                             BorderThickness="2"
                             BorderBrush="White">
                                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
                             </Border>
                         </ControlTemplate>
                     </Setter.Value>
