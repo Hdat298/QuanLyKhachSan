@@ -66,6 +66,21 @@
     <Compile Include="UserControlAll\ControlBarUC.xaml.cs">
       <DependentUpon>ControlBarUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControlAll\HomeUC.xaml.cs">
+      <DependentUpon>HomeUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlAll\QLDichVuUC.xaml.cs">
+      <DependentUpon>QLDichVuUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlAll\QLLoaiDichVuUC.xaml.cs">
+      <DependentUpon>QLLoaiDichVuUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlAll\QLPhongUC.xaml.cs">
+      <DependentUpon>QLPhongUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlAll\QLTienNghiUC.xaml.cs">
+      <DependentUpon>QLTienNghiUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\ControlBarViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
@@ -95,6 +110,26 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControlAll\ControlBarUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlAll\HomeUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlAll\QLDichVuUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlAll\QLLoaiDichVuUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlAll\QLPhongUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlAll\QLTienNghiUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -146,6 +181,24 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Source\BG1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\Pic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\Pic1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\Pic2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\BG3.png" />
+    <Resource Include="Source\Pic3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\Home\1.png" />
+    <Resource Include="Source\Home\2.png" />
+    <Resource Include="Source\Home\3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.3.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.3.0\build\MaterialDesignThemes.targets')" />

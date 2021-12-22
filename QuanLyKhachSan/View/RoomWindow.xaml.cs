@@ -22,6 +22,20 @@ namespace QuanLyKhachSan.View
         public RoomWindow()
         {
             InitializeComponent();
+            List<User> items = new List<User>();
+            items.Add(new User() { MaPhong = "John Doe", TinhTrang = "Phòng đang thuê", TenKH = "Nguyen Van A" });
+            items.Add(new User() { MaPhong = "Jane Doe", TinhTrang = "Phòng trống", TenKH = "Nguyen Van B" });
+            items.Add(new User() { MaPhong = "Sammy Doe", TinhTrang = "Phòng đã đặt", TenKH = "Nguyen Van C" });
+            lvPhongDon.ItemsSource = items;
+        }
+
+        public class User
+        {
+            public string MaPhong { get; set; }
+
+            public string TinhTrang { get; set; }
+
+            public string TenKH { get; set; }
         }
     }
 }

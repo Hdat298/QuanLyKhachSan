@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="QuanLyKhachSan.UserControlAll.QLLoaiDichVuUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QuanLyKhachSan.UserControlAll"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="13"
+             TextOptions.TextFormattingMode="Ideal"
+             TextOptions.TextRenderingMode="Auto"
+             FontFamily="{DynamicResource MaterialDesignFont}"
+             Background="#FFFFFF"
+             Name="ucQLLoaiDichVu"
+             d:DesignHeight="650" d:DesignWidth="1300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <materialDesign:ColorZone Grid.Row="0" Mode="PrimaryLight">
+            <Grid>
+                <materialDesign:PackIcon Width="20" Height="50" Kind="SearchWeb" Margin="11,4,0,-4" />
+                <TextBox x:Name="txbTimKiemLoaiDV"
+                                HorizontalAlignment="Left"
+                                Margin="40 10 0 0"
+                                materialDesign:HintAssist.Hint="Nhập loại dịch vụ"
+                                materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                BorderThickness="0"
+                                Width="100"
+                                MinWidth="300"
+                                VerticalAlignment="Center" />
+
+                <Button VerticalAlignment="Center" Background="Aqua" Content="Thêm loại dịch vụ" Style="{StaticResource MaterialDesignRaisedLightButton}"
+                        ToolTip="Resource name: MaterialDesignRaisedLightButton" Margin="1013,8,122,10"/>
+            </Grid>
+        </materialDesign:ColorZone>
+
+        <Grid Grid.Row="1">
+            <Border>
+                <Border.Background>
+                    <ImageBrush ImageSource="../Source/Pic1.png"></ImageBrush>
+                </Border.Background>
+            </Border>
+
+            <Grid Height="500" Margin="286,50,286,50">
+                <Grid.Background>
+                    <SolidColorBrush Color="Azure" Opacity="0.5"/>
+                </Grid.Background>
+                <Grid.Clip>
+                    <RectangleGeometry Rect="0 0 725 500"/>
+                </Grid.Clip>
+
+                <ListView x:Name="lvQLLoaiDichVu">
+                    <ListView.View>
+                        <GridView>
+                            <GridView.ColumnHeaderContainerStyle>
+                                <Style TargetType="{x:Type GridViewColumnHeader}">
+                                    <Setter Property="Background" Value="LightBlue"/>
+                                    <Setter Property="Foreground" Value="Black"/>
+                                    <Setter Property="FontWeight" Value="Bold"/>
+                                </Style>
+                            </GridView.ColumnHeaderContainerStyle>
+                            <GridViewColumn Width="362.5" Header="Mã loại Dịch Vụ" DisplayMemberBinding="{Binding MaLoaiDichVu}"/>
+                            <GridViewColumn Width="362.5" Header="Tên loại Dịch Vụ" DisplayMemberBinding="{Binding TenLoaiDichVu}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>
