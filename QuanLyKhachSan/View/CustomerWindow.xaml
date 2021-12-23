@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLyKhachSan.View"
+        xmlns:uc="clr-namespace:QuanLyKhachSan.UserControlAll"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -15,92 +16,108 @@
         Title="LoginWindow" Height="500" Width="1150"
         WindowStyle="None"
         ResizeMode="NoResize"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        Name="customerWindow">
+
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid Grid.ColumnSpan="2" Background="#FF8522BD">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
-                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto" Width="33" Foreground="White">
-                    <materialDesign:PackIcon Kind="WindowMinimize" />
-                </Button>
-                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto" Width="33" Foreground="White">
-                    <materialDesign:PackIcon Kind="WindowMaximize" />
-                </Button>
-                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto" Width="33" Foreground="White">
-                    <materialDesign:PackIcon Kind="Power" />
-                </Button>
-            </StackPanel>
+        <Grid Background="#0F0F2D" Grid.ColumnSpan="2" Margin="0,0,0,442" Grid.RowSpan="2" RenderTransformOrigin="0.507,1.397">
+            <uc:ControlBarUC Tag="{Binding Title, ElementName=loginWindow}" VerticalAlignment="Top" Margin="600,-2,0,0"/>
         </Grid>
-        <materialDesign:Card Grid.Row="1" Margin="5">
-            <WrapPanel>
-                <TextBox Text="{Binding MaKhachHang}"  Margin="5 5 25 5" materialDesign:HintAssist.Hint="Mã khách hàng" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                <TextBox Text="{Binding TenKhachHang}"  Margin="5 5 25 5" materialDesign:HintAssist.Hint="Tên khách hàng" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                <TextBox Text="{Binding CCCD}"  Margin="5 5 25 5" materialDesign:HintAssist.Hint="CCCD" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                <TextBox Text="{Binding DiaChi}"  Margin="5 5 25 5" materialDesign:HintAssist.Hint="Địa chỉ" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                <TextBox Text="{Binding SDT}"  Margin="5 5 25 5" materialDesign:HintAssist.Hint="Số điện thoại" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                <TextBox Text="{Binding QuocTinh}"  Margin="5 5 25 5" materialDesign:HintAssist.Hint="Quốc tịch" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                <TextBox Text="{Binding SoHoChieu}"  Margin="5 5 25 5" materialDesign:HintAssist.Hint="Số hộ chiếu" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-            </WrapPanel>
-        </materialDesign:Card>
 
-        <materialDesign:Card Grid.Row="2" Margin="5,5,5,355">
-            <WrapPanel>
-                <Button
-                        
+
+        <WrapPanel Margin="10,33,582,389" Grid.Row="1">
+            <TextBox Text="{Binding TenKhachHang}"  Margin="5 5 86 5" materialDesign:HintAssist.Hint="Tên khách hàng" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+            <TextBox Text="{Binding CCCD}"  Margin="5 5 122 5" materialDesign:HintAssist.Hint="CCCD" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+            <TextBox Text="{Binding DiaChi}"  Margin="5 5 100 5" materialDesign:HintAssist.Hint="Địa chỉ" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+        </WrapPanel>
+        <WrapPanel Margin="10,86,587,321" Grid.Row="1">
+            <TextBox Text="{Binding SDT}"  Margin="5 5 100 5" materialDesign:HintAssist.Hint="Số điện thoại" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+            <TextBox Text="{Binding QuocTinh}"  Margin="5 5 100 5" materialDesign:HintAssist.Hint="Quốc tịch" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+            <TextBox Text="{Binding SoHoChieu}"  Margin="5 5 100 5" materialDesign:HintAssist.Hint="Số hộ chiếu" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+        </WrapPanel>
+
+
+
+        <WrapPanel Margin="0,33,0,321" RenderTransformOrigin="0.532,0.726" HorizontalAlignment="Right" Width="512" Grid.Row="1" VerticalAlignment="Center">
+            <Button
                         Command="{Binding AddCommand}"
-                        Content="Thêm"
                         Style="{StaticResource MaterialDesignRaisedButton}"
-                        Width="150"
-                        ToolTip="Resource name: MaterialDesignRaisedButton"
-                        Margin="10">
-                    <Button.Background>
-                        <LinearGradientBrush>
-                            <GradientStop Color="#7be9f6" Offset="0.0"/>
-                            <GradientStop Color="#FF67F550" Offset="1"/>
-                        </LinearGradientBrush>
-                    </Button.Background>
-                </Button>
-                <Button
-                        Command="{Binding EditCommand}"
-                        Content="Sửa"
-                        Style="{StaticResource MaterialDesignRaisedButton}"
-                        Width="150"
-                        ToolTip="Resource name: MaterialDesignRaisedButton"
-                        Margin="10">
-                    <Button.Background>
-                        <LinearGradientBrush>
-                            <GradientStop Color="#7be9f6" Offset="0.0"/>
-                            <GradientStop Color="#FF67F550" Offset="1"/>
-                        </LinearGradientBrush>
-                    </Button.Background>
-                </Button>
-                <Button
-                        Command="{Binding DeleteCommand}"  
-                        Content="Xóa"
-                        Style="{StaticResource MaterialDesignRaisedButton}"
-                        Width="150"
-                        ToolTip="Resource name: MaterialDesignRaisedButton"
-                        Margin="10">
-                    <Button.Background>
-                        <LinearGradientBrush>
-                            <GradientStop Color="#7be9f6" Offset="0.0"/>
-                            <GradientStop Color="#FF67F550" Offset="1"/>
-                        </LinearGradientBrush>
-                    </Button.Background>
-                </Button>
-            </WrapPanel>
-        </materialDesign:Card>
+                        Width="80"
+                        ToolTip="Thêm"
+                        Margin="10" Height="80">
+                <Button.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#7be9f6" Offset="0.0"/>
+                        <GradientStop Color="#FF67F550" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <TextBlock Text="Add" Margin="10,10,0,0"><InlineUIContainer>
+                        <materialDesign:PackIcon Kind="AccountPlus" Margin="-27,0,40,25" Height="25" Width="25"/>
+                    </InlineUIContainer></TextBlock>
+            </Button>
 
-        <materialDesign:Card Grid.Row="2" Margin="5,70,5,5">
-            <ScrollViewer VerticalScrollBarVisibility="Auto" >
-                <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}" >
+            <Button
+                        Command="{Binding DeleteCommand}"  
+                        Style="{StaticResource MaterialDesignRaisedButton}"
+                        Width="80"
+                        ToolTip="Xóa"
+                        Margin="10" Height="80">
+                <Button.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#7be9f6" Offset="0.0"/>
+                        <GradientStop Color="#FF67F550" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <TextBlock Text="Delete" Margin="5,10,0,0"><InlineUIContainer>
+                        <materialDesign:PackIcon Kind="AccountRemove" Margin="-33,0,40,25" Height="25" Width="25"/>
+                    </InlineUIContainer></TextBlock>
+            </Button>
+            <Button
+                        Command="{Binding EditCommand}"
+                        Style="{StaticResource MaterialDesignRaisedButton}"
+                        Width="80"
+                        ToolTip="Sửa"
+                        Margin="10" Height="80">
+                <Button.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#7be9f6" Offset="0.0"/>
+                        <GradientStop Color="#FF67F550" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <TextBlock Text="Edit" Margin="12,10,0,0"><InlineUIContainer>
+                        <materialDesign:PackIcon Kind="AccountSettings" Margin="-24,0,40,25" Height="25" Width="25"/>
+                    </InlineUIContainer></TextBlock>
+            </Button>
+            <Button
+                        Command="{Binding FindCommand}"
+                        Style="{StaticResource MaterialDesignRaisedButton}"
+                        Width="80"
+                        ToolTip="Tìm kiếm"
+                        Margin="10" Height="80">
+                <Button.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#7be9f6" Offset="0.0"/>
+                        <GradientStop Color="#FF67F550" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <TextBlock Text="Find" Margin="12,10,0,0"><InlineUIContainer>
+                        <materialDesign:PackIcon Kind="Search" Margin="-24,0,40,25" Height="25" Width="25"/>
+                    </InlineUIContainer></TextBlock>
+            </Button>
+        </WrapPanel>
+
+        <materialDesign:Card Grid.Row="1" Margin="0,172,0,0" Grid.ColumnSpan="2">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Height="303" VerticalAlignment="Bottom" >
+                <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}" Height="303" Width="1148" >
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Mã khách hàng" DisplayMemberBinding="{Binding MaKhachHang}"></GridViewColumn>
                             <GridViewColumn Header="Tên khách hàng" DisplayMemberBinding="{Binding TenKhachHang}"></GridViewColumn>
                             <GridViewColumn Header="CCCD" DisplayMemberBinding="{Binding CCCD}"></GridViewColumn>
                             <GridViewColumn Header="Địa chỉ" DisplayMemberBinding="{Binding DiaChi}"></GridViewColumn>
@@ -112,5 +129,36 @@
                 </ListView>
             </ScrollViewer>
         </materialDesign:Card>
+        <Grid.Resources>
+            <Style TargetType="{x:Type Button}">
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="FontFamily" Value="Helvetica"/>
+                <Setter Property="FontWeight" Value="Light"/>
+
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Background="{TemplateBinding Background}" CornerRadius="20"
+                            BorderThickness="2"
+                                    
+                            BorderBrush="White"
+                            >
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="White"/>
+                        <Setter Property="Opacity" Value="0.4"/>
+                        <Setter Property="Foreground" Value="DeepSkyBlue"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </Grid.Resources>
     </Grid>
 </Window>
