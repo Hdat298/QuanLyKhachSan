@@ -90,6 +90,9 @@
     <Compile Include="View\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\RoomWindow.xaml.cs">
       <DependentUpon>RoomWindow.xaml</DependentUpon>
     </Compile>
@@ -138,6 +141,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -199,6 +206,36 @@
     <Resource Include="Source\Home\1.png" />
     <Resource Include="Source\Home\2.png" />
     <Resource Include="Source\Home\3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\img_contact.png" />
+    <Resource Include="Source\img_home.png" />
+    <Resource Include="Source\img_map.png" />
+    <Resource Include="Source\img_message.png" />
+    <Resource Include="Source\img_setting.png" />
+    <Resource Include="Source\img_signout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\tgBtn_default.png" />
+    <Resource Include="Source\tgBtn_MouseOver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\closeBtn_default.png" />
+    <Resource Include="Source\closeBtn_MouseOver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\img_furniture.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\img_room.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\img_bookroom.ico" />
+    <Resource Include="Source\img_furniture2.ico" />
+    <Resource Include="Source\img_invoice.ico" />
+    <Resource Include="Source\img_room2.ico" />
+    <Resource Include="Source\img_service.ico" />
+    <Resource Include="Source\img_service2.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.3.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.3.0\build\MaterialDesignThemes.targets')" />
