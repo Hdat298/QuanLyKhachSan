@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLyKhachSan.View"
         mc:Ignorable="d"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:uc="clr-namespace:QuanLyKhachSan.UserControlAll"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
@@ -16,7 +16,7 @@
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         Name="mainWindow"
-        Title="MainWindow" Height="1000" Width="1300">
+        Title="MainWindow" Height="700" Width="1300">
     <Window.Resources>
 
         <!--// Toggle Button Style Template //-->
@@ -163,11 +163,25 @@
     </Window.Resources>
 
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         <!--// Background Color //-->
 
-        <Grid Background="Black">
-
+        <Grid Grid.Row="0" Background="DarkBlue">
+            <uc:ControlBarUC Tag="{Binding Title, ElementName=loginWindow}" VerticalAlignment="Top" Margin="600,0,0,0"></uc:ControlBarUC>
+        </Grid>
+        
+        <Grid Grid.Row="1" Background="Black">
+            <!--Màn hình hiển thị-->
+            <Grid   x:Name="displayMain"
+                            Grid.Row="1" >
+                <ContentControl x:Name="contentDisplayMain"
+                                        Width="auto"
+                                        Height="auto" Margin="63,0,0,0" />
+            </Grid>
+            
             <!--// Background Image //-->
 
             <Grid x:Name="BG" PreviewMouseLeftButtonDown="BG_PreviewMouseLeftButtonDown">
@@ -184,7 +198,7 @@
 
             <!--// App Close Button //-->
 
-            <Grid>
+            <!--<Grid>
 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -214,29 +228,25 @@
 
                 </Button>
 
-            </Grid>
+            </Grid>-->
 
 
             <!--// Navigation Panel //-->
 
             <Grid   x:Name="nav_pnl"
                     HorizontalAlignment="Left"
-                    Width="370"
+                    Width="61"
                     Background="#2E333A">
 
                 <StackPanel x:Name="st_pnl">
 
                     <!--// Grid for the Menu Toggle Button //-->
 
-                    <Grid Height="200">
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
+                    <Grid Height="90">
 
                         <!--// Menu title text //-->
 
-                        <TextBlock  Grid.Row="0"
+                        <TextBlock  Grid.Row="1"
                                     Grid.Column="0"
                                     Margin="73,-20,0,0"
                                     Text="M E N U"
@@ -333,63 +343,59 @@
 
 
                         </ToggleButton>
-                        <StackPanel Grid.Row="1"
-                            Width="200">
-                            <Button Content ="personal ID">
-                                <Button.Style>
-                                    <Style TargetType="{x:Type Button}">
-                                        <Setter Property="Height" Value="50"/>
-                                        <Setter Property="Background" Value="LightGray"/>
-                                        <Setter Property="Foreground" Value="DarkGray"/>
-                                        <Setter Property="FontWeight" Value="SemiBold"/>
-                                        <Setter Property="HorizontalAlignment" Value="Center"/>
-                                        <Setter Property="Width" Value="45"/>
-                                        <Setter Property="Template">
-                                            <Setter.Value>
-                                                <ControlTemplate TargetType="{x:Type Button}">
-                                                    <Border
-                                            CornerRadius="25"
-                                            Background="{TemplateBinding Background}"
-                                            BorderThickness="{TemplateBinding BorderThickness}">
-                                                        <Grid>
-                                                            <Ellipse
-                                                    HorizontalAlignment="Left"
-                                                    Width="45"
-                                                    Height="45"
-                                                    Stroke="White"
-                                                    StrokeThickness="2">
-                                                                <Ellipse.Fill>
-                                                                    <ImageBrush ImageSource="../Source/BG.png"
-                                                                    Stretch="UniformToFill"/>
-                                                                </Ellipse.Fill>
-                                                            </Ellipse>
-                                                            <ContentPresenter
-                                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                                    Content="{TemplateBinding Content}"
-                                                    />
-                                                        </Grid>
-                                                    </Border>
-                                                </ControlTemplate>
-                                            </Setter.Value>
-                                        </Setter>
-                                    </Style>
-                                </Button.Style>
 
-                            </Button>
-                        </StackPanel>
+                    </Grid>
+
+                    <Grid Height="200">
+                        <Grid.Background>
+                            <LinearGradientBrush>
+                                <GradientStop Color="#F9EBDF" Offset="1"/>
+                                <GradientStop Color="#F9D8D6" Offset="0.8"/>
+                            </LinearGradientBrush>
+                        </Grid.Background>
+                        <Button x:Name="btnDangXuat" Width="80" Height="30" HorizontalAlignment="Left" Padding="0" Foreground="DarkKhaki"
+                                VerticalAlignment="Top" FontSize="11"  BorderThickness="0" Background="Transparent" BorderBrush="White">
+
+                            <TextBlock Text="Đăng xuất" Foreground="Black" />
+                        </Button>
+                        <Grid Margin="0 0 0 30" Height="130" Width="130">
+                            <Ellipse>
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="/Source/img_avatar.png"/>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                        </Grid>
+                        <TextBlock x:Name="txblAvatarBinding" />
+                        <Button x:Name="btnThayAnh" Background="Transparent" Opacity="0.6"
+                                    BorderThickness="0" Height="30" Width="30" Margin="0 120 0 0">
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Visibility" Value="Hidden"></Setter>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ElementName=txblAvatarBinding, Path=IsMouseOver}" Value="True">
+                                            <Setter Property="Visibility" Value="Visible"></Setter>
+                                        </DataTrigger>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Visibility" Value="Visible"></Setter>
+                                            <Setter Property="Background" Value="Transparent"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+
+                                </Style>
+                            </Button.Style>
+                            <materialDesign:PackIcon Opacity="0.8" Kind="CameraImage" Foreground="Blue" Width="20" Height="20" />
+                        </Button>
+
                     </Grid>
 
                     <!--// ListView with menu list items //-->
 
-                    <Grid Height="275"></Grid>
                     <ListView  x:Name="LV"
                                ScrollViewer.VerticalScrollBarVisibility="Hidden" 
                                ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
                                ScrollViewer.CanContentScroll="True" 
                                Background="Transparent"
-                               BorderBrush="Transparent"
-                               Height="334">
+                               BorderBrush="Transparent" Height="393">
 
                         <!--// Home //-->
 
