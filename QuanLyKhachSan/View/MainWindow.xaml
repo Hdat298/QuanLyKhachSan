@@ -221,7 +221,7 @@
 
             <Grid   x:Name="nav_pnl"
                     HorizontalAlignment="Left"
-                    Width="65"
+                    Width="370"
                     Background="#2E333A">
 
                 <StackPanel x:Name="st_pnl">
@@ -334,10 +334,14 @@
 
                     <!--// ListView with menu list items //-->
 
+                    <Grid Height="275"></Grid>
                     <ListView  x:Name="LV"
+                               ScrollViewer.VerticalScrollBarVisibility="Hidden" 
+                               ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
+                               ScrollViewer.CanContentScroll="True" 
                                Background="Transparent"
                                BorderBrush="Transparent"
-                               ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="610">
+                               Height="334">
 
                         <!--// Home //-->
 
