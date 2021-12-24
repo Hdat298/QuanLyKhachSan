@@ -286,7 +286,7 @@
                             <ToggleButton.Triggers>
 
                                 <EventTrigger RoutedEvent="ToggleButton.Unchecked">
-
+                                    <!--event toggle-->
                                     <BeginStoryboard>
 
                                         <Storyboard x:Name="HideStackPanel">
@@ -302,13 +302,27 @@
                                             </DoubleAnimation>
 
                                         </Storyboard>
-
+                                    
                                     </BeginStoryboard>
+                                    <!--event nút-->
+                                    <BeginStoryboard>
+                                        <Storyboard x:Name="Hidepicture">
 
+                                            <DoubleAnimation
+                                                
+                                                Storyboard.TargetName="btn_image"
+                                                Storyboard.TargetProperty="Width"
+                                                BeginTime="0:0:0"
+                                                From="180" To="47"
+                                                Duration="0:0:0.2">
+
+                                            </DoubleAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
                                 </EventTrigger>
 
                                 <EventTrigger RoutedEvent="ToggleButton.Checked">
-
+                                    <!--event toggle-->
                                     <BeginStoryboard>
 
                                         <Storyboard x:Name="ShowStackPanel">
@@ -326,6 +340,21 @@
                                         </Storyboard>
 
                                     </BeginStoryboard>
+                                    <!--event nút-->
+                                    <BeginStoryboard>
+                                        <Storyboard x:Name="Showpicture">
+
+                                            <DoubleAnimation
+                                                
+                                                Storyboard.TargetName="btn_image"
+                                                Storyboard.TargetProperty="Width"
+                                                BeginTime="0:0:0"
+                                                From="47" To="180"
+                                                Duration="0:0:0.3">
+
+                                            </DoubleAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
 
                                 </EventTrigger>
 
@@ -334,8 +363,8 @@
 
                         </ToggleButton>
                         <StackPanel Grid.Row="1"
-                            Width="200">
-                            <Button Content ="">
+                            Width="200" x:Name="btn_stack">
+                            <Button Content ="" x:Name="btn_image">
                                 <Button.Style>
                                     <Style TargetType="{x:Type Button}">
                                         <Setter Property="Height" Value="50"/>
@@ -377,8 +406,20 @@
                                         </Setter>
                                     </Style>
                                 </Button.Style>
-
                             </Button>
+                            <StackPanel.Triggers>
+                                <EventTrigger RoutedEvent="ToggleButton.Checked">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation                                           
+                                                    Storyboard.TargetProperty="Width"
+                                                    From="47" To="200"
+                                                    Duration="0:0:0"
+                                                    AutoReverse="True"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </StackPanel.Triggers>
                         </StackPanel>
                     </Grid>
 
