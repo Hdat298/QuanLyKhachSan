@@ -70,6 +70,9 @@
     <Compile Include="UserControlAll\HomeUC.xaml.cs">
       <DependentUpon>HomeUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControlAll\PhongUC.xaml.cs">
+      <DependentUpon>PhongUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControlAll\QLDichVuUC.xaml.cs">
       <DependentUpon>QLDichVuUC.xaml</DependentUpon>
     </Compile>
@@ -118,6 +121,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControlAll\HomeUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlAll\PhongUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

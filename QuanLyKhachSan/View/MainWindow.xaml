@@ -397,6 +397,7 @@
                                ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
                                ScrollViewer.CanContentScroll="True" 
                                Background="Transparent"
+                               PreviewMouseLeftButtonUp="LV_PreviewMouseLeftButtonUp"
                                BorderBrush="Transparent" Height="332">
 
                         <!--// Home //-->

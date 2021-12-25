@@ -22,6 +22,7 @@ namespace QuanLyKhachSan.View
     public partial class MainWindow : Window
     {
         private HomeUC Home;
+        private PhongUC phongUC;
 
         public MainWindow()
         {
@@ -61,6 +62,30 @@ namespace QuanLyKhachSan.View
                 tt_service.Visibility = Visibility.Visible;
                 tt_service2.Visibility = Visibility.Visible;
                 tt_furniture.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void LV_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (LV.SelectedValue != null)
+            {
+                switch (LV.SelectedIndex)
+                {
+                    case 0:
+                        if (Home == null)
+                        {
+                            Home = new HomeUC();
+                        }
+                        contenDisplayMain.Content = Home;
+                        break;
+                    case 1:
+                        if (phongUC == null)
+                        {
+                            phongUC = new PhongUC();
+                        }
+                        contenDisplayMain.Content = phongUC;
+                        break;
+                }
             }
         }
 
