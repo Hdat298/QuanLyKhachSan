@@ -14,7 +14,7 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         WindowStyle="None"
         ResizeMode="NoResize"
-        WindowStartupLocation="CenterScreen"
+        WindowStartupLocation="CenterScreen" Loaded="mainWindow_Loaded"
         Name="mainWindow"
         Title="MainWindow" Height="700" Width="1300">
     <Window.Resources>
@@ -167,24 +167,25 @@
             <RowDefinition Height="60"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="61"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <!--Màn hình hiển thị-->
+        <ContentControl Grid.Row="1" Grid.Column="1" x:Name="contenDisplayMain"/>
         <!--// Background Color //-->
 
-        <Grid Grid.Row="0" Background="DarkBlue">
+        <Grid Grid.Row="0" Grid.ColumnSpan="2" Background="DarkBlue">
             <uc:ControlBarUC Tag="{Binding Title, ElementName=loginWindow}" VerticalAlignment="Top" Margin="600,0,0,0"></uc:ControlBarUC>
         </Grid>
         
-        <Grid Grid.Row="1" Background="Black">
-            <!--Màn hình hiển thị-->
-            <Grid   x:Name="displayMain"
-                            Grid.Row="1" >
-                <ContentControl x:Name="contentDisplayMain"
-                                        Width="auto"
-                                        Height="auto" Margin="63,0,0,0" />
-            </Grid>
+        <Grid Grid.Row="1" Grid.ColumnSpan="2" >
+           
             
             <!--// Background Image //-->
 
-            <Grid x:Name="BG" PreviewMouseLeftButtonDown="BG_PreviewMouseLeftButtonDown">
+            <!--<Grid x:Name="BG" PreviewMouseLeftButtonDown="BG_PreviewMouseLeftButtonDown">
 
                 <Grid.Background>
 
@@ -194,7 +195,7 @@
 
                 </Grid.Background>
 
-            </Grid>
+            </Grid>-->
 
             <!--// App Close Button //-->
 
@@ -280,7 +281,8 @@
                                       Height="30"
                                       Width="30"
                                       BorderThickness="0"
-                                      Style="{StaticResource tb_style}" Unchecked="Tg_Btn_Unchecked" Checked="Tg_Btn_Checked">
+                                      Style="{StaticResource tb_style}">
+                            <!--Unchecked="Tg_Btn_Unchecked" Checked="Tg_Btn_Checked">-->
 
                             <!--// Toggle button default background image //-->
 
@@ -395,7 +397,7 @@
                                ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
                                ScrollViewer.CanContentScroll="True" 
                                Background="Transparent"
-                               BorderBrush="Transparent" Height="393">
+                               BorderBrush="Transparent" Height="332">
 
                         <!--// Home //-->
 
@@ -451,7 +453,7 @@
 
                             <ListViewItem.ToolTip>
 
-                                <ToolTip x:Name="tt_contacts"
+                                <ToolTip x:Name="tt_room"
                                          Content="Phòng"
                                          Style="{StaticResource tt_style}"/>
 
@@ -482,7 +484,7 @@
 
                             <ListViewItem.ToolTip>
 
-                                <ToolTip x:Name="tt_messages"
+                                <ToolTip x:Name="tt_room2"
                                          Content="QL Phòng"
                                          Style="{StaticResource tt_style}"/>
 
@@ -513,7 +515,7 @@
 
                             <ListViewItem.ToolTip>
 
-                                <ToolTip x:Name="tt_maps"
+                                <ToolTip x:Name="tt_bookroom"
                                          Content="Đặt phòng"
                                          Style="{StaticResource tt_style}"/>
 
@@ -544,7 +546,7 @@
 
                             <ListViewItem.ToolTip>
 
-                                <ToolTip x:Name="tt_settings"
+                                <ToolTip x:Name="tt_customer"
                                          Content="QL khách hàng"
                                          Style="{StaticResource tt_style}"/>
 
@@ -575,7 +577,7 @@
 
                             <ListViewItem.ToolTip>
 
-                                <ToolTip x:Name="tt_signout"
+                                <ToolTip x:Name="tt_service"
                                          Content="QL Dịch Vụ"
                                          Style="{StaticResource tt_style}"/>
 

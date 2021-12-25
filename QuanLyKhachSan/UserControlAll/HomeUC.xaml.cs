@@ -33,7 +33,7 @@ namespace QuanLyKhachSan.UserControlAll
 
             if (i < 1)
             {
-                i = 3;
+                i = 4;
             }
 
             Pic.Source = new BitmapImage(new Uri(@"/Source/Home/" + i + ".png", UriKind.Relative));
@@ -43,7 +43,7 @@ namespace QuanLyKhachSan.UserControlAll
         {
             i++;
 
-            if (i > 3)
+            if (i > 4)
             {
                 i = 1;
             }

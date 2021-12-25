@@ -45,6 +45,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -203,11 +204,6 @@
     <Resource Include="Source\Pic3.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Source\Home\1.png" />
-    <Resource Include="Source\Home\2.png" />
-    <Resource Include="Source\Home\3.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Source\img_contact.png" />
     <Resource Include="Source\img_home.png" />
     <Resource Include="Source\img_map.png" />
@@ -239,6 +235,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Source\img_avatar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\Home\1.png" />
+    <Resource Include="Source\Home\2.png" />
+    <Resource Include="Source\Home\3.png" />
+    <Resource Include="Source\Home\4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.3.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.3.0\build\MaterialDesignThemes.targets')" />

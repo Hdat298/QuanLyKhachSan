@@ -19,14 +19,6 @@ namespace QuanLyKhachSan.ViewModel
         // xử lý
         public MainViewModel()
         {
-            HomeCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
-            {
-                MainWindow mainWibn;
-                HomeUC ucHome = new HomeUC();
-                mainWibn
-            }
-                );
-
 
 
         }
