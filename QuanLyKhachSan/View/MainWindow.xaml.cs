@@ -30,13 +30,13 @@ namespace QuanLyKhachSan.View
         }
 
 
-        private void mainWindow_Loaded(object sender, RoutedEventArgs e)
-        {
-            this.DataContext = this;
-            Home = new HomeUC();
-            contenDisplayMain.Content = Home;
+        //private void mainWindow_Loaded(object sender, RoutedEventArgs e)
+        //{
+        //    this.DataContext = this;
+        //    Home = new HomeUC();
+        //    contenDisplayMain.Content = Home;
 
-        }
+        //}
 
         private void ListViewItem_MouseEnter(object sender, MouseEventArgs e)
         {

@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:QuanLyKhachSan.View"
         xmlns:uc="clr-namespace:QuanLyKhachSan.UserControlAll"
         mc:Ignorable="d"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
@@ -17,6 +18,7 @@
         WindowStyle="None"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
+        DataContext="{StaticResource LoginVM}"
         Name="loginWindow">
     <Window.Background>
         <ImageBrush ImageSource="../Source/BG1.png"/>
@@ -72,12 +74,20 @@
                 <materialDesign:PackIcon Kind="Lock" Height="20" Width="120"
                                          HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.354,-0.768" Margin="-27,154,0,0"/>
                 <TextBox HorizontalAlignment="Center"
+                         Text="{Binding UserName}"
                         materialDesign:HintAssist.Hint="Tên đăng nhập"
-                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="58,94,51,194" Width="129" />
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="58,94,51,194" Width="129"/>
                 <PasswordBox HorizontalAlignment="Center"
                             x:Name="PasswordBox"
-                            materialDesign:HintAssist.Hint="Mật khẩu" Margin="58,146,52,149" Width="129" />
-                <Button VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="30" Width="100" Content="Đăng Nhập" Margin="60,198,64,88"/>
+                            materialDesign:HintAssist.Hint="Mật khẩu" Margin="58,146,52,149" Width="129">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="PasswordChanged">
+                            <i:InvokeCommandAction Command="{Binding PasswordChangedCommand}" CommandParameter="{Binding ElementName=PasswordBox}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </PasswordBox>
+                <Button Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=loginWindow}"
+                        VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="30" Width="100" Content="Đăng Nhập" Margin="60,198,64,88"/>
             </Grid>
         </materialDesign:Card>
         <uc:ControlBarUC Tag="{Binding Title, ElementName=loginWindow}" VerticalAlignment="Top" Margin="600,0,0,0"></uc:ControlBarUC>
