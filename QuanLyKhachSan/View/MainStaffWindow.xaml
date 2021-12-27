@@ -15,8 +15,8 @@
         WindowStyle="None"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen" Loaded="mainStaffWindow_Loaded"
-        Name="mainWindow"
-        Title="MainStaffWindow" Height="700" Width="1300">
+        Name="mainStaffWindow"
+        Title="Màn Hình Chính" Height="700" Width="1300">
     <Window.Resources>
 
         <!--// Toggle Button Style Template //-->

@@ -18,7 +18,7 @@
         WindowStartupLocation="CenterScreen" 
         Name="mainWindow"
         DataContext="{StaticResource MainVM}"
-        Title="MainWindow" Height="700" Width="1300">
+        Title="Màn Hình Chính" Height="700" Width="1300">
     
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
@@ -186,7 +186,7 @@
         <!--// Background Color //-->
 
         <Grid Grid.Row="0" Grid.ColumnSpan="2" Background="DarkBlue">
-            <uc:ControlBarUC Tag="{Binding Title, ElementName=mainWindow}" VerticalAlignment="Top" Margin="600,0,0,0"></uc:ControlBarUC>
+            <uc:ControlBarUC Tag="{Binding Title, ElementName=mainWindow}" VerticalAlignment="Top"/>
         </Grid>
         
         <Grid Grid.Row="1" Grid.ColumnSpan="2" >

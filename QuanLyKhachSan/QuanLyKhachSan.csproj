@@ -137,6 +137,7 @@
     <Compile Include="Model\Phong.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Room.cs" />
     <Compile Include="Model\TienNghi.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
