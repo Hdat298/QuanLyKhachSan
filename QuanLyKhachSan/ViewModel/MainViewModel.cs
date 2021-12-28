@@ -14,6 +14,7 @@ namespace QuanLyKhachSan.ViewModel
     {
         public bool IsLoad = false;
         public ICommand HomeCommand { get; set; }
+        public ICommand CustomerCommand { get; set; }
 
 
         // xử lý
