@@ -18,7 +18,7 @@
         WindowStartupLocation="CenterScreen" 
         Name="mainWindow"
         DataContext="{StaticResource MainVM}"
-        Title="Màn Hình Chính" Height="700" Width="1300">
+        Title="Màn Hình Chính" Height="700" Width="1350">
     
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
