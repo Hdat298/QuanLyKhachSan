@@ -15,6 +15,7 @@
         TextOptions.TextRenderingMode="Auto"
         FontFamily="{DynamicResource MaterialDesignFont}"
         WindowStyle="None"
+        DataContext="{StaticResource RoomVM}"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         Name="roomWindow"
@@ -124,7 +125,7 @@
                         <StackPanel>
                             <TextBlock Text="Phòng đơn" FontSize="20" Foreground="#00A3FF"
                                Margin="40 20 0 0"/>
-                            <ListView x:Name="lvPhongDon" Width="1091" Margin="50 10 0 0"
+                            <ListView ItemsSource="{Binding List}" x:Name="lvPhongDon" Width="1091" Margin="50 10 0 0"
                               ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
                               ScrollViewer.VerticalScrollBarVisibility="Disabled" >
                                 <!--#region-->
