@@ -13,8 +13,10 @@
              TextOptions.TextRenderingMode="Auto"
              FontFamily="{DynamicResource MaterialDesignFont}"
              Background="#FFFFFF"
-             Name="ucQLDichVu"            
-             d:DesignHeight="650" d:DesignWidth="1000">
+             x:Name="ucQLDichVu" 
+             DataContext="{StaticResource CustomerVM}"
+             d:DesignHeight="650" d:DesignWidth="800"
+             >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"></RowDefinition>
@@ -32,7 +34,7 @@
                 <ColumnDefinition Width="75"></ColumnDefinition>
                 <ColumnDefinition Width="75"></ColumnDefinition>
                 <ColumnDefinition Width="75"></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Button               
                         Command="{Binding AddCommand}"
@@ -44,22 +46,8 @@
                         BorderThickness="0"
                         >
                 <Button.Style>
-                    <!--<Style TargetType="{x:Type Button}">
-                        <Style.Resources>
-                            <Style TargetType="Border">
-                                <Setter Property="Background" Value="#4E1A3D" />
-                                <Setter Property="BorderThickness" Value="5" />
-                                <Setter Property="BorderBrush" >
-                                    <Setter.Value>
-                                        <LinearGradientBrush>
-                                            <GradientStop Offset="0.0" Color="#4E1A3D"/>
-                                            <GradientStop Offset="1.0" Color="Salmon"/>
-                                        </LinearGradientBrush>
-                                    </Setter.Value>
-                                </Setter>
-                            </Style>
-                        </Style.Resources>
-                        <Setter Property="Background" Value="Transparent"/>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#e0ffff"/>
                         <Setter Property="BorderBrush" Value="Transparent"/>
                         <Setter Property="Template">
                             <Setter.Value>
@@ -72,21 +60,8 @@
                         </Setter>
 
                         <Style.Triggers>
-                            <Trigger Property="IsPressed" Value="True">
-                                <Setter Property="BorderBrush" Value="Black"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>-->
-                    <Style TargetType="{x:Type Button}">
-                        <Setter Property="Background" Value="Transparent"/>
-                        <Setter Property="BorderBrush" Value="Transparent"/>
-                        <Setter Property="BorderThickness" Value="0 0 0 3"/>
-                        <Style.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="BorderBrush" Value="Orange" />
-                            </Trigger>
-                            <Trigger Property="IsPressed" Value="True">
-                                <Setter Property="BorderBrush" Value="Green" />
+                                <Setter Property="Background" Value="#6AFFFF"/>
                             </Trigger>
                         </Style.Triggers>
                     </Style>
@@ -110,16 +85,35 @@
                 </Separator.RenderTransform>
             </Separator>
             <Button Grid.Column="1"             
-                        Command="{Binding AddCommand}"
-                        Style="{StaticResource MaterialDesignRaisedButton}"
+                        Command="{Binding DeleteCommand}"
                         Width="70"
                         Height="80"
                         ToolTip="Resource name: MaterialDesignRaisedButton"
-                        Background="Transparent"
                         Foreground="Black"
                         HorizontalAlignment="Left"
                         BorderThickness="0"
                         >
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#e0ffff"/>
+                        <Setter Property="BorderBrush" Value="Transparent"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}" BorderThickness="1">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#6AFFFF"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
                 <Button.Content>
                     <TextBlock Text="Delete" VerticalAlignment="Center" Margin="-2,20,-1,0">
                           <materialDesign:PackIcon Kind="AccountRemove" Margin="-29,0,0,25"/>
@@ -137,12 +131,10 @@
                 </Separator.RenderTransform>
             </Separator>
             <Button Grid.Column="2"               
-                        Command="{Binding AddCommand}"
-                        Style="{StaticResource MaterialDesignRaisedButton}"
+                        Command="{Binding EditCommand}"
                         Width="70"
                         Height="80"
                         ToolTip="Resource name: MaterialDesignRaisedButton"
-                        Background="Transparent"
                         Foreground="Black"
                         HorizontalAlignment="Left"
                         BorderThickness="0"
@@ -152,6 +144,27 @@
                           <materialDesign:PackIcon Kind="AccountService" Margin="-29,0,0,25"/>
                     </TextBlock>
                 </Button.Content>
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#e0ffff"/>
+                        <Setter Property="BorderBrush" Value="Transparent"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}" BorderThickness="1">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#6AFFFF"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
             </Button>
             <Separator Grid.Column="2" Height="1" Width="75" Background="Silver" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" Margin="37,39,38,40" Grid.ColumnSpan="2">
                 <Separator.RenderTransform>
@@ -164,22 +177,42 @@
                 </Separator.RenderTransform>
             </Separator>
             <Button Grid.Column="3"              
-                        Command="{Binding AddCommand}"
-                        Style="{StaticResource MaterialDesignRaisedButton}"
+                        Command="{Binding FindCommand}"
                         Width="70"
                         Height="80"
                         ToolTip="Resource name: MaterialDesignRaisedButton"
-                        Background="Transparent"
                         Foreground="Black"
                         HorizontalAlignment="Left"
                         BorderThickness="0"
                         >
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#e0ffff"/>
+                        <Setter Property="BorderBrush" Value="Transparent"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}" BorderThickness="1">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#6AFFFF"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
                 <Button.Content>
                     <TextBlock Text="Find" VerticalAlignment="Center" Margin="-2,20,-5,0">
                           <materialDesign:PackIcon Kind="AccountSearch" Margin="-20,0,-25,25"/>
                     </TextBlock>
                 </Button.Content>
             </Button>
+            
             <Separator Grid.Column="3" Height="1" Width="75" Background="Silver" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" Margin="37,39,38,40" Grid.ColumnSpan="2">
                 <Separator.RenderTransform>
                     <TransformGroup>
@@ -192,27 +225,30 @@
             </Separator>
         </Grid>
         <materialDesign:Card Grid.Row="2" Margin="5,5,5,5" HorizontalAlignment="Left">
-            <Grid Width="294">
+            <Grid Width="795">
                 <Border>
-                    <Border.BorderBrush>
+                    <Border.Background>
                         <LinearGradientBrush>
-                            <GradientStop Color="#ff781f" Offset="0.0"/>
-                            <GradientStop Color="#ffaf7a" Offset="0.8"/>
+                            <GradientStop Color="#e0ffff" Offset="0.0"/>
+                            <GradientStop Color="White" Offset="0.8"/>
                         </LinearGradientBrush>
-                    </Border.BorderBrush>
+                    </Border.Background>
                 </Border>
-                <TextBox Text="{Binding TenKhachHang}"  Margin="5,5,150,195" materialDesign:HintAssist.Hint="Tên khách hàng" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                <TextBox Text="{Binding DiaChi}"  Margin="150 5 5 195" materialDesign:HintAssist.Hint="Địa chỉ" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                <TextBox Text="{Binding SDT}"  Margin="5 70 150 125" materialDesign:HintAssist.Hint="Số điện thoại" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                <TextBox Text="{Binding QuocTinh}"  Margin="150 70 5 125" materialDesign:HintAssist.Hint="Quốc tịch" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                <TextBox Text="{Binding SoHoChieu}"  Margin="5 140 150 55" materialDesign:HintAssist.Hint="Số hộ chiếu" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                <TextBox Text="{Binding CCCD}"  Margin="150 140 5 55" materialDesign:HintAssist.Hint="CCCD" Style="{StaticResource MaterialDesignFloatingHintTextBox}" RenderTransformOrigin="-2.61,2.389"/>
+                <TextBlock Text="Thông tin khách hàng" Height="40" FontWeight="Bold" FontSize="25" Foreground="#001c1c"
+                           VerticalAlignment="Top" HorizontalAlignment="Left" Margin="271,10,0,0"/>
+                <TextBox Text="{Binding TenKhachHang}"  Margin="5,55,400,170" materialDesign:HintAssist.Hint="Tên khách hàng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
+                <TextBox Text="{Binding DiaChi}"  Margin="400,55,5,170" materialDesign:HintAssist.Hint="Địa chỉ" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
+                <TextBox Text="{Binding SDT}"  Margin="5,130,400,90" materialDesign:HintAssist.Hint="Số điện thoại" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
+                <TextBox Text="{Binding QuocTinh}"  Margin="400,130,5,90" materialDesign:HintAssist.Hint="Quốc tịch" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
+                <TextBox Text="{Binding SoHoChieu}"  Margin="5,200,400,20" materialDesign:HintAssist.Hint="Số hộ chiếu" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
+                <TextBox Text="{Binding CCCD}"  Margin="400,200,5,20" materialDesign:HintAssist.Hint="CCCD" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
+                
             </Grid>
         </materialDesign:Card>
 
 
 
-        <materialDesign:Card Grid.Row="3" Margin="5,5,5,5">
+        <materialDesign:Card Grid.Row="3" Margin="5">
             <ScrollViewer VerticalScrollBarVisibility="Auto" >
                 <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}" >
                     <ListView.View>
