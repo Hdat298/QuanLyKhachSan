@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="QuanLyKhachSan.UserControlAll.CustomerUC"
+﻿<UserControl x:Class="QuanLyKhachSan.UserControlAll.EmployeesUC"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -13,10 +13,9 @@
              TextOptions.TextRenderingMode="Auto"
              FontFamily="{DynamicResource MaterialDesignFont}"
              Background="#FFFFFF"
-             x:Name="ucQLKhachHang" 
-             DataContext="{StaticResource CustomerVM}"
-             d:DesignHeight="650" d:DesignWidth="800"
-             >
+             x:Name="ucQLNhanVien" 
+             DataContext="{StaticResource EmployeesVM}"
+             d:DesignHeight="650" d:DesignWidth="1020">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"></RowDefinition>
@@ -74,12 +73,12 @@
 
             </Button>
 
-            <Separator Grid.Column="0" Height="1" Width="75" Background="Silver" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" Margin="37,39,38,40" Grid.ColumnSpan="2">
+            <Separator Grid.Column="0" Height="1" Width="75" Background="Silver" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" Margin="38,39,37,40" Grid.ColumnSpan="2">
                 <Separator.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
                         <SkewTransform/>
-                        <RotateTransform Angle="89.943"/>
+                        <RotateTransform Angle="90"/>
                         <TranslateTransform/>
                     </TransformGroup>
                 </Separator.RenderTransform>
@@ -91,7 +90,7 @@
                         ToolTip="Resource name: MaterialDesignRaisedButton"
                         Foreground="Black"
                         HorizontalAlignment="Left"
-                        BorderThickness="0"
+                        BorderThickness="0" Margin="1,0,0,0"
                         >
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
@@ -120,12 +119,12 @@
                     </TextBlock>
                 </Button.Content>
             </Button>
-            <Separator Grid.Column="1" Height="1" Width="75" Background="Silver" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" Margin="37,39,38,40" Grid.ColumnSpan="2">
+            <Separator Grid.Column="1" Height="1" Width="75" Background="Silver" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" Margin="39,39,36,40" Grid.ColumnSpan="2">
                 <Separator.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
                         <SkewTransform/>
-                        <RotateTransform Angle="89.943"/>
+                        <RotateTransform Angle="90"/>
                         <TranslateTransform/>
                     </TransformGroup>
                 </Separator.RenderTransform>
@@ -137,7 +136,7 @@
                         ToolTip="Resource name: MaterialDesignRaisedButton"
                         Foreground="Black"
                         HorizontalAlignment="Left"
-                        BorderThickness="0"
+                        BorderThickness="0" Margin="2,0,0,0"
                         >
                 <Button.Content>
                     <TextBlock Text="Setting" VerticalAlignment="Center" Margin="-2,20,-5,0">
@@ -166,12 +165,12 @@
                     </Style>
                 </Button.Style>
             </Button>
-            <Separator Grid.Column="2" Height="1" Width="75" Background="Silver" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" Margin="37,39,38,40" Grid.ColumnSpan="2">
+            <Separator Grid.Column="2" Height="1" Width="75" Background="Silver" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" Margin="40,39,35,40" Grid.ColumnSpan="2">
                 <Separator.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
                         <SkewTransform/>
-                        <RotateTransform Angle="89.943"/>
+                        <RotateTransform Angle="90"/>
                         <TranslateTransform/>
                     </TransformGroup>
                 </Separator.RenderTransform>
@@ -183,7 +182,7 @@
                         ToolTip="Resource name: MaterialDesignRaisedButton"
                         Foreground="Black"
                         HorizontalAlignment="Left"
-                        BorderThickness="0"
+                        BorderThickness="0" Margin="3,0,0,0"
                         >
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
@@ -212,20 +211,20 @@
                     </TextBlock>
                 </Button.Content>
             </Button>
-            
-            <Separator Grid.Column="3" Height="1" Width="75" Background="Silver" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" Margin="37,39,38,40" Grid.ColumnSpan="2">
+
+            <Separator Grid.Column="3" Height="1" Width="75" Background="Silver" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" Margin="41,39,34,40" Grid.ColumnSpan="2">
                 <Separator.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
                         <SkewTransform/>
-                        <RotateTransform Angle="89.943"/>
+                        <RotateTransform Angle="90"/>
                         <TranslateTransform/>
                     </TransformGroup>
                 </Separator.RenderTransform>
             </Separator>
         </Grid>
         <materialDesign:Card Grid.Row="2" Margin="5,5,5,5" HorizontalAlignment="Left">
-            <Grid Width="795">
+            <Grid Width="1010">
                 <Border>
                     <Border.Background>
                         <LinearGradientBrush>
@@ -234,15 +233,18 @@
                         </LinearGradientBrush>
                     </Border.Background>
                 </Border>
-                <TextBlock Text="Thông tin khách hàng" Height="40" FontWeight="Bold" FontSize="25" Foreground="#001c1c"
+                <TextBlock Text="Thông tin nhân viên" Height="40" FontWeight="Bold" FontSize="25" Foreground="#001c1c"
                            VerticalAlignment="Top" HorizontalAlignment="Left" Margin="271,10,0,0"/>
-                <TextBox Text="{Binding TenKhachHang}"  Margin="5,55,400,170" materialDesign:HintAssist.Hint="Tên khách hàng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
-                <TextBox Text="{Binding DiaChi}"  Margin="400,55,5,170" materialDesign:HintAssist.Hint="Địa chỉ" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
-                <TextBox Text="{Binding SDT}"  Margin="5,130,400,90" materialDesign:HintAssist.Hint="Số điện thoại" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
-                <TextBox Text="{Binding QuocTinh}"  Margin="400,130,5,90" materialDesign:HintAssist.Hint="Quốc tịch" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
-                <TextBox Text="{Binding SoHoChieu}"  Margin="5,200,400,20" materialDesign:HintAssist.Hint="Số hộ chiếu" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
-                <TextBox Text="{Binding CCCD}"  Margin="400,200,5,20" materialDesign:HintAssist.Hint="CCCD" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
-                
+                <TextBox Text="{Binding TenNhanVien}"  Margin="5,55,780,170" materialDesign:HintAssist.Hint="Tên nhân viên" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
+                <ComboBox  DisplayMemberPath="GioiTinh1" ItemsSource ="{Binding Gender}" SelectedItem="{Binding SelectedGender, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Margin="258,55,528,170" materialDesign:HintAssist.Hint="Giới tính" Foreground="#001c1c"/>
+                <DatePicker VerticalAlignment="Center" SelectedDate="{Binding NgaySinh}"  Margin="5,138,780,90" materialDesign:HintAssist.Hint="Ngày sinh" Foreground="#001c1c" Height="32"/>
+                <TextBox Text="{Binding DiaChi}"  Margin="257,200,528,20" materialDesign:HintAssist.Hint="Địa chỉ" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
+                <TextBox Text="{Binding SDT}"  Margin="5,200,780,20" materialDesign:HintAssist.Hint="Số điện thoại" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
+                <TextBox Text="{Binding CCCD}"  Margin="257,130,528,90" materialDesign:HintAssist.Hint="CCCD" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
+                <ComboBox DisplayMemberPath="TenBoPhan" ItemsSource ="{Binding Object}" SelectedItem="{Binding SelectedBoPhan, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="512,130,273,90" materialDesign:HintAssist.Hint="Loại Tài Khoản"  Foreground="#001c1c"/>
+                <ComboBox DisplayMemberPath="TenTaiKhoan" ItemsSource ="{Binding Account}" SelectedItem="{Binding SelectedAccount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="512,50,273,170" materialDesign:HintAssist.Hint="Bộ phận"  Foreground="#001c1c"/>
+                <TextBox Text="{Binding TenTaiKhoan}"  Margin="775,39,10,181" materialDesign:HintAssist.Hint="Tên tài khoản" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
+                <TextBox Text="{Binding MatKhau}"  Margin="775,130,10,90" materialDesign:HintAssist.Hint="Mật khẩu" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>            
             </Grid>
         </materialDesign:Card>
 
@@ -253,12 +255,16 @@
                 <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}" >
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Tên khách hàng" DisplayMemberBinding="{Binding TenKhachHang}"></GridViewColumn>
-                            <GridViewColumn Header="CCCD" DisplayMemberBinding="{Binding CCCD}"></GridViewColumn>
+                            <GridViewColumn Header="Tên nhân viên" DisplayMemberBinding="{Binding TenNhanVien}"></GridViewColumn>
+                            <GridViewColumn Header="Phái" DisplayMemberBinding="{Binding GioiTinh.GioiTinh1}"></GridViewColumn>
+                            <GridViewColumn Header="Ngày sinh" DisplayMemberBinding="{Binding NgaySinh}"></GridViewColumn>
                             <GridViewColumn Header="Địa chỉ" DisplayMemberBinding="{Binding DiaChi}"></GridViewColumn>
                             <GridViewColumn Header="Số điện thoại" DisplayMemberBinding="{Binding SDT}"></GridViewColumn>
-                            <GridViewColumn Header="Quốc tịch" DisplayMemberBinding="{Binding QuocTinh}"></GridViewColumn>
-                            <GridViewColumn Header="Số hộ chiếu" DisplayMemberBinding="{Binding SoHoChieu}"></GridViewColumn>
+                            <GridViewColumn Header="CCCD" DisplayMemberBinding="{Binding CCCD}"></GridViewColumn>
+                            <GridViewColumn Header="Chức vụ" DisplayMemberBinding="{Binding BoPhan.TenBoPhan}"></GridViewColumn>
+                            <GridViewColumn Header="Loại tài khoản" DisplayMemberBinding="{Binding LoaiTK.TenTaiKhoan}"></GridViewColumn>
+                            <GridViewColumn Header="Tên tài khoản" DisplayMemberBinding="{Binding TenTaiKhoan}"></GridViewColumn>
+                            <GridViewColumn Header="Mật khẩu" DisplayMemberBinding="{Binding MatKhau}"></GridViewColumn>
                         </GridView>
                     </ListView.View>
                 </ListView>
