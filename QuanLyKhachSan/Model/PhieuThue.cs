@@ -21,8 +21,10 @@ namespace QuanLyKhachSan.Model
         public Nullable<int> SoNgayO { get; set; }
         public Nullable<int> MaKhachHang { get; set; }
         public Nullable<int> MaNhanVien { get; set; }
+        public Nullable<int> MaPhong { get; set; }
     
         public virtual KhachHang KhachHang { get; set; }
         public virtual NhanVien NhanVien { get; set; }
+        public virtual Phong Phong { get; set; }
     }
 }

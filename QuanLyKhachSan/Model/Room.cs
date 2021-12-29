@@ -16,7 +16,7 @@ namespace QuanLyKhachSan.Model
         private string _TinHTrangPhong;
         private string _TenKH;
         public string MaPhong { get => _MaPhong; set { _MaPhong = value; OnPropertyChanged(); } }
-        public string TinhTrangPhong { get => _TinHTrangPhong; set { _TinHTrangPhong = value; OnPropertyChanged();  } }
+        public string TinhTrangPhong { get => _TinHTrangPhong; set { _TinHTrangPhong = value; OnPropertyChanged(); } }
         public string TenKH { get => _TenKH; set { _TenKH = value; OnPropertyChanged(); } }
 
         public Room()

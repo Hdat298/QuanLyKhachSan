@@ -34,18 +34,32 @@ namespace QuanLyKhachSan.ViewModel
         public RoomViewModel()
         {
             var lsRoom = (from p in DataProvider.Ins.DB.Phongs
-                          join c in DataProvider.Ins.DB.KhachHangs on p.ID equals c.ID into r
-                          from rr in r.DefaultIfEmpty() 
-                          join rrr in DataProvider.Ins.DB.PhieuThues on rr.ID equals rrr.ID into rrrr
-                          from rrrrr in rrrr.DefaultIfEmpty()
+                          join c in DataProvider.Ins.DB.PhieuThues on p.ID equals c.MaPhong into r
+                          from x in r.DefaultIfEmpty()
+                          join b in DataProvider.Ins.DB.KhachHangs on x.MaKhachHang equals b.ID into o
+                          from k in o.DefaultIfEmpty()
                           where p.MaLoaiPhong == 1
                           select new Room
                           {
                               MaPhong = p.MaPhong,
                               TinhTrangPhong = p.TinhTrangPhong,
-                              TenKH = rrrrr == null ? "" : rrrrr.MaKhachHang.ToString()
+                              TenKH = k == null ? "" : k.TenKhachHang
                           }).ToList();
             List1 = new ObservableCollection<Room>(lsRoom);
+
+            //var lsRoom = (from p in DataProvider.Ins.DB.Phongs
+            //              join c in DataProvider.Ins.DB.PhieuThues on p.ID equals c.ID into r
+            //              from rr in r.DefaultIfEmpty() 
+            //              join rrr in DataProvider.Ins.DB.KhachHangs on rr.ID equals rrr.ID into rrrr
+            //              from rrrrr in rrrr.DefaultIfEmpty()
+            //              where p.MaLoaiPhong == 1 
+            //              select new Room
+            //              {
+            //                  MaPhong = p.MaPhong,
+            //                  TinhTrangPhong = p.TinhTrangPhong,
+            //                  TenKH = rrrrr == null ? "" : rrrrr.TenKhachHang.ToString()
+            //              }).ToList();
+            //List1 = new ObservableCollection<Room>(lsRoom);
 
             //var lsRoom = (from p in DataProvider.Ins.DB.Phongs
             //              join c in DataProvider.Ins.DB.KhachHangs on p.ID equals c.ID

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="QLKSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="QLKSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BoPhan">
           <Key>
             <PropertyRef Name="ID" />
@@ -142,6 +142,7 @@
           <Property Name="SoNgayO" Type="int" />
           <Property Name="MaKhachHang" Type="int" />
           <Property Name="MaNhanVien" Type="int" />
+          <Property Name="MaPhong" Type="int" />
         </EntityType>
         <EntityType Name="Phong">
           <Key>
@@ -329,7 +330,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PhieuThue__MaKha__47DBAE45">
+        <Association Name="FK__PhieuThue__MaKha__70DDC3D8">
           <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
           <End Role="PhieuThue" Type="Self.PhieuThue" Multiplicity="*" />
           <ReferentialConstraint>
@@ -341,7 +342,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PhieuThue__MaNha__48CFD27E">
+        <Association Name="FK__PhieuThue__MaNha__71D1E811">
           <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="0..1" />
           <End Role="PhieuThue" Type="Self.PhieuThue" Multiplicity="*" />
           <ReferentialConstraint>
@@ -350,6 +351,18 @@
             </Principal>
             <Dependent Role="PhieuThue">
               <PropertyRef Name="MaNhanVien" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PhieuThue__MaPho__72C60C4A">
+          <End Role="Phong" Type="Self.Phong" Multiplicity="0..1" />
+          <End Role="PhieuThue" Type="Self.PhieuThue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phong">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PhieuThue">
+              <PropertyRef Name="MaPhong" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -437,12 +450,16 @@
             <End Role="TienNghi" EntitySet="TienNghi" />
             <End Role="PhieuNhapTienNghi" EntitySet="PhieuNhapTienNghi" />
           </AssociationSet>
-          <AssociationSet Name="FK__PhieuThue__MaKha__47DBAE45" Association="Self.FK__PhieuThue__MaKha__47DBAE45">
+          <AssociationSet Name="FK__PhieuThue__MaKha__70DDC3D8" Association="Self.FK__PhieuThue__MaKha__70DDC3D8">
             <End Role="KhachHang" EntitySet="KhachHang" />
             <End Role="PhieuThue" EntitySet="PhieuThue" />
           </AssociationSet>
-          <AssociationSet Name="FK__PhieuThue__MaNha__48CFD27E" Association="Self.FK__PhieuThue__MaNha__48CFD27E">
+          <AssociationSet Name="FK__PhieuThue__MaNha__71D1E811" Association="Self.FK__PhieuThue__MaNha__71D1E811">
             <End Role="NhanVien" EntitySet="NhanVien" />
+            <End Role="PhieuThue" EntitySet="PhieuThue" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PhieuThue__MaPho__72C60C4A" Association="Self.FK__PhieuThue__MaPho__72C60C4A">
+            <End Role="Phong" EntitySet="Phong" />
             <End Role="PhieuThue" EntitySet="PhieuThue" />
           </AssociationSet>
           <AssociationSet Name="FK__Phong__MaLoaiPho__44FF419A" Association="Self.FK__Phong__MaLoaiPho__44FF419A">
@@ -450,20 +467,108 @@
             <End Role="Phong" EntitySet="Phong" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QLKSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="QLKSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BoPhans" EntityType="QLKSModel.BoPhan" />
+          <EntitySet Name="ChiTietTienNghis" EntityType="QLKSModel.ChiTietTienNghi" />
+          <EntitySet Name="DichVus" EntityType="QLKSModel.DichVu" />
+          <EntitySet Name="HoaDons" EntityType="QLKSModel.HoaDon" />
+          <EntitySet Name="KhachHangs" EntityType="QLKSModel.KhachHang" />
+          <EntitySet Name="LoaiDichVus" EntityType="QLKSModel.LoaiDichVu" />
+          <EntitySet Name="LoaiPhongs" EntityType="QLKSModel.LoaiPhong" />
+          <EntitySet Name="LoaiTKs" EntityType="QLKSModel.LoaiTK" />
+          <EntitySet Name="NhaCungCaps" EntityType="QLKSModel.NhaCungCap" />
+          <EntitySet Name="NhanViens" EntityType="QLKSModel.NhanVien" />
+          <EntitySet Name="PhieuNhapDichVus" EntityType="QLKSModel.PhieuNhapDichVu" />
+          <EntitySet Name="PhieuNhapTienNghis" EntityType="QLKSModel.PhieuNhapTienNghi" />
+          <EntitySet Name="PhieuThues" EntityType="QLKSModel.PhieuThue" />
+          <EntitySet Name="Phongs" EntityType="QLKSModel.Phong" />
+          <EntitySet Name="TienNghis" EntityType="QLKSModel.TienNghi" />
+          <AssociationSet Name="FK__NhanVien__MaBoPh__3C69FB99" Association="QLKSModel.FK__NhanVien__MaBoPh__3C69FB99">
+            <End Role="BoPhan" EntitySet="BoPhans" />
+            <End Role="NhanVien" EntitySet="NhanViens" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ChiTietTi__MaPho__59063A47" Association="QLKSModel.FK__ChiTietTi__MaPho__59063A47">
+            <End Role="Phong" EntitySet="Phongs" />
+            <End Role="ChiTietTienNghi" EntitySet="ChiTietTienNghis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ChiTietTi__MaTie__5812160E" Association="QLKSModel.FK__ChiTietTi__MaTie__5812160E">
+            <End Role="TienNghi" EntitySet="TienNghis" />
+            <End Role="ChiTietTienNghi" EntitySet="ChiTietTienNghis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DichVu__MaLoaiDi__4F7CD00D" Association="QLKSModel.FK__DichVu__MaLoaiDi__4F7CD00D">
+            <End Role="LoaiDichVu" EntitySet="LoaiDichVus" />
+            <End Role="DichVu" EntitySet="DichVus" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HoaDon__MaDichVu__5DCAEF64" Association="QLKSModel.FK__HoaDon__MaDichVu__5DCAEF64">
+            <End Role="DichVu" EntitySet="DichVus" />
+            <End Role="HoaDon" EntitySet="HoaDons" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PhieuNhap__MaDic__60A75C0F" Association="QLKSModel.FK__PhieuNhap__MaDic__60A75C0F">
+            <End Role="DichVu" EntitySet="DichVus" />
+            <End Role="PhieuNhapDichVu" EntitySet="PhieuNhapDichVus" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HoaDon__MaKhachH__5CD6CB2B" Association="QLKSModel.FK__HoaDon__MaKhachH__5CD6CB2B">
+            <End Role="KhachHang" EntitySet="KhachHangs" />
+            <End Role="HoaDon" EntitySet="HoaDons" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HoaDon__MaPhong__5BE2A6F2" Association="QLKSModel.FK__HoaDon__MaPhong__5BE2A6F2">
+            <End Role="Phong" EntitySet="Phongs" />
+            <End Role="HoaDon" EntitySet="HoaDons" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PhieuThue__MaKha__70DDC3D8" Association="QLKSModel.FK__PhieuThue__MaKha__70DDC3D8">
+            <End Role="KhachHang" EntitySet="KhachHangs" />
+            <End Role="PhieuThue" EntitySet="PhieuThues" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Phong__MaLoaiPho__44FF419A" Association="QLKSModel.FK__Phong__MaLoaiPho__44FF419A">
+            <End Role="LoaiPhong" EntitySet="LoaiPhongs" />
+            <End Role="Phong" EntitySet="Phongs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NhanVien__MaTaiK__3D5E1FD2" Association="QLKSModel.FK__NhanVien__MaTaiK__3D5E1FD2">
+            <End Role="LoaiTK" EntitySet="LoaiTKs" />
+            <End Role="NhanVien" EntitySet="NhanViens" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PhieuNhap__MaNha__619B8048" Association="QLKSModel.FK__PhieuNhap__MaNha__619B8048">
+            <End Role="NhaCungCap" EntitySet="NhaCungCaps" />
+            <End Role="PhieuNhapDichVu" EntitySet="PhieuNhapDichVus" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PhieuNhap__MaNha__66603565" Association="QLKSModel.FK__PhieuNhap__MaNha__66603565">
+            <End Role="NhaCungCap" EntitySet="NhaCungCaps" />
+            <End Role="PhieuNhapTienNghi" EntitySet="PhieuNhapTienNghis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PhieuNhap__MaNha__628FA481" Association="QLKSModel.FK__PhieuNhap__MaNha__628FA481">
+            <End Role="NhanVien" EntitySet="NhanViens" />
+            <End Role="PhieuNhapDichVu" EntitySet="PhieuNhapDichVus" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PhieuNhap__MaNha__6754599E" Association="QLKSModel.FK__PhieuNhap__MaNha__6754599E">
+            <End Role="NhanVien" EntitySet="NhanViens" />
+            <End Role="PhieuNhapTienNghi" EntitySet="PhieuNhapTienNghis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PhieuThue__MaNha__71D1E811" Association="QLKSModel.FK__PhieuThue__MaNha__71D1E811">
+            <End Role="NhanVien" EntitySet="NhanViens" />
+            <End Role="PhieuThue" EntitySet="PhieuThues" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PhieuNhap__MaTie__656C112C" Association="QLKSModel.FK__PhieuNhap__MaTie__656C112C">
+            <End Role="TienNghi" EntitySet="TienNghis" />
+            <End Role="PhieuNhapTienNghi" EntitySet="PhieuNhapTienNghis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PhieuThue__MaPho__72C60C4A" Association="QLKSModel.FK__PhieuThue__MaPho__72C60C4A">
+            <End Role="Phong" EntitySet="Phongs" />
+            <End Role="PhieuThue" EntitySet="PhieuThues" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="BoPhan">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MaBoPhan" Type="String" MaxLength="5" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
-          <Property Name="TenBoPhan" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TenBoPhan" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="Luong" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="NhanViens" Relationship="Self.FK__NhanVien__MaBoPh__3C69FB99" FromRole="BoPhan" ToRole="NhanVien" />
+          <NavigationProperty Name="NhanViens" Relationship="QLKSModel.FK__NhanVien__MaBoPh__3C69FB99" FromRole="BoPhan" ToRole="NhanVien" />
         </EntityType>
         <EntityType Name="ChiTietTienNghi">
           <Key>
@@ -474,8 +579,8 @@
           <Property Name="Soluong" Type="Int32" />
           <Property Name="MaTienNghi" Type="Int32" />
           <Property Name="MaPhong" Type="Int32" />
-          <NavigationProperty Name="Phong" Relationship="Self.FK__ChiTietTi__MaPho__59063A47" FromRole="ChiTietTienNghi" ToRole="Phong" />
-          <NavigationProperty Name="TienNghi" Relationship="Self.FK__ChiTietTi__MaTie__5812160E" FromRole="ChiTietTienNghi" ToRole="TienNghi" />
+          <NavigationProperty Name="Phong" Relationship="QLKSModel.FK__ChiTietTi__MaPho__59063A47" FromRole="ChiTietTienNghi" ToRole="Phong" />
+          <NavigationProperty Name="TienNghi" Relationship="QLKSModel.FK__ChiTietTi__MaTie__5812160E" FromRole="ChiTietTienNghi" ToRole="TienNghi" />
         </EntityType>
         <EntityType Name="DichVu">
           <Key>
@@ -483,13 +588,13 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MaDichVu" Type="String" MaxLength="5" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
-          <Property Name="TenDichVu" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Loai" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TenDichVu" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Loai" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="DonGia" Type="Int32" />
           <Property Name="MaLoaiDichVu" Type="Int32" />
-          <NavigationProperty Name="LoaiDichVu" Relationship="Self.FK__DichVu__MaLoaiDi__4F7CD00D" FromRole="DichVu" ToRole="LoaiDichVu" />
-          <NavigationProperty Name="HoaDons" Relationship="Self.FK__HoaDon__MaDichVu__5DCAEF64" FromRole="DichVu" ToRole="HoaDon" />
-          <NavigationProperty Name="PhieuNhapDichVus" Relationship="Self.FK__PhieuNhap__MaDic__60A75C0F" FromRole="DichVu" ToRole="PhieuNhapDichVu" />
+          <NavigationProperty Name="LoaiDichVu" Relationship="QLKSModel.FK__DichVu__MaLoaiDi__4F7CD00D" FromRole="DichVu" ToRole="LoaiDichVu" />
+          <NavigationProperty Name="HoaDons" Relationship="QLKSModel.FK__HoaDon__MaDichVu__5DCAEF64" FromRole="DichVu" ToRole="HoaDon" />
+          <NavigationProperty Name="PhieuNhapDichVus" Relationship="QLKSModel.FK__PhieuNhap__MaDic__60A75C0F" FromRole="DichVu" ToRole="PhieuNhapDichVu" />
         </EntityType>
         <EntityType Name="HoaDon">
           <Key>
@@ -502,9 +607,9 @@
           <Property Name="MaDichVu" Type="Int32" />
           <Property Name="TongTienDichVu" Type="Int32" />
           <Property Name="TongTienThanhToan" Type="Int32" />
-          <NavigationProperty Name="DichVu" Relationship="Self.FK__HoaDon__MaDichVu__5DCAEF64" FromRole="HoaDon" ToRole="DichVu" />
-          <NavigationProperty Name="KhachHang" Relationship="Self.FK__HoaDon__MaKhachH__5CD6CB2B" FromRole="HoaDon" ToRole="KhachHang" />
-          <NavigationProperty Name="Phong" Relationship="Self.FK__HoaDon__MaPhong__5BE2A6F2" FromRole="HoaDon" ToRole="Phong" />
+          <NavigationProperty Name="DichVu" Relationship="QLKSModel.FK__HoaDon__MaDichVu__5DCAEF64" FromRole="HoaDon" ToRole="DichVu" />
+          <NavigationProperty Name="KhachHang" Relationship="QLKSModel.FK__HoaDon__MaKhachH__5CD6CB2B" FromRole="HoaDon" ToRole="KhachHang" />
+          <NavigationProperty Name="Phong" Relationship="QLKSModel.FK__HoaDon__MaPhong__5BE2A6F2" FromRole="HoaDon" ToRole="Phong" />
         </EntityType>
         <EntityType Name="KhachHang">
           <Key>
@@ -512,14 +617,14 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MaKhachHang" Type="String" MaxLength="5" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
-          <Property Name="TenKhachHang" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TenKhachHang" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="CCCD" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
           <Property Name="DiaChi" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
-          <Property Name="SDT" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="SDT" Type="String" Nullable="false" MaxLength="15" FixedLength="true" Unicode="false" />
           <Property Name="QuocTinh" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="SoHoChieu" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="HoaDons" Relationship="Self.FK__HoaDon__MaKhachH__5CD6CB2B" FromRole="KhachHang" ToRole="HoaDon" />
-          <NavigationProperty Name="PhieuThues" Relationship="Self.FK__PhieuThue__MaKha__47DBAE45" FromRole="KhachHang" ToRole="PhieuThue" />
+          <NavigationProperty Name="HoaDons" Relationship="QLKSModel.FK__HoaDon__MaKhachH__5CD6CB2B" FromRole="KhachHang" ToRole="HoaDon" />
+          <NavigationProperty Name="PhieuThues" Relationship="QLKSModel.FK__PhieuThue__MaKha__70DDC3D8" FromRole="KhachHang" ToRole="PhieuThue" />
         </EntityType>
         <EntityType Name="LoaiDichVu">
           <Key>
@@ -527,8 +632,8 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MaLoaiDichVu" Type="String" MaxLength="6" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
-          <Property Name="LoaiDichVu1" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="DichVus" Relationship="Self.FK__DichVu__MaLoaiDi__4F7CD00D" FromRole="LoaiDichVu" ToRole="DichVu" />
+          <Property Name="LoaiDichVu1" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DichVus" Relationship="QLKSModel.FK__DichVu__MaLoaiDi__4F7CD00D" FromRole="LoaiDichVu" ToRole="DichVu" />
         </EntityType>
         <EntityType Name="LoaiPhong">
           <Key>
@@ -539,7 +644,7 @@
           <Property Name="TenLoaiPhong" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
           <Property Name="SoGiuong" Type="Int32" Nullable="false" />
           <Property Name="GiaNgay" Type="Int32" />
-          <NavigationProperty Name="Phongs" Relationship="Self.FK__Phong__MaLoaiPho__44FF419A" FromRole="LoaiPhong" ToRole="Phong" />
+          <NavigationProperty Name="Phongs" Relationship="QLKSModel.FK__Phong__MaLoaiPho__44FF419A" FromRole="LoaiPhong" ToRole="Phong" />
         </EntityType>
         <EntityType Name="LoaiTK">
           <Key>
@@ -547,8 +652,8 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MaTaiKhoan" Type="String" MaxLength="5" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
-          <Property Name="TenTaiKhoan" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="NhanViens" Relationship="Self.FK__NhanVien__MaTaiK__3D5E1FD2" FromRole="LoaiTK" ToRole="NhanVien" />
+          <Property Name="TenTaiKhoan" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="NhanViens" Relationship="QLKSModel.FK__NhanVien__MaTaiK__3D5E1FD2" FromRole="LoaiTK" ToRole="NhanVien" />
         </EntityType>
         <EntityType Name="NhaCungCap">
           <Key>
@@ -556,11 +661,11 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MaNhaCungCap" Type="String" MaxLength="6" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
-          <Property Name="TenNhaCungCap" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TenNhaCungCap" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="DiaChi" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
-          <Property Name="SDT" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="PhieuNhapDichVus" Relationship="Self.FK__PhieuNhap__MaNha__619B8048" FromRole="NhaCungCap" ToRole="PhieuNhapDichVu" />
-          <NavigationProperty Name="PhieuNhapTienNghis" Relationship="Self.FK__PhieuNhap__MaNha__66603565" FromRole="NhaCungCap" ToRole="PhieuNhapTienNghi" />
+          <Property Name="SDT" Type="String" Nullable="false" MaxLength="15" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="PhieuNhapDichVus" Relationship="QLKSModel.FK__PhieuNhap__MaNha__619B8048" FromRole="NhaCungCap" ToRole="PhieuNhapDichVu" />
+          <NavigationProperty Name="PhieuNhapTienNghis" Relationship="QLKSModel.FK__PhieuNhap__MaNha__66603565" FromRole="NhaCungCap" ToRole="PhieuNhapTienNghi" />
         </EntityType>
         <EntityType Name="NhanVien">
           <Key>
@@ -568,21 +673,21 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MaNhanVien" Type="String" MaxLength="5" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
-          <Property Name="TenNhanVien" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Phai" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TenNhanVien" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Phai" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
           <Property Name="NgaySinh" Type="DateTime" Precision="0" />
           <Property Name="DiaChi" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="SDT" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="SDT" Type="String" Nullable="false" MaxLength="15" FixedLength="true" Unicode="false" />
           <Property Name="CCCD" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
           <Property Name="MaBoPhan" Type="Int32" />
           <Property Name="MaTaiKhoan" Type="Int32" />
-          <Property Name="TenTaiKhoan" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="MatKhau" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="BoPhan" Relationship="Self.FK__NhanVien__MaBoPh__3C69FB99" FromRole="NhanVien" ToRole="BoPhan" />
-          <NavigationProperty Name="LoaiTK" Relationship="Self.FK__NhanVien__MaTaiK__3D5E1FD2" FromRole="NhanVien" ToRole="LoaiTK" />
-          <NavigationProperty Name="PhieuNhapDichVus" Relationship="Self.FK__PhieuNhap__MaNha__628FA481" FromRole="NhanVien" ToRole="PhieuNhapDichVu" />
-          <NavigationProperty Name="PhieuNhapTienNghis" Relationship="Self.FK__PhieuNhap__MaNha__6754599E" FromRole="NhanVien" ToRole="PhieuNhapTienNghi" />
-          <NavigationProperty Name="PhieuThues" Relationship="Self.FK__PhieuThue__MaNha__48CFD27E" FromRole="NhanVien" ToRole="PhieuThue" />
+          <Property Name="TenTaiKhoan" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="MatKhau" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BoPhan" Relationship="QLKSModel.FK__NhanVien__MaBoPh__3C69FB99" FromRole="NhanVien" ToRole="BoPhan" />
+          <NavigationProperty Name="LoaiTK" Relationship="QLKSModel.FK__NhanVien__MaTaiK__3D5E1FD2" FromRole="NhanVien" ToRole="LoaiTK" />
+          <NavigationProperty Name="PhieuNhapDichVus" Relationship="QLKSModel.FK__PhieuNhap__MaNha__628FA481" FromRole="NhanVien" ToRole="PhieuNhapDichVu" />
+          <NavigationProperty Name="PhieuNhapTienNghis" Relationship="QLKSModel.FK__PhieuNhap__MaNha__6754599E" FromRole="NhanVien" ToRole="PhieuNhapTienNghi" />
+          <NavigationProperty Name="PhieuThues" Relationship="QLKSModel.FK__PhieuThue__MaNha__71D1E811" FromRole="NhanVien" ToRole="PhieuThue" />
         </EntityType>
         <EntityType Name="PhieuNhapDichVu">
           <Key>
@@ -592,9 +697,9 @@
           <Property Name="MaDichVu" Type="Int32" Nullable="false" />
           <Property Name="MaNhaCungCap" Type="Int32" Nullable="false" />
           <Property Name="MaNhanVien" Type="Int32" />
-          <NavigationProperty Name="DichVu" Relationship="Self.FK__PhieuNhap__MaDic__60A75C0F" FromRole="PhieuNhapDichVu" ToRole="DichVu" />
-          <NavigationProperty Name="NhaCungCap" Relationship="Self.FK__PhieuNhap__MaNha__619B8048" FromRole="PhieuNhapDichVu" ToRole="NhaCungCap" />
-          <NavigationProperty Name="NhanVien" Relationship="Self.FK__PhieuNhap__MaNha__628FA481" FromRole="PhieuNhapDichVu" ToRole="NhanVien" />
+          <NavigationProperty Name="DichVu" Relationship="QLKSModel.FK__PhieuNhap__MaDic__60A75C0F" FromRole="PhieuNhapDichVu" ToRole="DichVu" />
+          <NavigationProperty Name="NhaCungCap" Relationship="QLKSModel.FK__PhieuNhap__MaNha__619B8048" FromRole="PhieuNhapDichVu" ToRole="NhaCungCap" />
+          <NavigationProperty Name="NhanVien" Relationship="QLKSModel.FK__PhieuNhap__MaNha__628FA481" FromRole="PhieuNhapDichVu" ToRole="NhanVien" />
         </EntityType>
         <EntityType Name="PhieuNhapTienNghi">
           <Key>
@@ -604,9 +709,9 @@
           <Property Name="MaTienNghi" Type="Int32" Nullable="false" />
           <Property Name="MaNhaCungCap" Type="Int32" Nullable="false" />
           <Property Name="MaNhanVien" Type="Int32" />
-          <NavigationProperty Name="NhaCungCap" Relationship="Self.FK__PhieuNhap__MaNha__66603565" FromRole="PhieuNhapTienNghi" ToRole="NhaCungCap" />
-          <NavigationProperty Name="NhanVien" Relationship="Self.FK__PhieuNhap__MaNha__6754599E" FromRole="PhieuNhapTienNghi" ToRole="NhanVien" />
-          <NavigationProperty Name="TienNghi" Relationship="Self.FK__PhieuNhap__MaTie__656C112C" FromRole="PhieuNhapTienNghi" ToRole="TienNghi" />
+          <NavigationProperty Name="NhaCungCap" Relationship="QLKSModel.FK__PhieuNhap__MaNha__66603565" FromRole="PhieuNhapTienNghi" ToRole="NhaCungCap" />
+          <NavigationProperty Name="NhanVien" Relationship="QLKSModel.FK__PhieuNhap__MaNha__6754599E" FromRole="PhieuNhapTienNghi" ToRole="NhanVien" />
+          <NavigationProperty Name="TienNghi" Relationship="QLKSModel.FK__PhieuNhap__MaTie__656C112C" FromRole="PhieuNhapTienNghi" ToRole="TienNghi" />
         </EntityType>
         <EntityType Name="PhieuThue">
           <Key>
@@ -619,8 +724,10 @@
           <Property Name="SoNgayO" Type="Int32" />
           <Property Name="MaKhachHang" Type="Int32" />
           <Property Name="MaNhanVien" Type="Int32" />
-          <NavigationProperty Name="KhachHang" Relationship="Self.FK__PhieuThue__MaKha__47DBAE45" FromRole="PhieuThue" ToRole="KhachHang" />
-          <NavigationProperty Name="NhanVien" Relationship="Self.FK__PhieuThue__MaNha__48CFD27E" FromRole="PhieuThue" ToRole="NhanVien" />
+          <Property Name="MaPhong" Type="Int32" />
+          <NavigationProperty Name="KhachHang" Relationship="QLKSModel.FK__PhieuThue__MaKha__70DDC3D8" FromRole="PhieuThue" ToRole="KhachHang" />
+          <NavigationProperty Name="NhanVien" Relationship="QLKSModel.FK__PhieuThue__MaNha__71D1E811" FromRole="PhieuThue" ToRole="NhanVien" />
+          <NavigationProperty Name="Phong" Relationship="QLKSModel.FK__PhieuThue__MaPho__72C60C4A" FromRole="PhieuThue" ToRole="Phong" />
         </EntityType>
         <EntityType Name="Phong">
           <Key>
@@ -631,9 +738,10 @@
           <Property Name="MaLoaiPhong" Type="Int32" />
           <Property Name="SoPhong" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
           <Property Name="TinhTrangPhong" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="ChiTietTienNghis" Relationship="Self.FK__ChiTietTi__MaPho__59063A47" FromRole="Phong" ToRole="ChiTietTienNghi" />
-          <NavigationProperty Name="HoaDons" Relationship="Self.FK__HoaDon__MaPhong__5BE2A6F2" FromRole="Phong" ToRole="HoaDon" />
-          <NavigationProperty Name="LoaiPhong" Relationship="Self.FK__Phong__MaLoaiPho__44FF419A" FromRole="Phong" ToRole="LoaiPhong" />
+          <NavigationProperty Name="ChiTietTienNghis" Relationship="QLKSModel.FK__ChiTietTi__MaPho__59063A47" FromRole="Phong" ToRole="ChiTietTienNghi" />
+          <NavigationProperty Name="HoaDons" Relationship="QLKSModel.FK__HoaDon__MaPhong__5BE2A6F2" FromRole="Phong" ToRole="HoaDon" />
+          <NavigationProperty Name="LoaiPhong" Relationship="QLKSModel.FK__Phong__MaLoaiPho__44FF419A" FromRole="Phong" ToRole="LoaiPhong" />
+          <NavigationProperty Name="PhieuThues" Relationship="QLKSModel.FK__PhieuThue__MaPho__72C60C4A" FromRole="Phong" ToRole="PhieuThue" />
         </EntityType>
         <EntityType Name="TienNghi">
           <Key>
@@ -641,13 +749,13 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MaTienNghi" Type="String" MaxLength="6" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
-          <Property Name="TenTienNghi" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="ChiTietTienNghis" Relationship="Self.FK__ChiTietTi__MaTie__5812160E" FromRole="TienNghi" ToRole="ChiTietTienNghi" />
-          <NavigationProperty Name="PhieuNhapTienNghis" Relationship="Self.FK__PhieuNhap__MaTie__656C112C" FromRole="TienNghi" ToRole="PhieuNhapTienNghi" />
+          <Property Name="TenTienNghi" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ChiTietTienNghis" Relationship="QLKSModel.FK__ChiTietTi__MaTie__5812160E" FromRole="TienNghi" ToRole="ChiTietTienNghi" />
+          <NavigationProperty Name="PhieuNhapTienNghis" Relationship="QLKSModel.FK__PhieuNhap__MaTie__656C112C" FromRole="TienNghi" ToRole="PhieuNhapTienNghi" />
         </EntityType>
         <Association Name="FK__NhanVien__MaBoPh__3C69FB99">
-          <End Role="BoPhan" Type="Self.BoPhan" Multiplicity="0..1" />
-          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="*" />
+          <End Type="QLKSModel.BoPhan" Role="BoPhan" Multiplicity="0..1" />
+          <End Type="QLKSModel.NhanVien" Role="NhanVien" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="BoPhan">
               <PropertyRef Name="ID" />
@@ -658,8 +766,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__ChiTietTi__MaPho__59063A47">
-          <End Role="Phong" Type="Self.Phong" Multiplicity="0..1" />
-          <End Role="ChiTietTienNghi" Type="Self.ChiTietTienNghi" Multiplicity="*" />
+          <End Type="QLKSModel.Phong" Role="Phong" Multiplicity="0..1" />
+          <End Type="QLKSModel.ChiTietTienNghi" Role="ChiTietTienNghi" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Phong">
               <PropertyRef Name="ID" />
@@ -670,8 +778,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__ChiTietTi__MaTie__5812160E">
-          <End Role="TienNghi" Type="Self.TienNghi" Multiplicity="0..1" />
-          <End Role="ChiTietTienNghi" Type="Self.ChiTietTienNghi" Multiplicity="*" />
+          <End Type="QLKSModel.TienNghi" Role="TienNghi" Multiplicity="0..1" />
+          <End Type="QLKSModel.ChiTietTienNghi" Role="ChiTietTienNghi" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TienNghi">
               <PropertyRef Name="ID" />
@@ -682,8 +790,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__DichVu__MaLoaiDi__4F7CD00D">
-          <End Role="LoaiDichVu" Type="Self.LoaiDichVu" Multiplicity="0..1" />
-          <End Role="DichVu" Type="Self.DichVu" Multiplicity="*" />
+          <End Type="QLKSModel.LoaiDichVu" Role="LoaiDichVu" Multiplicity="0..1" />
+          <End Type="QLKSModel.DichVu" Role="DichVu" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LoaiDichVu">
               <PropertyRef Name="ID" />
@@ -694,8 +802,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__HoaDon__MaDichVu__5DCAEF64">
-          <End Role="DichVu" Type="Self.DichVu" Multiplicity="0..1" />
-          <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="*" />
+          <End Type="QLKSModel.DichVu" Role="DichVu" Multiplicity="0..1" />
+          <End Type="QLKSModel.HoaDon" Role="HoaDon" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="DichVu">
               <PropertyRef Name="ID" />
@@ -706,8 +814,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__PhieuNhap__MaDic__60A75C0F">
-          <End Role="DichVu" Type="Self.DichVu" Multiplicity="1" />
-          <End Role="PhieuNhapDichVu" Type="Self.PhieuNhapDichVu" Multiplicity="*" />
+          <End Type="QLKSModel.DichVu" Role="DichVu" Multiplicity="1" />
+          <End Type="QLKSModel.PhieuNhapDichVu" Role="PhieuNhapDichVu" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="DichVu">
               <PropertyRef Name="ID" />
@@ -718,8 +826,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__HoaDon__MaKhachH__5CD6CB2B">
-          <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
-          <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="*" />
+          <End Type="QLKSModel.KhachHang" Role="KhachHang" Multiplicity="0..1" />
+          <End Type="QLKSModel.HoaDon" Role="HoaDon" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="KhachHang">
               <PropertyRef Name="ID" />
@@ -730,8 +838,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__HoaDon__MaPhong__5BE2A6F2">
-          <End Role="Phong" Type="Self.Phong" Multiplicity="0..1" />
-          <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="*" />
+          <End Type="QLKSModel.Phong" Role="Phong" Multiplicity="0..1" />
+          <End Type="QLKSModel.HoaDon" Role="HoaDon" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Phong">
               <PropertyRef Name="ID" />
@@ -741,9 +849,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PhieuThue__MaKha__47DBAE45">
-          <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
-          <End Role="PhieuThue" Type="Self.PhieuThue" Multiplicity="*" />
+        <Association Name="FK__PhieuThue__MaKha__70DDC3D8">
+          <End Type="QLKSModel.KhachHang" Role="KhachHang" Multiplicity="0..1" />
+          <End Type="QLKSModel.PhieuThue" Role="PhieuThue" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="KhachHang">
               <PropertyRef Name="ID" />
@@ -754,8 +862,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Phong__MaLoaiPho__44FF419A">
-          <End Role="LoaiPhong" Type="Self.LoaiPhong" Multiplicity="0..1" />
-          <End Role="Phong" Type="Self.Phong" Multiplicity="*" />
+          <End Type="QLKSModel.LoaiPhong" Role="LoaiPhong" Multiplicity="0..1" />
+          <End Type="QLKSModel.Phong" Role="Phong" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LoaiPhong">
               <PropertyRef Name="ID" />
@@ -766,8 +874,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__NhanVien__MaTaiK__3D5E1FD2">
-          <End Role="LoaiTK" Type="Self.LoaiTK" Multiplicity="0..1" />
-          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="*" />
+          <End Type="QLKSModel.LoaiTK" Role="LoaiTK" Multiplicity="0..1" />
+          <End Type="QLKSModel.NhanVien" Role="NhanVien" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LoaiTK">
               <PropertyRef Name="ID" />
@@ -778,8 +886,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__PhieuNhap__MaNha__619B8048">
-          <End Role="NhaCungCap" Type="Self.NhaCungCap" Multiplicity="1" />
-          <End Role="PhieuNhapDichVu" Type="Self.PhieuNhapDichVu" Multiplicity="*" />
+          <End Type="QLKSModel.NhaCungCap" Role="NhaCungCap" Multiplicity="1" />
+          <End Type="QLKSModel.PhieuNhapDichVu" Role="PhieuNhapDichVu" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="NhaCungCap">
               <PropertyRef Name="ID" />
@@ -790,8 +898,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__PhieuNhap__MaNha__66603565">
-          <End Role="NhaCungCap" Type="Self.NhaCungCap" Multiplicity="1" />
-          <End Role="PhieuNhapTienNghi" Type="Self.PhieuNhapTienNghi" Multiplicity="*" />
+          <End Type="QLKSModel.NhaCungCap" Role="NhaCungCap" Multiplicity="1" />
+          <End Type="QLKSModel.PhieuNhapTienNghi" Role="PhieuNhapTienNghi" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="NhaCungCap">
               <PropertyRef Name="ID" />
@@ -802,8 +910,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__PhieuNhap__MaNha__628FA481">
-          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="0..1" />
-          <End Role="PhieuNhapDichVu" Type="Self.PhieuNhapDichVu" Multiplicity="*" />
+          <End Type="QLKSModel.NhanVien" Role="NhanVien" Multiplicity="0..1" />
+          <End Type="QLKSModel.PhieuNhapDichVu" Role="PhieuNhapDichVu" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="NhanVien">
               <PropertyRef Name="ID" />
@@ -814,8 +922,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__PhieuNhap__MaNha__6754599E">
-          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="0..1" />
-          <End Role="PhieuNhapTienNghi" Type="Self.PhieuNhapTienNghi" Multiplicity="*" />
+          <End Type="QLKSModel.NhanVien" Role="NhanVien" Multiplicity="0..1" />
+          <End Type="QLKSModel.PhieuNhapTienNghi" Role="PhieuNhapTienNghi" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="NhanVien">
               <PropertyRef Name="ID" />
@@ -825,9 +933,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PhieuThue__MaNha__48CFD27E">
-          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="0..1" />
-          <End Role="PhieuThue" Type="Self.PhieuThue" Multiplicity="*" />
+        <Association Name="FK__PhieuThue__MaNha__71D1E811">
+          <End Type="QLKSModel.NhanVien" Role="NhanVien" Multiplicity="0..1" />
+          <End Type="QLKSModel.PhieuThue" Role="PhieuThue" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="NhanVien">
               <PropertyRef Name="ID" />
@@ -838,8 +946,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__PhieuNhap__MaTie__656C112C">
-          <End Role="TienNghi" Type="Self.TienNghi" Multiplicity="1" />
-          <End Role="PhieuNhapTienNghi" Type="Self.PhieuNhapTienNghi" Multiplicity="*" />
+          <End Type="QLKSModel.TienNghi" Role="TienNghi" Multiplicity="1" />
+          <End Type="QLKSModel.PhieuNhapTienNghi" Role="PhieuNhapTienNghi" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TienNghi">
               <PropertyRef Name="ID" />
@@ -849,91 +957,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="QLKSEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="BoPhans" EntityType="Self.BoPhan" />
-          <EntitySet Name="ChiTietTienNghis" EntityType="Self.ChiTietTienNghi" />
-          <EntitySet Name="DichVus" EntityType="Self.DichVu" />
-          <EntitySet Name="HoaDons" EntityType="Self.HoaDon" />
-          <EntitySet Name="KhachHangs" EntityType="Self.KhachHang" />
-          <EntitySet Name="LoaiDichVus" EntityType="Self.LoaiDichVu" />
-          <EntitySet Name="LoaiPhongs" EntityType="Self.LoaiPhong" />
-          <EntitySet Name="LoaiTKs" EntityType="Self.LoaiTK" />
-          <EntitySet Name="NhaCungCaps" EntityType="Self.NhaCungCap" />
-          <EntitySet Name="NhanViens" EntityType="Self.NhanVien" />
-          <EntitySet Name="PhieuNhapDichVus" EntityType="Self.PhieuNhapDichVu" />
-          <EntitySet Name="PhieuNhapTienNghis" EntityType="Self.PhieuNhapTienNghi" />
-          <EntitySet Name="PhieuThues" EntityType="Self.PhieuThue" />
-          <EntitySet Name="Phongs" EntityType="Self.Phong" />
-          <EntitySet Name="TienNghis" EntityType="Self.TienNghi" />
-          <AssociationSet Name="FK__NhanVien__MaBoPh__3C69FB99" Association="Self.FK__NhanVien__MaBoPh__3C69FB99">
-            <End Role="BoPhan" EntitySet="BoPhans" />
-            <End Role="NhanVien" EntitySet="NhanViens" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ChiTietTi__MaPho__59063A47" Association="Self.FK__ChiTietTi__MaPho__59063A47">
-            <End Role="Phong" EntitySet="Phongs" />
-            <End Role="ChiTietTienNghi" EntitySet="ChiTietTienNghis" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ChiTietTi__MaTie__5812160E" Association="Self.FK__ChiTietTi__MaTie__5812160E">
-            <End Role="TienNghi" EntitySet="TienNghis" />
-            <End Role="ChiTietTienNghi" EntitySet="ChiTietTienNghis" />
-          </AssociationSet>
-          <AssociationSet Name="FK__DichVu__MaLoaiDi__4F7CD00D" Association="Self.FK__DichVu__MaLoaiDi__4F7CD00D">
-            <End Role="LoaiDichVu" EntitySet="LoaiDichVus" />
-            <End Role="DichVu" EntitySet="DichVus" />
-          </AssociationSet>
-          <AssociationSet Name="FK__HoaDon__MaDichVu__5DCAEF64" Association="Self.FK__HoaDon__MaDichVu__5DCAEF64">
-            <End Role="DichVu" EntitySet="DichVus" />
-            <End Role="HoaDon" EntitySet="HoaDons" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PhieuNhap__MaDic__60A75C0F" Association="Self.FK__PhieuNhap__MaDic__60A75C0F">
-            <End Role="DichVu" EntitySet="DichVus" />
-            <End Role="PhieuNhapDichVu" EntitySet="PhieuNhapDichVus" />
-          </AssociationSet>
-          <AssociationSet Name="FK__HoaDon__MaKhachH__5CD6CB2B" Association="Self.FK__HoaDon__MaKhachH__5CD6CB2B">
-            <End Role="KhachHang" EntitySet="KhachHangs" />
-            <End Role="HoaDon" EntitySet="HoaDons" />
-          </AssociationSet>
-          <AssociationSet Name="FK__HoaDon__MaPhong__5BE2A6F2" Association="Self.FK__HoaDon__MaPhong__5BE2A6F2">
-            <End Role="Phong" EntitySet="Phongs" />
-            <End Role="HoaDon" EntitySet="HoaDons" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PhieuThue__MaKha__47DBAE45" Association="Self.FK__PhieuThue__MaKha__47DBAE45">
-            <End Role="KhachHang" EntitySet="KhachHangs" />
-            <End Role="PhieuThue" EntitySet="PhieuThues" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Phong__MaLoaiPho__44FF419A" Association="Self.FK__Phong__MaLoaiPho__44FF419A">
-            <End Role="LoaiPhong" EntitySet="LoaiPhongs" />
-            <End Role="Phong" EntitySet="Phongs" />
-          </AssociationSet>
-          <AssociationSet Name="FK__NhanVien__MaTaiK__3D5E1FD2" Association="Self.FK__NhanVien__MaTaiK__3D5E1FD2">
-            <End Role="LoaiTK" EntitySet="LoaiTKs" />
-            <End Role="NhanVien" EntitySet="NhanViens" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PhieuNhap__MaNha__619B8048" Association="Self.FK__PhieuNhap__MaNha__619B8048">
-            <End Role="NhaCungCap" EntitySet="NhaCungCaps" />
-            <End Role="PhieuNhapDichVu" EntitySet="PhieuNhapDichVus" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PhieuNhap__MaNha__66603565" Association="Self.FK__PhieuNhap__MaNha__66603565">
-            <End Role="NhaCungCap" EntitySet="NhaCungCaps" />
-            <End Role="PhieuNhapTienNghi" EntitySet="PhieuNhapTienNghis" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PhieuNhap__MaNha__628FA481" Association="Self.FK__PhieuNhap__MaNha__628FA481">
-            <End Role="NhanVien" EntitySet="NhanViens" />
-            <End Role="PhieuNhapDichVu" EntitySet="PhieuNhapDichVus" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PhieuNhap__MaNha__6754599E" Association="Self.FK__PhieuNhap__MaNha__6754599E">
-            <End Role="NhanVien" EntitySet="NhanViens" />
-            <End Role="PhieuNhapTienNghi" EntitySet="PhieuNhapTienNghis" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PhieuThue__MaNha__48CFD27E" Association="Self.FK__PhieuThue__MaNha__48CFD27E">
-            <End Role="NhanVien" EntitySet="NhanViens" />
-            <End Role="PhieuThue" EntitySet="PhieuThues" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PhieuNhap__MaTie__656C112C" Association="Self.FK__PhieuNhap__MaTie__656C112C">
-            <End Role="TienNghi" EntitySet="TienNghis" />
-            <End Role="PhieuNhapTienNghi" EntitySet="PhieuNhapTienNghis" />
-          </AssociationSet>
-        </EntityContainer>
+        <Association Name="FK__PhieuThue__MaPho__72C60C4A">
+          <End Type="QLKSModel.Phong" Role="Phong" Multiplicity="0..1" />
+          <End Type="QLKSModel.PhieuThue" Role="PhieuThue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phong">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PhieuThue">
+              <PropertyRef Name="MaPhong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -943,169 +978,170 @@
           <EntitySetMapping Name="BoPhans">
             <EntityTypeMapping TypeName="QLKSModel.BoPhan">
               <MappingFragment StoreEntitySet="BoPhan">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="MaBoPhan" ColumnName="MaBoPhan" />
-                <ScalarProperty Name="TenBoPhan" ColumnName="TenBoPhan" />
                 <ScalarProperty Name="Luong" ColumnName="Luong" />
+                <ScalarProperty Name="TenBoPhan" ColumnName="TenBoPhan" />
+                <ScalarProperty Name="MaBoPhan" ColumnName="MaBoPhan" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ChiTietTienNghis">
             <EntityTypeMapping TypeName="QLKSModel.ChiTietTienNghi">
               <MappingFragment StoreEntitySet="ChiTietTienNghi">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="MaChiTietTienNghi" ColumnName="MaChiTietTienNghi" />
-                <ScalarProperty Name="Soluong" ColumnName="Soluong" />
-                <ScalarProperty Name="MaTienNghi" ColumnName="MaTienNghi" />
                 <ScalarProperty Name="MaPhong" ColumnName="MaPhong" />
+                <ScalarProperty Name="MaTienNghi" ColumnName="MaTienNghi" />
+                <ScalarProperty Name="Soluong" ColumnName="Soluong" />
+                <ScalarProperty Name="MaChiTietTienNghi" ColumnName="MaChiTietTienNghi" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DichVus">
             <EntityTypeMapping TypeName="QLKSModel.DichVu">
               <MappingFragment StoreEntitySet="DichVu">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="MaDichVu" ColumnName="MaDichVu" />
-                <ScalarProperty Name="TenDichVu" ColumnName="TenDichVu" />
-                <ScalarProperty Name="Loai" ColumnName="Loai" />
-                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
                 <ScalarProperty Name="MaLoaiDichVu" ColumnName="MaLoaiDichVu" />
+                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+                <ScalarProperty Name="Loai" ColumnName="Loai" />
+                <ScalarProperty Name="TenDichVu" ColumnName="TenDichVu" />
+                <ScalarProperty Name="MaDichVu" ColumnName="MaDichVu" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="HoaDons">
             <EntityTypeMapping TypeName="QLKSModel.HoaDon">
               <MappingFragment StoreEntitySet="HoaDon">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="MaHoaDon" ColumnName="MaHoaDon" />
-                <ScalarProperty Name="MaPhong" ColumnName="MaPhong" />
-                <ScalarProperty Name="MaKhachHang" ColumnName="MaKhachHang" />
-                <ScalarProperty Name="MaDichVu" ColumnName="MaDichVu" />
-                <ScalarProperty Name="TongTienDichVu" ColumnName="TongTienDichVu" />
                 <ScalarProperty Name="TongTienThanhToan" ColumnName="TongTienThanhToan" />
+                <ScalarProperty Name="TongTienDichVu" ColumnName="TongTienDichVu" />
+                <ScalarProperty Name="MaDichVu" ColumnName="MaDichVu" />
+                <ScalarProperty Name="MaKhachHang" ColumnName="MaKhachHang" />
+                <ScalarProperty Name="MaPhong" ColumnName="MaPhong" />
+                <ScalarProperty Name="MaHoaDon" ColumnName="MaHoaDon" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="KhachHangs">
             <EntityTypeMapping TypeName="QLKSModel.KhachHang">
               <MappingFragment StoreEntitySet="KhachHang">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="MaKhachHang" ColumnName="MaKhachHang" />
-                <ScalarProperty Name="TenKhachHang" ColumnName="TenKhachHang" />
-                <ScalarProperty Name="CCCD" ColumnName="CCCD" />
-                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
-                <ScalarProperty Name="SDT" ColumnName="SDT" />
-                <ScalarProperty Name="QuocTinh" ColumnName="QuocTinh" />
                 <ScalarProperty Name="SoHoChieu" ColumnName="SoHoChieu" />
+                <ScalarProperty Name="QuocTinh" ColumnName="QuocTinh" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="CCCD" ColumnName="CCCD" />
+                <ScalarProperty Name="TenKhachHang" ColumnName="TenKhachHang" />
+                <ScalarProperty Name="MaKhachHang" ColumnName="MaKhachHang" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LoaiDichVus">
             <EntityTypeMapping TypeName="QLKSModel.LoaiDichVu">
               <MappingFragment StoreEntitySet="LoaiDichVu">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="MaLoaiDichVu" ColumnName="MaLoaiDichVu" />
                 <ScalarProperty Name="LoaiDichVu1" ColumnName="LoaiDichVu" />
+                <ScalarProperty Name="MaLoaiDichVu" ColumnName="MaLoaiDichVu" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LoaiPhongs">
             <EntityTypeMapping TypeName="QLKSModel.LoaiPhong">
               <MappingFragment StoreEntitySet="LoaiPhong">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="MaLoaiPhong" ColumnName="MaLoaiPhong" />
-                <ScalarProperty Name="TenLoaiPhong" ColumnName="TenLoaiPhong" />
-                <ScalarProperty Name="SoGiuong" ColumnName="SoGiuong" />
                 <ScalarProperty Name="GiaNgay" ColumnName="GiaNgay" />
+                <ScalarProperty Name="SoGiuong" ColumnName="SoGiuong" />
+                <ScalarProperty Name="TenLoaiPhong" ColumnName="TenLoaiPhong" />
+                <ScalarProperty Name="MaLoaiPhong" ColumnName="MaLoaiPhong" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LoaiTKs">
             <EntityTypeMapping TypeName="QLKSModel.LoaiTK">
               <MappingFragment StoreEntitySet="LoaiTK">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="MaTaiKhoan" ColumnName="MaTaiKhoan" />
                 <ScalarProperty Name="TenTaiKhoan" ColumnName="TenTaiKhoan" />
+                <ScalarProperty Name="MaTaiKhoan" ColumnName="MaTaiKhoan" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NhaCungCaps">
             <EntityTypeMapping TypeName="QLKSModel.NhaCungCap">
               <MappingFragment StoreEntitySet="NhaCungCap">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="MaNhaCungCap" ColumnName="MaNhaCungCap" />
-                <ScalarProperty Name="TenNhaCungCap" ColumnName="TenNhaCungCap" />
-                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
                 <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="TenNhaCungCap" ColumnName="TenNhaCungCap" />
+                <ScalarProperty Name="MaNhaCungCap" ColumnName="MaNhaCungCap" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NhanViens">
             <EntityTypeMapping TypeName="QLKSModel.NhanVien">
               <MappingFragment StoreEntitySet="NhanVien">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
-                <ScalarProperty Name="TenNhanVien" ColumnName="TenNhanVien" />
-                <ScalarProperty Name="Phai" ColumnName="Phai" />
-                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
-                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
-                <ScalarProperty Name="SDT" ColumnName="SDT" />
-                <ScalarProperty Name="CCCD" ColumnName="CCCD" />
-                <ScalarProperty Name="MaBoPhan" ColumnName="MaBoPhan" />
-                <ScalarProperty Name="MaTaiKhoan" ColumnName="MaTaiKhoan" />
-                <ScalarProperty Name="TenTaiKhoan" ColumnName="TenTaiKhoan" />
                 <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+                <ScalarProperty Name="TenTaiKhoan" ColumnName="TenTaiKhoan" />
+                <ScalarProperty Name="MaTaiKhoan" ColumnName="MaTaiKhoan" />
+                <ScalarProperty Name="MaBoPhan" ColumnName="MaBoPhan" />
+                <ScalarProperty Name="CCCD" ColumnName="CCCD" />
+                <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="Phai" ColumnName="Phai" />
+                <ScalarProperty Name="TenNhanVien" ColumnName="TenNhanVien" />
+                <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PhieuNhapDichVus">
             <EntityTypeMapping TypeName="QLKSModel.PhieuNhapDichVu">
               <MappingFragment StoreEntitySet="PhieuNhapDichVu">
-                <ScalarProperty Name="MaDichVu" ColumnName="MaDichVu" />
-                <ScalarProperty Name="MaNhaCungCap" ColumnName="MaNhaCungCap" />
                 <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+                <ScalarProperty Name="MaNhaCungCap" ColumnName="MaNhaCungCap" />
+                <ScalarProperty Name="MaDichVu" ColumnName="MaDichVu" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PhieuNhapTienNghis">
             <EntityTypeMapping TypeName="QLKSModel.PhieuNhapTienNghi">
               <MappingFragment StoreEntitySet="PhieuNhapTienNghi">
-                <ScalarProperty Name="MaTienNghi" ColumnName="MaTienNghi" />
-                <ScalarProperty Name="MaNhaCungCap" ColumnName="MaNhaCungCap" />
                 <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+                <ScalarProperty Name="MaNhaCungCap" ColumnName="MaNhaCungCap" />
+                <ScalarProperty Name="MaTienNghi" ColumnName="MaTienNghi" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PhieuThues">
             <EntityTypeMapping TypeName="QLKSModel.PhieuThue">
               <MappingFragment StoreEntitySet="PhieuThue">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="MaPhieuThue" ColumnName="MaPhieuThue" />
-                <ScalarProperty Name="Ngaylap" ColumnName="Ngaylap" />
-                <ScalarProperty Name="NgayTra" ColumnName="NgayTra" />
-                <ScalarProperty Name="SoNgayO" ColumnName="SoNgayO" />
-                <ScalarProperty Name="MaKhachHang" ColumnName="MaKhachHang" />
+                <ScalarProperty Name="MaPhong" ColumnName="MaPhong" />
                 <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
+                <ScalarProperty Name="MaKhachHang" ColumnName="MaKhachHang" />
+                <ScalarProperty Name="SoNgayO" ColumnName="SoNgayO" />
+                <ScalarProperty Name="NgayTra" ColumnName="NgayTra" />
+                <ScalarProperty Name="Ngaylap" ColumnName="Ngaylap" />
+                <ScalarProperty Name="MaPhieuThue" ColumnName="MaPhieuThue" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Phongs">
             <EntityTypeMapping TypeName="QLKSModel.Phong">
               <MappingFragment StoreEntitySet="Phong">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="MaPhong" ColumnName="MaPhong" />
-                <ScalarProperty Name="MaLoaiPhong" ColumnName="MaLoaiPhong" />
-                <ScalarProperty Name="SoPhong" ColumnName="SoPhong" />
                 <ScalarProperty Name="TinhTrangPhong" ColumnName="TinhTrangPhong" />
+                <ScalarProperty Name="SoPhong" ColumnName="SoPhong" />
+                <ScalarProperty Name="MaLoaiPhong" ColumnName="MaLoaiPhong" />
+                <ScalarProperty Name="MaPhong" ColumnName="MaPhong" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TienNghis">
             <EntityTypeMapping TypeName="QLKSModel.TienNghi">
               <MappingFragment StoreEntitySet="TienNghi">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="MaTienNghi" ColumnName="MaTienNghi" />
                 <ScalarProperty Name="TenTienNghi" ColumnName="TenTienNghi" />
+                <ScalarProperty Name="MaTienNghi" ColumnName="MaTienNghi" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
