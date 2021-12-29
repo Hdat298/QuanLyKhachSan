@@ -90,6 +90,6 @@
                         VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="30" Width="100" Content="Đăng Nhập" Margin="60,198,64,88"/>
             </Grid>
         </materialDesign:Card>
-        <uc:ControlBarUC Tag="{Binding Title, ElementName=loginWindow}" VerticalAlignment="Top" Margin="600,0,0,0"></uc:ControlBarUC>
+        <uc:ControlBarUC Tag="{Binding Title, ElementName=loginWindow}" VerticalAlignment="Top" Margin="2,0,0,0"></uc:ControlBarUC>
     </Grid>
 </Window>
