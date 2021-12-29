@@ -5,4 +5,7 @@
     <viewmodel:LoginViewModel x:Key="LoginVM"></viewmodel:LoginViewModel>
     <viewmodel:RoomViewModel x:Key="RoomVM"></viewmodel:RoomViewModel>
     <viewmodel:CustomerViewModel x:Key="CustomerVM"></viewmodel:CustomerViewModel>
+    <viewmodel:ServiceViewModel x:Key="ServiceVM"></viewmodel:ServiceViewModel>
+    <viewmodel:EmployeesViewModel x:Key="EmployeesVM"></viewmodel:EmployeesViewModel>
+    <viewmodel:SuplierViewModel x:Key="SuplierVM"></viewmodel:SuplierViewModel>
 </ResourceDictionary>

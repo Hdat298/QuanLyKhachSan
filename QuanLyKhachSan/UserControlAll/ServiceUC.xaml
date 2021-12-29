@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="QuanLyKhachSan.UserControlAll.CustomerUC"
+﻿<UserControl x:Class="QuanLyKhachSan.UserControlAll.ServiceUC"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -13,10 +13,9 @@
              TextOptions.TextRenderingMode="Auto"
              FontFamily="{DynamicResource MaterialDesignFont}"
              Background="#FFFFFF"
-             x:Name="ucQLKhachHang" 
-             DataContext="{StaticResource CustomerVM}"
-             d:DesignHeight="650" d:DesignWidth="800"
-             >
+             x:Name="ucQLDichVu" 
+             DataContext="{StaticResource ServiceVM}"
+             d:DesignHeight="650" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"></RowDefinition>
@@ -212,7 +211,7 @@
                     </TextBlock>
                 </Button.Content>
             </Button>
-            
+
             <Separator Grid.Column="3" Height="1" Width="75" Background="Silver" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" Margin="37,39,38,40" Grid.ColumnSpan="2">
                 <Separator.RenderTransform>
                     <TransformGroup>
@@ -234,15 +233,11 @@
                         </LinearGradientBrush>
                     </Border.Background>
                 </Border>
-                <TextBlock Text="Thông tin khách hàng" Height="40" FontWeight="Bold" FontSize="25" Foreground="#001c1c"
+                <TextBlock Text="Thông tin dịch vụ" Height="40" FontWeight="Bold" FontSize="25" Foreground="#001c1c"
                            VerticalAlignment="Top" HorizontalAlignment="Left" Margin="271,10,0,0"/>
-                <TextBox Text="{Binding TenKhachHang}"  Margin="5,55,400,170" materialDesign:HintAssist.Hint="Tên khách hàng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
-                <TextBox Text="{Binding DiaChi}"  Margin="400,55,5,170" materialDesign:HintAssist.Hint="Địa chỉ" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
-                <TextBox Text="{Binding SDT}"  Margin="5,130,400,90" materialDesign:HintAssist.Hint="Số điện thoại" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
-                <TextBox Text="{Binding QuocTinh}"  Margin="400,130,5,90" materialDesign:HintAssist.Hint="Quốc tịch" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
-                <TextBox Text="{Binding SoHoChieu}"  Margin="5,200,400,20" materialDesign:HintAssist.Hint="Số hộ chiếu" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
-                <TextBox Text="{Binding CCCD}"  Margin="400,200,5,20" materialDesign:HintAssist.Hint="CCCD" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
-                
+                <TextBox Text="{Binding TenDichVu}"  Margin="5,55,400,170" materialDesign:HintAssist.Hint="Tên dịch vụ" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
+                <ComboBox DisplayMemberPath="LoaiDichVu1" ItemsSource ="{Binding Object}" SelectedItem="{Binding SelectedLoai, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="5,130,400,90" materialDesign:HintAssist.Hint="Loại"  Foreground="#001c1c"/>
+                <TextBox Text="{Binding DonGia}"  Margin="5,200,400,20" materialDesign:HintAssist.Hint="Đơn giá" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
             </Grid>
         </materialDesign:Card>
 
@@ -253,12 +248,9 @@
                 <ListView ItemsSource="{Binding List}" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}" >
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Tên khách hàng" DisplayMemberBinding="{Binding TenKhachHang}"></GridViewColumn>
-                            <GridViewColumn Header="CCCD" DisplayMemberBinding="{Binding CCCD}"></GridViewColumn>
-                            <GridViewColumn Header="Địa chỉ" DisplayMemberBinding="{Binding DiaChi}"></GridViewColumn>
-                            <GridViewColumn Header="Số điện thoại" DisplayMemberBinding="{Binding SDT}"></GridViewColumn>
-                            <GridViewColumn Header="Quốc tịch" DisplayMemberBinding="{Binding QuocTinh}"></GridViewColumn>
-                            <GridViewColumn Header="Số hộ chiếu" DisplayMemberBinding="{Binding SoHoChieu}"></GridViewColumn>
+                            <GridViewColumn Header="Tên dịch vụ" DisplayMemberBinding="{Binding TenDichVu}"></GridViewColumn>
+                            <GridViewColumn Header="Loại dịch vụ" DisplayMemberBinding="{Binding LoaiDichVu.LoaiDichVu1 }"></GridViewColumn>
+                            <GridViewColumn Header="Đơn giá" DisplayMemberBinding="{Binding DonGia}"></GridViewColumn>
                         </GridView>
                     </ListView.View>
                 </ListView>
