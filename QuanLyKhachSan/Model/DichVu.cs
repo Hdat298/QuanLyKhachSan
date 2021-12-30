@@ -24,7 +24,6 @@ namespace QuanLyKhachSan.Model
         public int ID { get; set; }
         public string MaDichVu { get; set; }
         public string TenDichVu { get; set; }
-        public string Loai { get; set; }
         public Nullable<int> DonGia { get; set; }
         public Nullable<int> MaLoaiDichVu { get; set; }
     

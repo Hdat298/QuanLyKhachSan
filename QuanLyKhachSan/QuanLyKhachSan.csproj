@@ -82,6 +82,9 @@
     <Compile Include="Model\BoPhan.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\ChiTietPhieuThue.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\ChiTietTienNghi.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
