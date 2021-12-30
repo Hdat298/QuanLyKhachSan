@@ -23,6 +23,10 @@ namespace QuanLyKhachSan.View
     {
         private HomeUC Home;
         private PhongUC phongUC;
+        private EmployeesUC employeeUC;
+        private CustomerUC customerUC;
+        private ServiceUC serviceUC;
+        private SuplierUC suplierUC;
 
         public MainWindow()
         {
@@ -86,6 +90,30 @@ namespace QuanLyKhachSan.View
                             phongUC = new PhongUC();
                         }
                         contenDisplayMain.Content = phongUC;
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        if (customerUC == null)
+                        {
+                            customerUC = new CustomerUC();
+                        }
+                        contenDisplayMain.Content = customerUC;
+                        break;
+                    case 5:
+                        if (serviceUC == null)
+                        {
+                            serviceUC = new ServiceUC();
+                        }
+                        contenDisplayMain.Content = serviceUC;
+                        break;
+                    case 6:
+                        break;
+                    case 7:
+                        break;
+                    case 8:
                         break;
                 }
             }
