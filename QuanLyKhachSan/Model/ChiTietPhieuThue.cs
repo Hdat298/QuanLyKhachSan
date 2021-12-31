@@ -12,15 +12,17 @@ namespace QuanLyKhachSan.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class PhieuThue
+    public partial class ChiTietPhieuThue
     {
         public int ID { get; set; }
-        public string MaPhieuThue { get; set; }
-        public System.DateTime Ngaylap { get; set; }
-        public Nullable<int> MaKhachHang { get; set; }
-        public Nullable<int> MaNhanVien { get; set; }
+        public string MaChiTietPhieuThue { get; set; }
+        public Nullable<int> MaPhong { get; set; }
+        public Nullable<int> MaPhieuThue { get; set; }
+        public Nullable<System.DateTime> NgayBD { get; set; }
+        public Nullable<System.DateTime> NgayKT { get; set; }
+        public Nullable<int> TienPhong { get; set; }
     
-        public virtual KhachHang KhachHang { get; set; }
-        public virtual NhanVien NhanVien { get; set; }
+        public virtual Phong Phong { get; set; }
+        public virtual Phong Phong1 { get; set; }
     }
 }

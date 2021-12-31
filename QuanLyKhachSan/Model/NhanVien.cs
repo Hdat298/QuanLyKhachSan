@@ -25,17 +25,18 @@ namespace QuanLyKhachSan.Model
         public int ID { get; set; }
         public string MaNhanVien { get; set; }
         public string TenNhanVien { get; set; }
-        public string Phai { get; set; }
         public Nullable<System.DateTime> NgaySinh { get; set; }
         public string DiaChi { get; set; }
         public string SDT { get; set; }
         public string CCCD { get; set; }
         public Nullable<int> MaBoPhan { get; set; }
         public Nullable<int> MaTaiKhoan { get; set; }
+        public Nullable<int> Phai { get; set; }
         public string TenTaiKhoan { get; set; }
         public string MatKhau { get; set; }
     
         public virtual BoPhan BoPhan { get; set; }
+        public virtual GioiTinh GioiTinh { get; set; }
         public virtual LoaiTK LoaiTK { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PhieuNhapDichVu> PhieuNhapDichVus { get; set; }

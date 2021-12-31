@@ -26,8 +26,10 @@ namespace QuanLyKhachSan.Model
         }
     
         public virtual DbSet<BoPhan> BoPhans { get; set; }
+        public virtual DbSet<ChiTietPhieuThue> ChiTietPhieuThues { get; set; }
         public virtual DbSet<ChiTietTienNghi> ChiTietTienNghis { get; set; }
         public virtual DbSet<DichVu> DichVus { get; set; }
+        public virtual DbSet<GioiTinh> GioiTinhs { get; set; }
         public virtual DbSet<HoaDon> HoaDons { get; set; }
         public virtual DbSet<KhachHang> KhachHangs { get; set; }
         public virtual DbSet<LoaiDichVu> LoaiDichVus { get; set; }
