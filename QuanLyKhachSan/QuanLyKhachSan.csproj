@@ -201,6 +201,9 @@
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\RoomDetailWindow.xaml.cs">
+      <DependentUpon>RoomDetailWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\RoomWindow.xaml.cs">
       <DependentUpon>RoomWindow.xaml</DependentUpon>
     </Compile>
@@ -277,6 +280,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RoomDetailWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

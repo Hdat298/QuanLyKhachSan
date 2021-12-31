@@ -1,10 +1,13 @@
 ﻿using QuanLyKhachSan.Model;
+using QuanLyKhachSan.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace QuanLyKhachSan.ViewModel
 {
@@ -18,6 +21,8 @@ namespace QuanLyKhachSan.ViewModel
         public ObservableCollection<Room> List3 { get => _List3; set { _List3 = value; OnPropertyChanged(); } }
         private ObservableCollection<Room> _List4;
         public ObservableCollection<Room> List4 { get => _List4; set { _List4 = value; OnPropertyChanged(); } }
+
+        public ICommand PreviewMouseLeftButtonUpCommand { get; set; }
 
         //public Phong phong { get; set; }
         //public LoaiPhong loaiPhong { get; set; }
@@ -33,6 +38,14 @@ namespace QuanLyKhachSan.ViewModel
 
         public RoomViewModel()
         {
+            PreviewMouseLeftButtonUpCommand = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                RoomDetailWindow roomDetailWindow = new RoomDetailWindow();
+                roomDetailWindow.ShowDialog();
+            }
+                );
+
+
             var lsCTPT = DataProvider.Ins.DB.ChiTietPhieuThues.Where(p => p.TrangThai.CompareTo("Đã thanh toán") != 0).AsEnumerable();
 
             var ls = (from p in DataProvider.Ins.DB.Phongs

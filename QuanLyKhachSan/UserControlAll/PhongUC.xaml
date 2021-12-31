@@ -7,8 +7,9 @@
              mc:Ignorable="d" 
             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
             xmlns:sys="clr-namespace:System;assembly=mscorlib" 
-            xmlns:uc="clr-namespace:QuanLyKhachSan.UserControlAll"
-            TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+            xmlns:uc="clr-namespace:QuanLyKhachSan.UserControlAll" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
             TextElement.FontWeight="Regular"
             TextElement.FontSize="13"
             TextOptions.TextFormattingMode="Ideal"
@@ -124,8 +125,13 @@
                             <TextBlock Text="Single Room" FontSize="20" Foreground="#00A3FF"
                                Margin="40 20 0 0"/>
                             <ListView ItemsSource="{Binding List1}" x:Name="lvSingleRoom" Width="1091" Margin="50 10 0 0"
-                              ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
-                              ScrollViewer.VerticalScrollBarVisibility="Disabled" >
+                              ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="PreviewMouseLeftButtonUp">
+                                        <i:InvokeCommandAction Command="{Binding PreviewMouseLeftButtonUpCommand}" CommandParameter="{Binding ElementName=lvSingleRoom}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
                                 <!--#region-->
                                 <ListView.Template>
                                     <ControlTemplate>
