@@ -21,21 +21,21 @@ namespace QuanLyKhachSan.View
     {
         public RoomWindow()
         {
-            InitializeComponent();
-            List<User> items = new List<User>();
-            items.Add(new User() { MaPhong = "DK11", TinhTrang = "Phòng đang thuê", TenKH = "Nguyen Van A" });
-            items.Add(new User() { MaPhong = "SD3", TinhTrang = "Phòng trống", TenKH = "Nguyen Van B" });
-            items.Add(new User() { MaPhong = "sdg1", TinhTrang = "Phòng đã đặt", TenKH = "Nguyen Van C" });
-            lvPhongDon.ItemsSource = items;
-        }
+        //    InitializeComponent();
+        //    List<User> items = new List<User>();
+        //    items.Add(new User() { MaPhong = "DK11", TinhTrang = "Phòng đang thuê", TenKH = "Nguyen Van A" });
+        //    items.Add(new User() { MaPhong = "SD3", TinhTrang = "Phòng trống", TenKH = "Nguyen Van B" });
+        //    items.Add(new User() { MaPhong = "sdg1", TinhTrang = "Phòng đã đặt", TenKH = "Nguyen Van C" });
+        //    lvPhongDon.ItemsSource = items;
+        //}
 
-        public class User
-        {
-            public string MaPhong { get; set; }
+        //public class User
+        //{
+        //    public string MaPhong { get; set; }
 
-            public string TinhTrang { get; set; }
+        //    public string TinhTrang { get; set; }
 
-            public string TenKH { get; set; }
+        //    public string TenKH { get; set; }
         }
     }
 }
