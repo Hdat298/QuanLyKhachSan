@@ -10,6 +10,8 @@ namespace QuanLyKhachSan.ViewModel
 {
     class RoomViewModel : BaseViewModel
     {
+        private ObservableCollection<Phong> _List;
+        public ObservableCollection<Phong> List { get => _List; set { _List = value; OnPropertyChanged(); } }
         private ObservableCollection<Room> _List1;
         public ObservableCollection<Room> List1 { get => _List1; set { _List1 = value; OnPropertyChanged(); } }
         private ObservableCollection<Room> _List2;
@@ -33,63 +35,41 @@ namespace QuanLyKhachSan.ViewModel
 
         public RoomViewModel()
         {
+            List<PhieuThue> PT = DataProvider.Ins.DB.PhieuThues.ToList();
+            List<Phong> P = DataProvider.Ins.DB.Phongs.ToList();
+            foreach (var item in P)
+            {
+                foreach (var item1 in PT)
+                {
+                        if (item1.MaPhong == item.ID)
+                        {
+                            item.TinhTrangPhong = "Phòng đang thuê";
+                            DataProvider.Ins.DB.SaveChanges();
+                            break;
+                        }
+                        else
+                        {
+                            item.TinhTrangPhong = "Phòng trống";
+                            DataProvider.Ins.DB.SaveChanges();
+                        }      
+                }          
+            }
+
+
             var lsRoom = (from p in DataProvider.Ins.DB.Phongs
                           join c in DataProvider.Ins.DB.PhieuThues on p.ID equals c.MaPhong into r
                           from x in r.DefaultIfEmpty()
-                          join b in DataProvider.Ins.DB.KhachHangs on x.MaKhachHang equals b.ID into o
-                          from k in o.DefaultIfEmpty()
+                          join a in DataProvider.Ins.DB.KhachHangs on x.MaKhachHang equals a.ID into i
+                          from q in i.DefaultIfEmpty()
                           where p.MaLoaiPhong == 1
                           select new Room
                           {
                               MaPhong = p.MaPhong,
                               TinhTrangPhong = p.TinhTrangPhong,
-                              TenKH = k == null ? "" : k.TenKhachHang
+                              TenKH = q == null ? "" : q.TenKhachHang.ToString()
                           }).ToList();
             List1 = new ObservableCollection<Room>(lsRoom);
 
-            var lsRoom1 = (from p in DataProvider.Ins.DB.Phongs
-                          join c in DataProvider.Ins.DB.PhieuThues on p.ID equals c.MaPhong into r
-                          from x in r.DefaultIfEmpty()
-                          join b in DataProvider.Ins.DB.KhachHangs on x.MaKhachHang equals b.ID into o
-                          from k in o.DefaultIfEmpty()
-                          where p.MaLoaiPhong == 2
-                          select new Room
-                          {
-                              MaPhong = p.MaPhong,
-                              TinhTrangPhong = p.TinhTrangPhong,
-                              TenKH = k == null ? "" : k.TenKhachHang
-                          }).ToList();
-            List2 = new ObservableCollection<Room>(lsRoom1);
-
-            var lsRoom2 = (from p in DataProvider.Ins.DB.Phongs
-                          join c in DataProvider.Ins.DB.PhieuThues on p.ID equals c.MaPhong into r
-                          from x in r.DefaultIfEmpty()
-                          join b in DataProvider.Ins.DB.KhachHangs on x.MaKhachHang equals b.ID into o
-                          from k in o.DefaultIfEmpty()
-                          where p.MaLoaiPhong == 3
-                          select new Room
-                          {
-                              MaPhong = p.MaPhong,
-                              TinhTrangPhong = p.TinhTrangPhong,
-                              TenKH = k == null ? "" : k.TenKhachHang
-                          }).ToList();
-            List3 = new ObservableCollection<Room>(lsRoom2);
-
-            var lsRoom3 = (from p in DataProvider.Ins.DB.Phongs
-                          join c in DataProvider.Ins.DB.PhieuThues on p.ID equals c.MaPhong into r
-                          from x in r.DefaultIfEmpty()
-                          join b in DataProvider.Ins.DB.KhachHangs on x.MaKhachHang equals b.ID into o
-                          from k in o.DefaultIfEmpty()
-                          where p.MaLoaiPhong == 4
-                          select new Room
-                          {
-                              MaPhong = p.MaPhong,
-                              TinhTrangPhong = p.TinhTrangPhong,
-                              TenKH = k == null ? "" : k.TenKhachHang
-                          }).ToList();
-            List4 = new ObservableCollection<Room>(lsRoom3);
-
-           
 
             //var lsRoom = (from p in DataProvider.Ins.DB.Phongs
             //              join c in DataProvider.Ins.DB.PhieuThues on p.ID equals c.ID into r
@@ -128,7 +108,7 @@ namespace QuanLyKhachSan.ViewModel
             //              };
 
             //List<Phong> R1 = DataProvider.Ins.DB.Phongs.Where(x => x.MaLoaiPhong == 1).ToList();
-            //List = new ObservableCollection<Room>(R1);
+            //List = new ObservableCollection<Phong>(R1);
 
             //List<Phong> R2 = DataProvider.Ins.DB.Phongs.Where(x => x.MaLoaiPhong == 2).ToList();
             //List2 = new ObservableCollection<Room>(R2);
