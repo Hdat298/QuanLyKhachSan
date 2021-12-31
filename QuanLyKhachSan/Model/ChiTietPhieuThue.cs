@@ -20,9 +20,10 @@ namespace QuanLyKhachSan.Model
         public Nullable<int> MaPhieuThue { get; set; }
         public Nullable<System.DateTime> NgayBD { get; set; }
         public Nullable<System.DateTime> NgayKT { get; set; }
+        public string TrangThai { get; set; }
         public Nullable<int> TienPhong { get; set; }
     
+        public virtual PhieuThue PhieuThue { get; set; }
         public virtual Phong Phong { get; set; }
-        public virtual Phong Phong1 { get; set; }
     }
 }

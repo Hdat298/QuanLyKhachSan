@@ -18,7 +18,6 @@ namespace QuanLyKhachSan.Model
         public Phong()
         {
             this.ChiTietPhieuThues = new HashSet<ChiTietPhieuThue>();
-            this.ChiTietPhieuThues1 = new HashSet<ChiTietPhieuThue>();
             this.ChiTietTienNghis = new HashSet<ChiTietTienNghi>();
             this.HoaDons = new HashSet<HoaDon>();
         }
@@ -31,8 +30,6 @@ namespace QuanLyKhachSan.Model
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietPhieuThue> ChiTietPhieuThues { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChiTietPhieuThue> ChiTietPhieuThues1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietTienNghi> ChiTietTienNghis { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

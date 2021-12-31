@@ -4,24 +4,22 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="79a5760ac3024d3fb5ff83859a56f577" Name="Diagram1">
-        <EntityTypeShape EntityType="QLKSModel.BoPhan" Width="1.5" PointX="0.75" PointY="6.25" />
-        <EntityTypeShape EntityType="QLKSModel.ChiTietPhieuThue" Width="1.5" PointX="12.25" PointY="6.625" />
-        <EntityTypeShape EntityType="QLKSModel.ChiTietTienNghi" Width="1.5" PointX="12.25" PointY="11.625" />
-        <EntityTypeShape EntityType="QLKSModel.DichVu" Width="1.5" PointX="3" PointY="13.5" />
-        <EntityTypeShape EntityType="QLKSModel.GioiTinh" Width="1.5" PointX="0.75" PointY="9.625" />
-        <EntityTypeShape EntityType="QLKSModel.HoaDon" Width="1.5" PointX="15.25" PointY="6.875" />
-        <EntityTypeShape EntityType="QLKSModel.KhachHang" Width="1.5" PointX="3" PointY="0.75" />
-        <EntityTypeShape EntityType="QLKSModel.LoaiDichVu" Width="1.5" PointX="0.75" PointY="13.875" />
-        <EntityTypeShape EntityType="QLKSModel.LoaiPhong" Width="1.5" PointX="7.75" PointY="6.875" />
-        <EntityTypeShape EntityType="QLKSModel.LoaiTK" Width="1.5" PointX="0.75" PointY="3" />
-        <EntityTypeShape EntityType="QLKSModel.NhaCungCap" Width="1.5" PointX="3" PointY="10.375" />
-        <EntityTypeShape EntityType="QLKSModel.NhanVien" Width="1.5" PointX="3" PointY="5" />
-        <EntityTypeShape EntityType="QLKSModel.PhieuNhapDichVu" Width="1.5" PointX="5.25" PointY="6.125" />
-        <EntityTypeShape EntityType="QLKSModel.PhieuNhapTienNghi" Width="1.5" PointX="5.25" PointY="9.125" />
-        <EntityTypeShape EntityType="QLKSModel.PhieuThue" Width="1.5" PointX="5.25" PointY="3" />
-        <EntityTypeShape EntityType="QLKSModel.Phong" Width="1.5" PointX="10" PointY="6.5" />
-        <EntityTypeShape EntityType="QLKSModel.TienNghi" Width="1.5" PointX="3" PointY="17.25" />
+      <Diagram DiagramId="79a5760ac3024d3fb5ff83859a56f577" Name="Diagram1" ZoomLevel="48">
+        <EntityTypeShape EntityType="QLKSModel.BoPhan" Width="1.5" PointX="1.5" PointY="23.375" />
+        <EntityTypeShape EntityType="QLKSModel.ChiTietPhieuThue" Width="1.5" PointX="5.25" PointY="7.125" />
+        <EntityTypeShape EntityType="QLKSModel.ChiTietTienNghi" Width="1.5" PointX="8.25" PointY="7.375" />
+        <EntityTypeShape EntityType="QLKSModel.DichVu" Width="1.5" PointX="3" PointY="15" />
+        <EntityTypeShape EntityType="QLKSModel.GioiTinh" Width="1.5" PointX="1.5" PointY="20.875" />
+        <EntityTypeShape EntityType="QLKSModel.HoaDon" Width="1.5" PointX="5.25" PointY="3.125" />
+        <EntityTypeShape EntityType="QLKSModel.KhachHang" Width="1.5" PointX="3" PointY="11.25" />
+        <EntityTypeShape EntityType="QLKSModel.LoaiDichVu" Width="1.5" PointX="0.75" PointY="15.25" />
+        <EntityTypeShape EntityType="QLKSModel.LoaiPhong" Width="1.5" PointX="0.75" PointY="7.5" />
+        <EntityTypeShape EntityType="QLKSModel.LoaiTK" Width="1.5" PointX="1.5" PointY="18.375" />
+        <EntityTypeShape EntityType="QLKSModel.NhaCungCap" Width="1.5" PointX="7.75" PointY="3.125" />
+        <EntityTypeShape EntityType="QLKSModel.NhanVien" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="QLKSModel.PhieuThue" Width="1.5" PointX="3" PointY="1.25" />
+        <EntityTypeShape EntityType="QLKSModel.Phong" Width="1.5" PointX="3" PointY="7.25" />
+        <EntityTypeShape EntityType="QLKSModel.TienNghi" Width="1.5" PointX="6" PointY="11.625" />
         <AssociationConnector Association="QLKSModel.FK__NhanVien__MaBoPh__3D5E1FD2" />
         <AssociationConnector Association="QLKSModel.FK__ChiTietPh__MaPhi__4E88ABD4" />
         <AssociationConnector Association="QLKSModel.FK__ChiTietPh__MaPho__4D94879B" />
@@ -29,19 +27,13 @@
         <AssociationConnector Association="QLKSModel.FK__ChiTietTi__MaTie__5DCAEF64" />
         <AssociationConnector Association="QLKSModel.FK__DichVu__MaLoaiDi__5535A963" />
         <AssociationConnector Association="QLKSModel.FK__HoaDon__MaDichVu__6383C8BA" />
-        <AssociationConnector Association="QLKSModel.FK__PhieuNhap__MaDic__66603565" />
         <AssociationConnector Association="QLKSModel.FK__NhanVien__Phai__3F466844" />
         <AssociationConnector Association="QLKSModel.FK__HoaDon__MaKhachH__628FA481" />
         <AssociationConnector Association="QLKSModel.FK__HoaDon__MaPhong__619B8048" />
         <AssociationConnector Association="QLKSModel.FK__PhieuThue__MaKha__49C3F6B7" />
         <AssociationConnector Association="QLKSModel.FK__Phong__MaLoaiPho__46E78A0C" />
         <AssociationConnector Association="QLKSModel.FK__NhanVien__MaTaiK__3E52440B" />
-        <AssociationConnector Association="QLKSModel.FK__PhieuNhap__MaNha__6754599E" />
-        <AssociationConnector Association="QLKSModel.FK__PhieuNhap__MaNha__6C190EBB" />
-        <AssociationConnector Association="QLKSModel.FK__PhieuNhap__MaNha__68487DD7" />
-        <AssociationConnector Association="QLKSModel.FK__PhieuNhap__MaNha__6D0D32F4" />
         <AssociationConnector Association="QLKSModel.FK__PhieuThue__MaNha__4AB81AF0" />
-        <AssociationConnector Association="QLKSModel.FK__PhieuNhap__MaTie__6B24EA82" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

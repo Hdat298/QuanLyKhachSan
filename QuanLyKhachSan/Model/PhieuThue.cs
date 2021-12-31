@@ -14,12 +14,20 @@ namespace QuanLyKhachSan.Model
     
     public partial class PhieuThue
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public PhieuThue()
+        {
+            this.ChiTietPhieuThues = new HashSet<ChiTietPhieuThue>();
+        }
+    
         public int ID { get; set; }
         public string MaPhieuThue { get; set; }
         public System.DateTime Ngaylap { get; set; }
         public Nullable<int> MaKhachHang { get; set; }
         public Nullable<int> MaNhanVien { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ChiTietPhieuThue> ChiTietPhieuThues { get; set; }
         public virtual KhachHang KhachHang { get; set; }
         public virtual NhanVien NhanVien { get; set; }
     }

@@ -17,8 +17,6 @@ namespace QuanLyKhachSan.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public NhanVien()
         {
-            this.PhieuNhapDichVus = new HashSet<PhieuNhapDichVu>();
-            this.PhieuNhapTienNghis = new HashSet<PhieuNhapTienNghi>();
             this.PhieuThues = new HashSet<PhieuThue>();
         }
     
@@ -38,10 +36,6 @@ namespace QuanLyKhachSan.Model
         public virtual BoPhan BoPhan { get; set; }
         public virtual GioiTinh GioiTinh { get; set; }
         public virtual LoaiTK LoaiTK { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PhieuNhapDichVu> PhieuNhapDichVus { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PhieuNhapTienNghi> PhieuNhapTienNghis { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PhieuThue> PhieuThues { get; set; }
     }

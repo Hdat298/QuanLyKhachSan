@@ -33,23 +33,55 @@ namespace QuanLyKhachSan.ViewModel
 
         public RoomViewModel()
         {
-            var lsRoom = (from p in DataProvider.Ins.DB.Phongs
-                          join c in DataProvider.Ins.DB.ChiTietPhieuThues on p.ID equals c.MaPhong into r
-                          from x in r.DefaultIfEmpty()
-                          join i in DataProvider.Ins.DB.PhieuThues on x.MaPhieuThue equals i.ID into k
-                          from a in k.DefaultIfEmpty()
-                          join b in DataProvider.Ins.DB.KhachHangs on a.MaKhachHang equals b.ID into o
-                          from q in o.DefaultIfEmpty()
-                          where p.MaLoaiPhong == 1
-                          select new Room
-                          {
-                              MaPhong = p.MaPhong,
-                              TinhTrangPhong = p.TinhTrangPhong,
-                              TenKH = q.TenKhachHang == null ? "" : q.TenKhachHang
-                          }).ToList();
-            List1 = new ObservableCollection<Room>(lsRoom);
+            var lsCTPT = DataProvider.Ins.DB.ChiTietPhieuThues.Where(p => p.TrangThai.CompareTo("Đã thanh toán") != 0).AsEnumerable();
 
-           
+            var ls = (from p in DataProvider.Ins.DB.Phongs
+                      join ct in lsCTPT on p.ID equals ct.MaPhong into t
+                      from ct in t.DefaultIfEmpty()
+                      where p.MaLoaiPhong == 1
+                      select new Room()
+                      {
+                          MaCTPT = ct.MaChiTietPhieuThue,
+                          TenKH = (ct.PhieuThue.KhachHang.TenKhachHang == null) ? "" : ct.PhieuThue.KhachHang.TenKhachHang,
+                          MaPhong = p.MaPhong,
+                          TrangThai = (ct.TrangThai == null) ? "Phòng trống" : "Phòng đang thuê",
+                      }
+                      ).ToList();
+            List1 = new ObservableCollection<Room>(ls);
+            //var lsCTPT = DataProvider.Ins.DB.ChiTietPhieuThues.Where(p => p.TinhTrangThue.CompareTo("Đã thanh toán") != 0).AsEnumerable();
+
+            //var ls = (from p in DataProvider.Ins.DB.Phongs
+            //          join ct in lsCTPT on p.ID equals ct.MaPhong into t
+            //          from ct in t.DefaultIfEmpty()
+            //          where p.MaLoaiPhong == 1
+            //          select new Room()
+            //          {
+            //              MaCTPT = ct.MaChiTietPhieuThue,
+            //              TenKH = (ct.PhieuThue.KhachHang.TenKhachHang == null) ? "" : ct.PhieuThue.KhachHang.TenKhachHang,
+            //              MaPhong = p.MaPhong,
+            //              TinhTrangPhong = p.TinhTrangPhong,
+            //              TinhTrangThue = (ct.TinhTrangThue == null ) ? "Phòng trống" : ct.TinhTrangThue,
+            //          }
+            //          ).ToList();
+            //List1 = new ObservableCollection<Room>(ls);
+
+            //var lsRoom = (from p in DataProvider.Ins.DB.Phongs
+            //              join c in DataProvider.Ins.DB.ChiTietPhieuThues on p.ID equals c.MaPhong into r
+            //              from x in r.DefaultIfEmpty()
+            //              join i in DataProvider.Ins.DB.PhieuThues on x.MaPhieuThue equals i.ID into k
+            //              from a in k.DefaultIfEmpty()
+            //              join b in DataProvider.Ins.DB.KhachHangs on a.MaKhachHang equals b.ID into o
+            //              from q in o.DefaultIfEmpty()
+            //              where p.MaLoaiPhong == 1
+            //              select new Room
+            //              {
+            //                  MaPhong = p.MaPhong,
+            //                  TinhTrangPhong = p.TinhTrangPhong,
+            //                  TenKH = q.TenKhachHang == null ? "" : q.TenKhachHang
+            //              }).ToList();
+            //List1 = new ObservableCollection<Room>(lsRoom);
+
+
 
             //var lsRoom = (from p in DataProvider.Ins.DB.Phongs
             //              join c in DataProvider.Ins.DB.PhieuThues on p.ID equals c.ID into r

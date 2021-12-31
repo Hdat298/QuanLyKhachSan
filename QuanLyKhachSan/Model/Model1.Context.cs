@@ -37,8 +37,6 @@ namespace QuanLyKhachSan.Model
         public virtual DbSet<LoaiTK> LoaiTKs { get; set; }
         public virtual DbSet<NhaCungCap> NhaCungCaps { get; set; }
         public virtual DbSet<NhanVien> NhanViens { get; set; }
-        public virtual DbSet<PhieuNhapDichVu> PhieuNhapDichVus { get; set; }
-        public virtual DbSet<PhieuNhapTienNghi> PhieuNhapTienNghis { get; set; }
         public virtual DbSet<PhieuThue> PhieuThues { get; set; }
         public virtual DbSet<Phong> Phongs { get; set; }
         public virtual DbSet<TienNghi> TienNghis { get; set; }

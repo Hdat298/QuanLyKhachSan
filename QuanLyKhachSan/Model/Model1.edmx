@@ -24,6 +24,7 @@
           <Property Name="MaPhieuThue" Type="int" />
           <Property Name="NgayBD" Type="date" />
           <Property Name="NgayKT" Type="date" />
+          <Property Name="TrangThai" Type="nvarchar" MaxLength="20" />
           <Property Name="TienPhong" Type="int" />
         </EntityType>
         <EntityType Name="ChiTietTienNghi">
@@ -132,24 +133,6 @@
           <Property Name="TenTaiKhoan" Type="varchar" MaxLength="15" Nullable="false" />
           <Property Name="MatKhau" Type="varchar" MaxLength="20" Nullable="false" />
         </EntityType>
-        <EntityType Name="PhieuNhapDichVu">
-          <Key>
-            <PropertyRef Name="MaDichVu" />
-            <PropertyRef Name="MaNhaCungCap" />
-          </Key>
-          <Property Name="MaDichVu" Type="int" Nullable="false" />
-          <Property Name="MaNhaCungCap" Type="int" Nullable="false" />
-          <Property Name="MaNhanVien" Type="int" />
-        </EntityType>
-        <EntityType Name="PhieuNhapTienNghi">
-          <Key>
-            <PropertyRef Name="MaTienNghi" />
-            <PropertyRef Name="MaNhaCungCap" />
-          </Key>
-          <Property Name="MaTienNghi" Type="int" Nullable="false" />
-          <Property Name="MaNhaCungCap" Type="int" Nullable="false" />
-          <Property Name="MaNhanVien" Type="int" />
-        </EntityType>
         <EntityType Name="PhieuThue">
           <Key>
             <PropertyRef Name="ID" />
@@ -179,10 +162,10 @@
           <Property Name="TenTienNghi" Type="nvarchar" MaxLength="25" Nullable="false" />
         </EntityType>
         <Association Name="FK__ChiTietPh__MaPhi__4E88ABD4">
-          <End Role="Phong" Type="Self.Phong" Multiplicity="0..1" />
+          <End Role="PhieuThue" Type="Self.PhieuThue" Multiplicity="0..1" />
           <End Role="ChiTietPhieuThue" Type="Self.ChiTietPhieuThue" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Phong">
+            <Principal Role="PhieuThue">
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="ChiTietPhieuThue">
@@ -310,78 +293,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PhieuNhap__MaDic__66603565">
-          <End Role="DichVu" Type="Self.DichVu" Multiplicity="1" />
-          <End Role="PhieuNhapDichVu" Type="Self.PhieuNhapDichVu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DichVu">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="PhieuNhapDichVu">
-              <PropertyRef Name="MaDichVu" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__PhieuNhap__MaNha__6754599E">
-          <End Role="NhaCungCap" Type="Self.NhaCungCap" Multiplicity="1" />
-          <End Role="PhieuNhapDichVu" Type="Self.PhieuNhapDichVu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="NhaCungCap">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="PhieuNhapDichVu">
-              <PropertyRef Name="MaNhaCungCap" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__PhieuNhap__MaNha__68487DD7">
-          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="0..1" />
-          <End Role="PhieuNhapDichVu" Type="Self.PhieuNhapDichVu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="NhanVien">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="PhieuNhapDichVu">
-              <PropertyRef Name="MaNhanVien" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__PhieuNhap__MaNha__6C190EBB">
-          <End Role="NhaCungCap" Type="Self.NhaCungCap" Multiplicity="1" />
-          <End Role="PhieuNhapTienNghi" Type="Self.PhieuNhapTienNghi" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="NhaCungCap">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="PhieuNhapTienNghi">
-              <PropertyRef Name="MaNhaCungCap" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__PhieuNhap__MaNha__6D0D32F4">
-          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="0..1" />
-          <End Role="PhieuNhapTienNghi" Type="Self.PhieuNhapTienNghi" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="NhanVien">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="PhieuNhapTienNghi">
-              <PropertyRef Name="MaNhanVien" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__PhieuNhap__MaTie__6B24EA82">
-          <End Role="TienNghi" Type="Self.TienNghi" Multiplicity="1" />
-          <End Role="PhieuNhapTienNghi" Type="Self.PhieuNhapTienNghi" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TienNghi">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="PhieuNhapTienNghi">
-              <PropertyRef Name="MaTienNghi" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__PhieuThue__MaKha__49C3F6B7">
           <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
           <End Role="PhieuThue" Type="Self.PhieuThue" Multiplicity="*" />
@@ -431,13 +342,11 @@
           <EntitySet Name="LoaiTK" EntityType="Self.LoaiTK" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NhaCungCap" EntityType="Self.NhaCungCap" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NhanVien" EntityType="Self.NhanVien" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PhieuNhapDichVu" EntityType="Self.PhieuNhapDichVu" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PhieuNhapTienNghi" EntityType="Self.PhieuNhapTienNghi" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PhieuThue" EntityType="Self.PhieuThue" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Phong" EntityType="Self.Phong" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TienNghi" EntityType="Self.TienNghi" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__ChiTietPh__MaPhi__4E88ABD4" Association="Self.FK__ChiTietPh__MaPhi__4E88ABD4">
-            <End Role="Phong" EntitySet="Phong" />
+            <End Role="PhieuThue" EntitySet="PhieuThue" />
             <End Role="ChiTietPhieuThue" EntitySet="ChiTietPhieuThue" />
           </AssociationSet>
           <AssociationSet Name="FK__ChiTietPh__MaPho__4D94879B" Association="Self.FK__ChiTietPh__MaPho__4D94879B">
@@ -480,30 +389,6 @@
             <End Role="GioiTinh" EntitySet="GioiTinh" />
             <End Role="NhanVien" EntitySet="NhanVien" />
           </AssociationSet>
-          <AssociationSet Name="FK__PhieuNhap__MaDic__66603565" Association="Self.FK__PhieuNhap__MaDic__66603565">
-            <End Role="DichVu" EntitySet="DichVu" />
-            <End Role="PhieuNhapDichVu" EntitySet="PhieuNhapDichVu" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PhieuNhap__MaNha__6754599E" Association="Self.FK__PhieuNhap__MaNha__6754599E">
-            <End Role="NhaCungCap" EntitySet="NhaCungCap" />
-            <End Role="PhieuNhapDichVu" EntitySet="PhieuNhapDichVu" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PhieuNhap__MaNha__68487DD7" Association="Self.FK__PhieuNhap__MaNha__68487DD7">
-            <End Role="NhanVien" EntitySet="NhanVien" />
-            <End Role="PhieuNhapDichVu" EntitySet="PhieuNhapDichVu" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PhieuNhap__MaNha__6C190EBB" Association="Self.FK__PhieuNhap__MaNha__6C190EBB">
-            <End Role="NhaCungCap" EntitySet="NhaCungCap" />
-            <End Role="PhieuNhapTienNghi" EntitySet="PhieuNhapTienNghi" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PhieuNhap__MaNha__6D0D32F4" Association="Self.FK__PhieuNhap__MaNha__6D0D32F4">
-            <End Role="NhanVien" EntitySet="NhanVien" />
-            <End Role="PhieuNhapTienNghi" EntitySet="PhieuNhapTienNghi" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PhieuNhap__MaTie__6B24EA82" Association="Self.FK__PhieuNhap__MaTie__6B24EA82">
-            <End Role="TienNghi" EntitySet="TienNghi" />
-            <End Role="PhieuNhapTienNghi" EntitySet="PhieuNhapTienNghi" />
-          </AssociationSet>
           <AssociationSet Name="FK__PhieuThue__MaKha__49C3F6B7" Association="Self.FK__PhieuThue__MaKha__49C3F6B7">
             <End Role="KhachHang" EntitySet="KhachHang" />
             <End Role="PhieuThue" EntitySet="PhieuThue" />
@@ -534,8 +419,6 @@
           <EntitySet Name="LoaiTKs" EntityType="QLKSModel.LoaiTK" />
           <EntitySet Name="NhaCungCaps" EntityType="QLKSModel.NhaCungCap" />
           <EntitySet Name="NhanViens" EntityType="QLKSModel.NhanVien" />
-          <EntitySet Name="PhieuNhapDichVus" EntityType="QLKSModel.PhieuNhapDichVu" />
-          <EntitySet Name="PhieuNhapTienNghis" EntityType="QLKSModel.PhieuNhapTienNghi" />
           <EntitySet Name="PhieuThues" EntityType="QLKSModel.PhieuThue" />
           <EntitySet Name="Phongs" EntityType="QLKSModel.Phong" />
           <EntitySet Name="TienNghis" EntityType="QLKSModel.TienNghi" />
@@ -544,7 +427,7 @@
             <End Role="NhanVien" EntitySet="NhanViens" />
           </AssociationSet>
           <AssociationSet Name="FK__ChiTietPh__MaPhi__4E88ABD4" Association="QLKSModel.FK__ChiTietPh__MaPhi__4E88ABD4">
-            <End Role="Phong" EntitySet="Phongs" />
+            <End Role="PhieuThue" EntitySet="PhieuThues" />
             <End Role="ChiTietPhieuThue" EntitySet="ChiTietPhieuThues" />
           </AssociationSet>
           <AssociationSet Name="FK__ChiTietPh__MaPho__4D94879B" Association="QLKSModel.FK__ChiTietPh__MaPho__4D94879B">
@@ -566,10 +449,6 @@
           <AssociationSet Name="FK__HoaDon__MaDichVu__6383C8BA" Association="QLKSModel.FK__HoaDon__MaDichVu__6383C8BA">
             <End Role="DichVu" EntitySet="DichVus" />
             <End Role="HoaDon" EntitySet="HoaDons" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PhieuNhap__MaDic__66603565" Association="QLKSModel.FK__PhieuNhap__MaDic__66603565">
-            <End Role="DichVu" EntitySet="DichVus" />
-            <End Role="PhieuNhapDichVu" EntitySet="PhieuNhapDichVus" />
           </AssociationSet>
           <AssociationSet Name="FK__NhanVien__Phai__3F466844" Association="QLKSModel.FK__NhanVien__Phai__3F466844">
             <End Role="GioiTinh" EntitySet="GioiTinhs" />
@@ -595,29 +474,9 @@
             <End Role="LoaiTK" EntitySet="LoaiTKs" />
             <End Role="NhanVien" EntitySet="NhanViens" />
           </AssociationSet>
-          <AssociationSet Name="FK__PhieuNhap__MaNha__6754599E" Association="QLKSModel.FK__PhieuNhap__MaNha__6754599E">
-            <End Role="NhaCungCap" EntitySet="NhaCungCaps" />
-            <End Role="PhieuNhapDichVu" EntitySet="PhieuNhapDichVus" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PhieuNhap__MaNha__6C190EBB" Association="QLKSModel.FK__PhieuNhap__MaNha__6C190EBB">
-            <End Role="NhaCungCap" EntitySet="NhaCungCaps" />
-            <End Role="PhieuNhapTienNghi" EntitySet="PhieuNhapTienNghis" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PhieuNhap__MaNha__68487DD7" Association="QLKSModel.FK__PhieuNhap__MaNha__68487DD7">
-            <End Role="NhanVien" EntitySet="NhanViens" />
-            <End Role="PhieuNhapDichVu" EntitySet="PhieuNhapDichVus" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PhieuNhap__MaNha__6D0D32F4" Association="QLKSModel.FK__PhieuNhap__MaNha__6D0D32F4">
-            <End Role="NhanVien" EntitySet="NhanViens" />
-            <End Role="PhieuNhapTienNghi" EntitySet="PhieuNhapTienNghis" />
-          </AssociationSet>
           <AssociationSet Name="FK__PhieuThue__MaNha__4AB81AF0" Association="QLKSModel.FK__PhieuThue__MaNha__4AB81AF0">
             <End Role="NhanVien" EntitySet="NhanViens" />
             <End Role="PhieuThue" EntitySet="PhieuThues" />
-          </AssociationSet>
-          <AssociationSet Name="FK__PhieuNhap__MaTie__6B24EA82" Association="QLKSModel.FK__PhieuNhap__MaTie__6B24EA82">
-            <End Role="TienNghi" EntitySet="TienNghis" />
-            <End Role="PhieuNhapTienNghi" EntitySet="PhieuNhapTienNghis" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="BoPhan">
@@ -640,9 +499,10 @@
           <Property Name="MaPhieuThue" Type="Int32" />
           <Property Name="NgayBD" Type="DateTime" Precision="0" />
           <Property Name="NgayKT" Type="DateTime" Precision="0" />
+          <Property Name="TrangThai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="TienPhong" Type="Int32" />
-          <NavigationProperty Name="Phong" Relationship="QLKSModel.FK__ChiTietPh__MaPhi__4E88ABD4" FromRole="ChiTietPhieuThue" ToRole="Phong" />
-          <NavigationProperty Name="Phong1" Relationship="QLKSModel.FK__ChiTietPh__MaPho__4D94879B" FromRole="ChiTietPhieuThue" ToRole="Phong" />
+          <NavigationProperty Name="PhieuThue" Relationship="QLKSModel.FK__ChiTietPh__MaPhi__4E88ABD4" FromRole="ChiTietPhieuThue" ToRole="PhieuThue" />
+          <NavigationProperty Name="Phong" Relationship="QLKSModel.FK__ChiTietPh__MaPho__4D94879B" FromRole="ChiTietPhieuThue" ToRole="Phong" />
         </EntityType>
         <EntityType Name="ChiTietTienNghi">
           <Key>
@@ -667,7 +527,6 @@
           <Property Name="MaLoaiDichVu" Type="Int32" />
           <NavigationProperty Name="LoaiDichVu" Relationship="QLKSModel.FK__DichVu__MaLoaiDi__5535A963" FromRole="DichVu" ToRole="LoaiDichVu" />
           <NavigationProperty Name="HoaDons" Relationship="QLKSModel.FK__HoaDon__MaDichVu__6383C8BA" FromRole="DichVu" ToRole="HoaDon" />
-          <NavigationProperty Name="PhieuNhapDichVus" Relationship="QLKSModel.FK__PhieuNhap__MaDic__66603565" FromRole="DichVu" ToRole="PhieuNhapDichVu" />
         </EntityType>
         <EntityType Name="GioiTinh">
           <Key>
@@ -746,8 +605,6 @@
           <Property Name="TenNhaCungCap" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="DiaChi" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
           <Property Name="SDT" Type="String" Nullable="false" MaxLength="15" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="PhieuNhapDichVus" Relationship="QLKSModel.FK__PhieuNhap__MaNha__6754599E" FromRole="NhaCungCap" ToRole="PhieuNhapDichVu" />
-          <NavigationProperty Name="PhieuNhapTienNghis" Relationship="QLKSModel.FK__PhieuNhap__MaNha__6C190EBB" FromRole="NhaCungCap" ToRole="PhieuNhapTienNghi" />
         </EntityType>
         <EntityType Name="NhanVien">
           <Key>
@@ -768,33 +625,7 @@
           <NavigationProperty Name="BoPhan" Relationship="QLKSModel.FK__NhanVien__MaBoPh__3D5E1FD2" FromRole="NhanVien" ToRole="BoPhan" />
           <NavigationProperty Name="GioiTinh" Relationship="QLKSModel.FK__NhanVien__Phai__3F466844" FromRole="NhanVien" ToRole="GioiTinh" />
           <NavigationProperty Name="LoaiTK" Relationship="QLKSModel.FK__NhanVien__MaTaiK__3E52440B" FromRole="NhanVien" ToRole="LoaiTK" />
-          <NavigationProperty Name="PhieuNhapDichVus" Relationship="QLKSModel.FK__PhieuNhap__MaNha__68487DD7" FromRole="NhanVien" ToRole="PhieuNhapDichVu" />
-          <NavigationProperty Name="PhieuNhapTienNghis" Relationship="QLKSModel.FK__PhieuNhap__MaNha__6D0D32F4" FromRole="NhanVien" ToRole="PhieuNhapTienNghi" />
           <NavigationProperty Name="PhieuThues" Relationship="QLKSModel.FK__PhieuThue__MaNha__4AB81AF0" FromRole="NhanVien" ToRole="PhieuThue" />
-        </EntityType>
-        <EntityType Name="PhieuNhapDichVu">
-          <Key>
-            <PropertyRef Name="MaDichVu" />
-            <PropertyRef Name="MaNhaCungCap" />
-          </Key>
-          <Property Name="MaDichVu" Type="Int32" Nullable="false" />
-          <Property Name="MaNhaCungCap" Type="Int32" Nullable="false" />
-          <Property Name="MaNhanVien" Type="Int32" />
-          <NavigationProperty Name="DichVu" Relationship="QLKSModel.FK__PhieuNhap__MaDic__66603565" FromRole="PhieuNhapDichVu" ToRole="DichVu" />
-          <NavigationProperty Name="NhaCungCap" Relationship="QLKSModel.FK__PhieuNhap__MaNha__6754599E" FromRole="PhieuNhapDichVu" ToRole="NhaCungCap" />
-          <NavigationProperty Name="NhanVien" Relationship="QLKSModel.FK__PhieuNhap__MaNha__68487DD7" FromRole="PhieuNhapDichVu" ToRole="NhanVien" />
-        </EntityType>
-        <EntityType Name="PhieuNhapTienNghi">
-          <Key>
-            <PropertyRef Name="MaTienNghi" />
-            <PropertyRef Name="MaNhaCungCap" />
-          </Key>
-          <Property Name="MaTienNghi" Type="Int32" Nullable="false" />
-          <Property Name="MaNhaCungCap" Type="Int32" Nullable="false" />
-          <Property Name="MaNhanVien" Type="Int32" />
-          <NavigationProperty Name="NhaCungCap" Relationship="QLKSModel.FK__PhieuNhap__MaNha__6C190EBB" FromRole="PhieuNhapTienNghi" ToRole="NhaCungCap" />
-          <NavigationProperty Name="NhanVien" Relationship="QLKSModel.FK__PhieuNhap__MaNha__6D0D32F4" FromRole="PhieuNhapTienNghi" ToRole="NhanVien" />
-          <NavigationProperty Name="TienNghi" Relationship="QLKSModel.FK__PhieuNhap__MaTie__6B24EA82" FromRole="PhieuNhapTienNghi" ToRole="TienNghi" />
         </EntityType>
         <EntityType Name="PhieuThue">
           <Key>
@@ -805,6 +636,7 @@
           <Property Name="Ngaylap" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="MaKhachHang" Type="Int32" />
           <Property Name="MaNhanVien" Type="Int32" />
+          <NavigationProperty Name="ChiTietPhieuThues" Relationship="QLKSModel.FK__ChiTietPh__MaPhi__4E88ABD4" FromRole="PhieuThue" ToRole="ChiTietPhieuThue" />
           <NavigationProperty Name="KhachHang" Relationship="QLKSModel.FK__PhieuThue__MaKha__49C3F6B7" FromRole="PhieuThue" ToRole="KhachHang" />
           <NavigationProperty Name="NhanVien" Relationship="QLKSModel.FK__PhieuThue__MaNha__4AB81AF0" FromRole="PhieuThue" ToRole="NhanVien" />
         </EntityType>
@@ -817,8 +649,7 @@
           <Property Name="MaLoaiPhong" Type="Int32" />
           <Property Name="SoPhong" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
           <Property Name="TinhTrangPhong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="ChiTietPhieuThues" Relationship="QLKSModel.FK__ChiTietPh__MaPhi__4E88ABD4" FromRole="Phong" ToRole="ChiTietPhieuThue" />
-          <NavigationProperty Name="ChiTietPhieuThues1" Relationship="QLKSModel.FK__ChiTietPh__MaPho__4D94879B" FromRole="Phong" ToRole="ChiTietPhieuThue" />
+          <NavigationProperty Name="ChiTietPhieuThues" Relationship="QLKSModel.FK__ChiTietPh__MaPho__4D94879B" FromRole="Phong" ToRole="ChiTietPhieuThue" />
           <NavigationProperty Name="ChiTietTienNghis" Relationship="QLKSModel.FK__ChiTietTi__MaPho__5EBF139D" FromRole="Phong" ToRole="ChiTietTienNghi" />
           <NavigationProperty Name="HoaDons" Relationship="QLKSModel.FK__HoaDon__MaPhong__619B8048" FromRole="Phong" ToRole="HoaDon" />
           <NavigationProperty Name="LoaiPhong" Relationship="QLKSModel.FK__Phong__MaLoaiPho__46E78A0C" FromRole="Phong" ToRole="LoaiPhong" />
@@ -831,7 +662,6 @@
           <Property Name="MaTienNghi" Type="String" MaxLength="6" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
           <Property Name="TenTienNghi" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ChiTietTienNghis" Relationship="QLKSModel.FK__ChiTietTi__MaTie__5DCAEF64" FromRole="TienNghi" ToRole="ChiTietTienNghi" />
-          <NavigationProperty Name="PhieuNhapTienNghis" Relationship="QLKSModel.FK__PhieuNhap__MaTie__6B24EA82" FromRole="TienNghi" ToRole="PhieuNhapTienNghi" />
         </EntityType>
         <Association Name="FK__NhanVien__MaBoPh__3D5E1FD2">
           <End Type="QLKSModel.BoPhan" Role="BoPhan" Multiplicity="0..1" />
@@ -846,10 +676,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__ChiTietPh__MaPhi__4E88ABD4">
-          <End Type="QLKSModel.Phong" Role="Phong" Multiplicity="0..1" />
+          <End Type="QLKSModel.PhieuThue" Role="PhieuThue" Multiplicity="0..1" />
           <End Type="QLKSModel.ChiTietPhieuThue" Role="ChiTietPhieuThue" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Phong">
+            <Principal Role="PhieuThue">
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="ChiTietPhieuThue">
@@ -913,18 +743,6 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="HoaDon">
-              <PropertyRef Name="MaDichVu" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__PhieuNhap__MaDic__66603565">
-          <End Type="QLKSModel.DichVu" Role="DichVu" Multiplicity="1" />
-          <End Type="QLKSModel.PhieuNhapDichVu" Role="PhieuNhapDichVu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DichVu">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="PhieuNhapDichVu">
               <PropertyRef Name="MaDichVu" />
             </Dependent>
           </ReferentialConstraint>
@@ -1001,54 +819,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__PhieuNhap__MaNha__6754599E">
-          <End Type="QLKSModel.NhaCungCap" Role="NhaCungCap" Multiplicity="1" />
-          <End Type="QLKSModel.PhieuNhapDichVu" Role="PhieuNhapDichVu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="NhaCungCap">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="PhieuNhapDichVu">
-              <PropertyRef Name="MaNhaCungCap" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__PhieuNhap__MaNha__6C190EBB">
-          <End Type="QLKSModel.NhaCungCap" Role="NhaCungCap" Multiplicity="1" />
-          <End Type="QLKSModel.PhieuNhapTienNghi" Role="PhieuNhapTienNghi" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="NhaCungCap">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="PhieuNhapTienNghi">
-              <PropertyRef Name="MaNhaCungCap" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__PhieuNhap__MaNha__68487DD7">
-          <End Type="QLKSModel.NhanVien" Role="NhanVien" Multiplicity="0..1" />
-          <End Type="QLKSModel.PhieuNhapDichVu" Role="PhieuNhapDichVu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="NhanVien">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="PhieuNhapDichVu">
-              <PropertyRef Name="MaNhanVien" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__PhieuNhap__MaNha__6D0D32F4">
-          <End Type="QLKSModel.NhanVien" Role="NhanVien" Multiplicity="0..1" />
-          <End Type="QLKSModel.PhieuNhapTienNghi" Role="PhieuNhapTienNghi" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="NhanVien">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="PhieuNhapTienNghi">
-              <PropertyRef Name="MaNhanVien" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__PhieuThue__MaNha__4AB81AF0">
           <End Type="QLKSModel.NhanVien" Role="NhanVien" Multiplicity="0..1" />
           <End Type="QLKSModel.PhieuThue" Role="PhieuThue" Multiplicity="*" />
@@ -1058,18 +828,6 @@
             </Principal>
             <Dependent Role="PhieuThue">
               <PropertyRef Name="MaNhanVien" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__PhieuNhap__MaTie__6B24EA82">
-          <End Type="QLKSModel.TienNghi" Role="TienNghi" Multiplicity="1" />
-          <End Type="QLKSModel.PhieuNhapTienNghi" Role="PhieuNhapTienNghi" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TienNghi">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="PhieuNhapTienNghi">
-              <PropertyRef Name="MaTienNghi" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1093,6 +851,7 @@
             <EntityTypeMapping TypeName="QLKSModel.ChiTietPhieuThue">
               <MappingFragment StoreEntitySet="ChiTietPhieuThue">
                 <ScalarProperty Name="TienPhong" ColumnName="TienPhong" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
                 <ScalarProperty Name="NgayKT" ColumnName="NgayKT" />
                 <ScalarProperty Name="NgayBD" ColumnName="NgayBD" />
                 <ScalarProperty Name="MaPhieuThue" ColumnName="MaPhieuThue" />
@@ -1215,24 +974,6 @@
                 <ScalarProperty Name="TenNhanVien" ColumnName="TenNhanVien" />
                 <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PhieuNhapDichVus">
-            <EntityTypeMapping TypeName="QLKSModel.PhieuNhapDichVu">
-              <MappingFragment StoreEntitySet="PhieuNhapDichVu">
-                <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
-                <ScalarProperty Name="MaNhaCungCap" ColumnName="MaNhaCungCap" />
-                <ScalarProperty Name="MaDichVu" ColumnName="MaDichVu" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PhieuNhapTienNghis">
-            <EntityTypeMapping TypeName="QLKSModel.PhieuNhapTienNghi">
-              <MappingFragment StoreEntitySet="PhieuNhapTienNghi">
-                <ScalarProperty Name="MaNhanVien" ColumnName="MaNhanVien" />
-                <ScalarProperty Name="MaNhaCungCap" ColumnName="MaNhaCungCap" />
-                <ScalarProperty Name="MaTienNghi" ColumnName="MaTienNghi" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

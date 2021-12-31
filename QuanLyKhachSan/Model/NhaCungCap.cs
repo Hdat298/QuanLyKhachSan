@@ -14,22 +14,10 @@ namespace QuanLyKhachSan.Model
     
     public partial class NhaCungCap
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public NhaCungCap()
-        {
-            this.PhieuNhapDichVus = new HashSet<PhieuNhapDichVu>();
-            this.PhieuNhapTienNghis = new HashSet<PhieuNhapTienNghi>();
-        }
-    
         public int ID { get; set; }
         public string MaNhaCungCap { get; set; }
         public string TenNhaCungCap { get; set; }
         public string DiaChi { get; set; }
         public string SDT { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PhieuNhapDichVu> PhieuNhapDichVus { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PhieuNhapTienNghi> PhieuNhapTienNghis { get; set; }
     }
 }
