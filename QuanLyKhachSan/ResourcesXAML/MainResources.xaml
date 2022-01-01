@@ -9,4 +9,5 @@
     <viewmodel:EmployeesViewModel x:Key="EmployeesVM"></viewmodel:EmployeesViewModel>
     <viewmodel:SuplierViewModel x:Key="SuplierVM"></viewmodel:SuplierViewModel>
     <viewmodel:AddServiceRoomViewModel x:Key="AddServiceRoomVM"></viewmodel:AddServiceRoomViewModel>
+    <viewmodel:RDetailViewModel x:Key="RDetailVM"></viewmodel:RDetailViewModel>
 </ResourceDictionary>

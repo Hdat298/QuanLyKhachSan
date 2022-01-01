@@ -16,6 +16,7 @@
         Title="Chi tiết phòng" Height="550" Width="990"
         AllowsTransparency="True" 
         WindowStyle="None"
+        DataContext="{StaticResource RDetailVM}"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         Name="bookRoomWindow">
@@ -127,7 +128,7 @@
                                                         <Setter Property="FontWeight" Value="Bold" />
                                                     </Style>
                                                 </GridView.ColumnHeaderContainerStyle>
-                                                <GridViewColumn  Header="Dịch vụ"  Width="150" DisplayMemberBinding="{Binding TenDV}" />
+                                                <GridViewColumn  Header="Dịch vụ"  Width="150" DisplayMemberBinding="{Binding TenDichVu}" />
                                                 <GridViewColumn Header="SL" Width="50" DisplayMemberBinding="{Binding SoLuong}"  />
                                                 <GridViewColumn Header="Thành tiền" Width="106" DisplayMemberBinding="{Binding ThanhTien , StringFormat={}{0:N0}}"  />
                                             </GridView>
@@ -135,7 +136,7 @@
 
                                     </ListView>
                                 </Grid>
-                                <Button Width="140" Height="37" Background="#478C10" Content="Thêm dịch vụ" BorderThickness="0"   
+                                <Button Command="{Binding ServiceCommand}" Width="140" Height="37" Background="#478C10" Content="Thêm dịch vụ" BorderThickness="0"   
                                     HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="217 0 0 13" Foreground="#F2F1F1">
                                     <Button.Clip>
                                         <RectangleGeometry Rect="0,0,140,37" RadiusX="10" RadiusY="10"/>

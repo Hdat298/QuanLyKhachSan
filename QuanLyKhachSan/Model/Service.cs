@@ -9,10 +9,12 @@ namespace QuanLyKhachSan.Model
 {
     public class Service : BaseViewModel
     {
+        public DichVu DichVu {get; set;}
+
         private string _TenDV;
         public string TenDV { get => _TenDV; set { _TenDV = value; OnPropertyChanged(); } }
-        private string _DonGia;
-        public string DonGia { get => _DonGia; set { _DonGia = value; OnPropertyChanged(); } }
+        private int? _DonGia;
+        public int? DonGia { get => _DonGia; set { _DonGia = value; OnPropertyChanged(); } }
         private string _LoaiDV;
         public string LoaiDV { get => _LoaiDV; set { _LoaiDV = value; OnPropertyChanged(); } }
     }
