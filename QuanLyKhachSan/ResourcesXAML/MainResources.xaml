@@ -8,4 +8,5 @@
     <viewmodel:ServiceViewModel x:Key="ServiceVM"></viewmodel:ServiceViewModel>
     <viewmodel:EmployeesViewModel x:Key="EmployeesVM"></viewmodel:EmployeesViewModel>
     <viewmodel:SuplierViewModel x:Key="SuplierVM"></viewmodel:SuplierViewModel>
+    <viewmodel:AddServiceRoomViewModel x:Key="AddServiceRoomVM"></viewmodel:AddServiceRoomViewModel>
 </ResourceDictionary>

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using QuanLyKhachSan.Model;
+using QuanLyKhachSan.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,19 @@ namespace QuanLyKhachSan.UserControlAll
         public PhongUC()
         {
             InitializeComponent();
+        }
+
+        private void LvPhongDon_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            ListView lv = sender as ListView;
+            Room phong = lv.SelectedItem as Room;
+            if (phong != null)
+            {
+                RoomDetailWindow ct = new RoomDetailWindow();
+                ct.truyenData(phong);
+                ct.ShowDialog();
+                //lv.UnselectAll();
+            }
         }
     }
 }

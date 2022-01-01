@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace QuanLyKhachSan.ViewModel
 {
-    class EmployeesViewModel : BaseViewModel
+    public class EmployeesViewModel : BaseViewModel
     {
         private ObservableCollection<NhanVien> _List;
         public ObservableCollection<NhanVien> List { get => _List; set { _List = value; OnPropertyChanged(); } }

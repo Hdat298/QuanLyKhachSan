@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace QuanLyKhachSan.ViewModel
 {
-    class SuplierViewModel: BaseViewModel
+    public class SuplierViewModel: BaseViewModel
     {
     private ObservableCollection<NhaCungCap> _List;
     public ObservableCollection<NhaCungCap> List { get => _List; set { _List = value; OnPropertyChanged(); } }

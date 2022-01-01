@@ -15,6 +15,7 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         Title="Thêm Dịch Vụ" Height="550" Width="990"
         AllowsTransparency="True" 
+        DataContext="{StaticResource AddServiceRoomVM }"
         WindowStyle="None"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"

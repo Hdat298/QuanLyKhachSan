@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyKhachSan.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,32 @@ namespace QuanLyKhachSan.View
     /// </summary>
     public partial class RoomDetailWindow : Window
     {
+        public delegate void truyenDataPhong(Room phong);
+        public truyenDataPhong truyenData;
+        private Room phong_CTPhong;
+        private string maCTPhieuThue;
+
+
         public RoomDetailWindow()
         {
+            truyenData = new truyenDataPhong(setDataPhongCustom);
             InitializeComponent();
         }
+
+        void setDataPhongCustom(Room phong)
+        {
+            //Nhận dữ liệu từ form cha và gán giá trị lên form con
+            phong_CTPhong = phong;
+            txblTieuDe.Text = phong.MaPhong;
+            txblTenKH.Text = phong.TenKH;
+            {
+                icDayorHour.Kind = MaterialDesignThemes.Wpf.PackIconKind.AlarmCheck;
+            }
+            cbTinhTrang.Text = phong.TrangThai;
+            //Lấy ra mã CT phiếu thuê
+            maCTPhieuThue = phong.MaCTPT;
+
+        }
+        
     }
 }
