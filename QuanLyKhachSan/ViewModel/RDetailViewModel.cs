@@ -13,6 +13,9 @@ namespace QuanLyKhachSan.ViewModel
 {
     public class RDetailViewModel : BaseViewModel
     {
+        public ObservableCollection<Service> lsdichVu_Customs;
+        public ObservableCollection<Service2> lsDichVu_DaChon;
+        List<Service> lsCache;
         public ICommand ServiceCommand { get; set; }
 
 

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using QuanLyKhachSan.Model;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +21,45 @@ namespace QuanLyKhachSan.View
     /// </summary>
     public partial class AddServiceWindow : Window
     {
+
+
+
+        public ObservableCollection<Service> lsdichVu_Customs;
+        public ObservableCollection<Service2> lsDichVu_DaChon;
+        List<Service> lsCache;
+
         public AddServiceWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Service2 sv2 = new Service2();
+            sv2.SoLuong = 1;
+            Service dvct = (sender as Button).DataContext as Service;
+            lsDichVu_DaChon.Add(new Service2() { ThanhTien = dvct.DonGia*sv2.SoLuong, SoLuong = sv2.SoLuong, TenDV = dvct.TenDV, Gia = dvct.DonGia });
+            lsCache.Add(dvct);
+            lsdichVu_Customs.Remove(dvct);
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            var ls = (from dv in DataProvider.Ins.DB.DichVus
+                      join ldv in DataProvider.Ins.DB.LoaiDichVus on dv.MaLoaiDichVu equals ldv.ID into t
+                      from ldv in t.DefaultIfEmpty()
+                      select new Service()
+                      {
+                          TenDV = dv.TenDichVu,
+                          DonGia = dv.DonGia,
+                          LoaiDV = ldv.LoaiDichVu1
+                      }).ToList();
+            lsdichVu_Customs = new ObservableCollection<Service>(ls);
+
+            lsDichVu_DaChon = new ObservableCollection<Service2>();
+            lsCache = new List<Service>();
+            lvDanhSachDV.ItemsSource = lsdichVu_Customs;
+            lvDichVuDaChon.ItemsSource = lsDichVu_DaChon;
         }
     }
 }

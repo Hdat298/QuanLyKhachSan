@@ -9,8 +9,6 @@ namespace QuanLyKhachSan.Model
 {
     public class Service : BaseViewModel
     {
-        public DichVu DichVu {get; set;}
-
         private string _TenDV;
         public string TenDV { get => _TenDV; set { _TenDV = value; OnPropertyChanged(); } }
         private int? _DonGia;
