@@ -14,6 +14,12 @@ namespace QuanLyKhachSan.Model
     
     public partial class ChiTietPhieuThue
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ChiTietPhieuThue()
+        {
+            this.DichVuPhongs = new HashSet<DichVuPhong>();
+        }
+    
         public int ID { get; set; }
         public string MaChiTietPhieuThue { get; set; }
         public Nullable<int> MaPhong { get; set; }
@@ -25,5 +31,7 @@ namespace QuanLyKhachSan.Model
     
         public virtual PhieuThue PhieuThue { get; set; }
         public virtual Phong Phong { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DichVuPhong> DichVuPhongs { get; set; }
     }
 }

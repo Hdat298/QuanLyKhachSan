@@ -17,6 +17,7 @@ namespace QuanLyKhachSan.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DichVu()
         {
+            this.DichVuPhongs = new HashSet<DichVuPhong>();
             this.HoaDons = new HashSet<HoaDon>();
         }
     
@@ -27,6 +28,8 @@ namespace QuanLyKhachSan.Model
         public Nullable<int> MaLoaiDichVu { get; set; }
     
         public virtual LoaiDichVu LoaiDichVu { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DichVuPhong> DichVuPhongs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HoaDon> HoaDons { get; set; }
     }

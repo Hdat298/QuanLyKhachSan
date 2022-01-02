@@ -35,10 +35,8 @@ namespace QuanLyKhachSan.View
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Service2 sv2 = new Service2();
-            sv2.SoLuong = 1;
             Service dvct = (sender as Button).DataContext as Service;
-            lsDichVu_DaChon.Add(new Service2() { ThanhTien = dvct.DonGia*sv2.SoLuong, SoLuong = sv2.SoLuong, TenDV = dvct.TenDV, Gia = dvct.DonGia });
+            lsDichVu_DaChon.Add(new Service2() { ThanhTien = dvct.DonGia, SoLuong = 1, TenDV = dvct.TenDV, Gia = dvct.DonGia });
             lsCache.Add(dvct);
             lsdichVu_Customs.Remove(dvct);
         }
@@ -60,6 +58,14 @@ namespace QuanLyKhachSan.View
             lsCache = new List<Service>();
             lvDanhSachDV.ItemsSource = lsdichVu_Customs;
             lvDichVuDaChon.ItemsSource = lsDichVu_DaChon;
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (var item in lsDichVu_DaChon)
+            {
+
+            }
         }
     }
 }

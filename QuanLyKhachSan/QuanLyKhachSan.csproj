@@ -92,6 +92,9 @@
     <Compile Include="Model\DichVu.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\DichVuPhong.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\GioiTinh.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
