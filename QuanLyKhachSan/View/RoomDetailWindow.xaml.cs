@@ -46,6 +46,11 @@ namespace QuanLyKhachSan.View
             maCTPhieuThue = phong.MaCTPT;
 
         }
-        
+
+        private void Click_Charge(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = true;
+            this.Visibility = Visibility.Hidden;
+        }
     }
 }

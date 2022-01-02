@@ -23,7 +23,7 @@ namespace QuanLyKhachSan.View
     {
 
 
-
+        private int? maCTPhieuThue;
         public ObservableCollection<Service> lsdichVu_Customs;
         public ObservableCollection<Service2> lsDichVu_DaChon;
         List<Service> lsCache;
@@ -36,7 +36,7 @@ namespace QuanLyKhachSan.View
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Service dvct = (sender as Button).DataContext as Service;
-            lsDichVu_DaChon.Add(new Service2() { ThanhTien = dvct.DonGia, SoLuong = 1, TenDV = dvct.TenDV, Gia = dvct.DonGia });
+            lsDichVu_DaChon.Add(new Service2() { ThanhTien = dvct.DonGia, SoLuong = 1, TenDV = dvct.TenDV, Gia = dvct.DonGia, MaDV = dvct.MaDV });
             lsCache.Add(dvct);
             lsdichVu_Customs.Remove(dvct);
         }
@@ -48,6 +48,7 @@ namespace QuanLyKhachSan.View
                       from ldv in t.DefaultIfEmpty()
                       select new Service()
                       {
+                          MaDV = dv.ID,
                           TenDV = dv.TenDichVu,
                           DonGia = dv.DonGia,
                           LoaiDV = ldv.LoaiDichVu1
@@ -64,7 +65,16 @@ namespace QuanLyKhachSan.View
         {
             foreach (var item in lsDichVu_DaChon)
             {
-
+                var dvp = new DichVuPhong()
+                {
+                    //MaChiTietPhieuThue = dvp.MaChiTietPhieuThue,
+                    MaDichVu = item.MaDV,
+                    SoLuong = item.SoLuong == null ? 0 : int.Parse(item.SoLuong.ToString()),
+                    ThanhTien = item.ThanhTien == null ? 0 : int.Parse(item.ThanhTien.ToString())
+                };
+                //DataProvider.Ins.DB.DichVuPhongs.Add(dvp);
+                //DataProvider.Ins.DB.SaveChanges();
+                MessageBox.Show("Thêm Thành Công!");
             }
         }
     }

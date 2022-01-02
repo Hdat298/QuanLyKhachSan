@@ -37,7 +37,7 @@ namespace QuanLyKhachSan.ViewModel
                 return true;
             }, (p) =>
             {
-                var KH = new BoPhan() { TenBoPhan = TenBoPhan, Luong = Luong };
+                var KH = new BoPhan() { TenBoPhan = TenBoPhan, Luong = (int)Luong };
 
                 DataProvider.Ins.DB.BoPhans.Add(KH);
                 DataProvider.Ins.DB.SaveChanges();
