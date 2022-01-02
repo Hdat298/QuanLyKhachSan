@@ -12,23 +12,19 @@ namespace QuanLyKhachSan.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class PhieuThue
+    public partial class GioiTinh
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public PhieuThue()
+        public GioiTinh()
         {
-            this.ChiTietPhieuThues = new HashSet<ChiTietPhieuThue>();
+            this.NhanViens = new HashSet<NhanVien>();
         }
     
         public int ID { get; set; }
-        public string MaPhieuThue { get; set; }
-        public System.DateTime Ngaylap { get; set; }
-        public Nullable<int> MaKhachHang { get; set; }
-        public Nullable<int> MaNhanVien { get; set; }
+        public string MaGioiTinh { get; set; }
+        public string GioiTinh1 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChiTietPhieuThue> ChiTietPhieuThues { get; set; }
-        public virtual KhachHang KhachHang { get; set; }
-        public virtual NhanVien NhanVien { get; set; }
+        public virtual ICollection<NhanVien> NhanViens { get; set; }
     }
 }

@@ -11,4 +11,6 @@
     <viewmodel:PositionsViewModel x:Key="PositionVM"></viewmodel:PositionsViewModel>
     <viewmodel:ConvenientViewModel x:Key="ConvenientVM"></viewmodel:ConvenientViewModel>
     <viewmodel:DetailConvenientViewModel x:Key="DetailConvenientVM"></viewmodel:DetailConvenientViewModel>
+    <viewmodel:AddServiceRoomViewModel x:Key="AddServiceRoomVM"></viewmodel:AddServiceRoomViewModel>
+    <viewmodel:RDetailViewModel x:Key="RDetailVM"></viewmodel:RDetailViewModel>
 </ResourceDictionary>

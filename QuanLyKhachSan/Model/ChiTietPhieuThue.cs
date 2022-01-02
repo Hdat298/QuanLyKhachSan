@@ -12,23 +12,26 @@ namespace QuanLyKhachSan.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class PhieuThue
+    public partial class ChiTietPhieuThue
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public PhieuThue()
+        public ChiTietPhieuThue()
         {
-            this.ChiTietPhieuThues = new HashSet<ChiTietPhieuThue>();
+            this.DichVuPhongs = new HashSet<DichVuPhong>();
         }
     
         public int ID { get; set; }
-        public string MaPhieuThue { get; set; }
-        public System.DateTime Ngaylap { get; set; }
-        public Nullable<int> MaKhachHang { get; set; }
-        public Nullable<int> MaNhanVien { get; set; }
+        public string MaChiTietPhieuThue { get; set; }
+        public Nullable<int> MaPhong { get; set; }
+        public Nullable<int> MaPhieuThue { get; set; }
+        public Nullable<System.DateTime> NgayBD { get; set; }
+        public Nullable<System.DateTime> NgayKT { get; set; }
+        public string TrangThai { get; set; }
+        public Nullable<int> TienPhong { get; set; }
     
+        public virtual PhieuThue PhieuThue { get; set; }
+        public virtual Phong Phong { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChiTietPhieuThue> ChiTietPhieuThues { get; set; }
-        public virtual KhachHang KhachHang { get; set; }
-        public virtual NhanVien NhanVien { get; set; }
+        public virtual ICollection<DichVuPhong> DichVuPhongs { get; set; }
     }
 }

@@ -12,7 +12,7 @@ using System.Windows.Input;
 
 namespace QuanLyKhachSan.ViewModel
 {
-    class LoginViewModel : BaseViewModel
+    public class LoginViewModel : BaseViewModel
     {
         public bool IsLogin { get; set; }
         private string _UserName;

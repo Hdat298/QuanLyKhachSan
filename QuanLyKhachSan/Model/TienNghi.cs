@@ -18,7 +18,6 @@ namespace QuanLyKhachSan.Model
         public TienNghi()
         {
             this.ChiTietTienNghis = new HashSet<ChiTietTienNghi>();
-            this.PhieuNhapTienNghis = new HashSet<PhieuNhapTienNghi>();
         }
     
         public int ID { get; set; }
@@ -27,7 +26,5 @@ namespace QuanLyKhachSan.Model
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietTienNghi> ChiTietTienNghis { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PhieuNhapTienNghi> PhieuNhapTienNghis { get; set; }
     }
 }
