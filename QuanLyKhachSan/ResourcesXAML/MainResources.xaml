@@ -8,4 +8,7 @@
     <viewmodel:ServiceViewModel x:Key="ServiceVM"></viewmodel:ServiceViewModel>
     <viewmodel:EmployeesViewModel x:Key="EmployeesVM"></viewmodel:EmployeesViewModel>
     <viewmodel:SuplierViewModel x:Key="SuplierVM"></viewmodel:SuplierViewModel>
+    <viewmodel:PositionsViewModel x:Key="PositionVM"></viewmodel:PositionsViewModel>
+    <viewmodel:ConvenientViewModel x:Key="ConvenientVM"></viewmodel:ConvenientViewModel>
+    <viewmodel:DetailConvenientViewModel x:Key="DetailConvenientVM"></viewmodel:DetailConvenientViewModel>
 </ResourceDictionary>
