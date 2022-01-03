@@ -308,7 +308,7 @@
                             <ToggleButton.Triggers>
 
                                 <EventTrigger RoutedEvent="ToggleButton.Unchecked">
-
+                                    <!--event toggle-->
                                     <BeginStoryboard>
 
                                         <Storyboard x:Name="HideStackPanel">
@@ -327,10 +327,41 @@
 
                                     </BeginStoryboard>
 
+                                    <!--event đóng nút width-->
+                                    <BeginStoryboard>
+                                        <Storyboard x:Name="HideWitdhpicture">
+
+                                            <DoubleAnimation
+                                                
+                                                Storyboard.TargetName="dm"
+                                                Storyboard.TargetProperty="Width"
+                                                BeginTime="0:0:0"
+                                                From="130" To="50"
+                                                Duration="0:0:0.2">
+
+                                            </DoubleAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                    <!--event đóng nút height-->
+                                    <BeginStoryboard>
+                                        <Storyboard x:Name="HideHeightpicture">
+
+                                            <DoubleAnimation
+                                                
+                                                Storyboard.TargetName="dm"
+                                                Storyboard.TargetProperty="Height"
+                                                BeginTime="0:0:0"
+                                                From="130" To="50"
+                                                Duration="0:0:0.2">
+
+                                            </DoubleAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+
                                 </EventTrigger>
 
                                 <EventTrigger RoutedEvent="ToggleButton.Checked">
-
+                                    <!--event toggle-->
                                     <BeginStoryboard>
 
                                         <Storyboard x:Name="ShowStackPanel">
@@ -348,7 +379,37 @@
                                         </Storyboard>
 
                                     </BeginStoryboard>
+                                    <!--event mở nút width-->
+                                    <BeginStoryboard>
+                                        <Storyboard x:Name="OpenWidthpicture">
 
+                                            <DoubleAnimation
+                                                
+                                                Storyboard.TargetName="dm"
+                                                Storyboard.TargetProperty="Width"
+                                                BeginTime="0:0:0"
+                                                From="50" To="130"
+                                                Duration="0:0:0.2">
+
+                                            </DoubleAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+
+                                    <!--event mở nút height-->
+                                    <BeginStoryboard>
+                                        <Storyboard x:Name="OpenHeightpicture">
+
+                                            <DoubleAnimation
+                                                
+                                                Storyboard.TargetName="dm"
+                                                Storyboard.TargetProperty="Height"
+                                                BeginTime="0:0:0"
+                                                From="50" To="130"
+                                                Duration="0:0:0.2">
+
+                                            </DoubleAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
                                 </EventTrigger>
 
                             </ToggleButton.Triggers>
@@ -370,7 +431,7 @@
 
                             <TextBlock Text="Đăng xuất" Foreground="Black" />
                         </Button>
-                        <Grid Margin="0 0 0 30" Height="130" Width="130">
+                        <Grid x:Name="dm" Margin="0 0 0 30" Height="50" Width="50">
                             <Ellipse>
                                 <Ellipse.Fill>
                                     <ImageBrush ImageSource="/Source/img_avatar.png"/>
