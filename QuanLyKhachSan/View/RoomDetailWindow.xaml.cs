@@ -43,9 +43,11 @@ namespace QuanLyKhachSan.View
             txblTieuDe.Text = phong.MaPhong;
             txblTenKH.Text = phong.TenKH;
             {
-                icDayorHour.Kind = MaterialDesignThemes.Wpf.PackIconKind.AlarmCheck;
+                icDayorHour.Kind = MaterialDesignThemes.Wpf.PackIconKind.CalendarToday;
+                txblSoNgay.Text = phong.SoNgayO.ToString() + " ngày";
             }
             cbTinhTrang.Text = phong.TrangThai;
+            txblNgayDen.Text = phong.NgayDen.ToString();
             //Lấy ra mã CT phiếu thuê
             maCTPhieuThue = phong.MaCTPT;
 
