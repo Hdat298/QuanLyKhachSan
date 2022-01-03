@@ -143,6 +143,7 @@
     <Compile Include="Model\Room.cs" />
     <Compile Include="Model\Service.cs" />
     <Compile Include="Model\Service2.cs" />
+    <Compile Include="Model\ServiceRoomDetail.cs" />
     <Compile Include="Model\TienNghi.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

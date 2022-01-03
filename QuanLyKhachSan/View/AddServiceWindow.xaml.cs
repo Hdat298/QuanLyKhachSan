@@ -78,8 +78,8 @@ namespace QuanLyKhachSan.View
                     SoLuong = item.SoLuong == null ? 0 : int.Parse(item.SoLuong.ToString()),
                     ThanhTien = item.ThanhTien == null ? 0 : int.Parse(item.ThanhTien.ToString())
                 };
-                //DataProvider.Ins.DB.DichVuPhongs.Add(dvp);
-                //DataProvider.Ins.DB.SaveChanges();
+                DataProvider.Ins.DB.DichVuPhongs.Add(dvp);
+                DataProvider.Ins.DB.SaveChanges();
                 MessageBox.Show("Thêm Thành Công!");
             }
         }

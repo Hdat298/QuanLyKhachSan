@@ -18,7 +18,7 @@
         WindowStyle="None"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
-        Name="bookRoomWindow">
+        Name="bookRoomWindow" Loaded="bookRoomWindow_Loaded">
 
 
     <Window.Clip>

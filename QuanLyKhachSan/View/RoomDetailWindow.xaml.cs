@@ -68,5 +68,11 @@ namespace QuanLyKhachSan.View
                 obDichVu.Add(item);
             }
         }
+
+        private void bookRoomWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            var list = (from dvp in DataProvider.Ins.DB.DichVuPhongs
+                        where )
+        }
     }
 }
