@@ -17,6 +17,7 @@
         AllowsTransparency="True" 
         WindowStyle="None"
         ResizeMode="NoResize"
+        Loaded="bookRoomWindow_Loaded"
         WindowStartupLocation="CenterScreen"
         Name="bookRoomWindow">
 
@@ -169,12 +170,12 @@
                                                     <Setter Property="FontWeight" Value="Bold" />
                                                 </Style>
                                             </GridView.ColumnHeaderContainerStyle>
-                                            <GridViewColumn  Header="Số phòng"  Width="65" DisplayMemberBinding="{Binding Path = SoPhong }" />
-                                            <GridViewColumn Header="Loại phòng" Width="100" DisplayMemberBinding="{Binding  Path= TenLoaiPhong }"  />
+                                            <GridViewColumn  Header="Số phòng"  Width="65" DisplayMemberBinding="{Binding MaPhong }" />
+                                            <GridViewColumn Header="Loại phòng" Width="100" DisplayMemberBinding="{Binding LoaiPhong }"  />
                                             <GridViewColumn Width="54" Header="Thêm">
                                                 <GridViewColumn.CellTemplate>
                                                     <DataTemplate>
-                                                        <Button Width="25" Height="25" BorderThickness="0" Padding="0" >
+                                                        <Button Width="25" Height="25" BorderThickness="0" Padding="0" Click="Click_Add" >
                                                             <Button.Background>
                                                                 <ImageBrush ImageSource="/Source/img_add.png"/>
                                                             </Button.Background>
@@ -209,16 +210,6 @@
                                                 </Style>
                                             </GridView.ColumnHeaderContainerStyle>
                                             <GridViewColumn  Header="Số phòng"  Width="65" DisplayMemberBinding="{Binding SoPhong }" />
-                                            <GridViewColumn Width="60" Header="Số người">
-                                                <GridViewColumn.CellTemplate>
-                                                    <DataTemplate>
-                                                        <TextBox
-                                                        Text="{Binding SoNguoiO}"
-                                                        materialDesign:HintAssist.Hint="Nhập số người ở">
-                                                        </TextBox>
-                                                    </DataTemplate>
-                                                </GridViewColumn.CellTemplate>
-                                            </GridViewColumn>
                                             <GridViewColumn  Header="Ngày BD"  Width="150" DisplayMemberBinding="{Binding NgayBD }" />
                                             <GridViewColumn  Header="Ngày KT"  Width="150" DisplayMemberBinding="{Binding NgayKT}" />
                                             <GridViewColumn Width="54" Header="Xóa">
