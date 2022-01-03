@@ -21,6 +21,8 @@ namespace QuanLyKhachSan.View
     /// </summary>
     public partial class RoomDetailWindow : Window
     {
+        private ObservableCollection<ServiceRoomDetail> _lvServiceRoomDetail;
+        public ObservableCollection<ServiceRoomDetail> lvServiceRoomDetail { get => _lvServiceRoomDetail; set { _lvServiceRoomDetail = value; } }
         public delegate void truyenDataPhong(Room phong);
         public truyenDataPhong truyenData;
         ObservableCollection<Service2> obDichVu;
@@ -72,7 +74,18 @@ namespace QuanLyKhachSan.View
         private void bookRoomWindow_Loaded(object sender, RoutedEventArgs e)
         {
             var list = (from dvp in DataProvider.Ins.DB.DichVuPhongs
-                        where )
+                        join dv in DataProvider.Ins.DB.DichVus on dvp.MaDichVu equals dv.ID into t
+                        from dv in t.DefaultIfEmpty()
+                        where maCTPhieuThue == dvp.MaChiTietPhieuThue
+                        select new ServiceRoomDetail()
+                        {
+                            TenDV = dv.TenDichVu,
+                            SoLuong = dvp.SoLuong,
+                            ThanhTien = dvp.ThanhTien,
+                        }
+                        ).ToList();
+            lvServiceRoomDetail = new ObservableCollection<ServiceRoomDetail>(list);
+            lvSuDungDV.ItemsSource = lvServiceRoomDetail;
         }
     }
 }
