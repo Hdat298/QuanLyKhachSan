@@ -24,7 +24,7 @@ namespace QuanLyKhachSan.ViewModel
                       select new Service()
                       {
                           TenDV = dv.TenDichVu,
-                          DonGia = dv.DonGia,
+                          Gia = dv.DonGia,
                           LoaiDV = ldv.LoaiDichVu1
                       }).ToList();
             ServiceList = new ObservableCollection<Service>(ls);

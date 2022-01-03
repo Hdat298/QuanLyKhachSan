@@ -16,7 +16,6 @@
         Title="Chi tiết phòng" Height="550" Width="990"
         AllowsTransparency="True" 
         WindowStyle="None"
-        DataContext="{StaticResource RDetailVM}"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         Name="bookRoomWindow">
@@ -136,8 +135,8 @@
 
                                     </ListView>
                                 </Grid>
-                                <Button Command="{Binding ServiceCommand}" Width="140" Height="37" Background="#478C10" Content="Thêm dịch vụ" BorderThickness="0"   
-                                    HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="217 0 0 13" Foreground="#F2F1F1">
+                                <Button Width="140" Height="37" Background="#478C10" Content="Thêm dịch vụ" BorderThickness="0"   
+                                    HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="217 0 0 13" Foreground="#F2F1F1" Click="ButtonService_Click">
                                     <Button.Clip>
                                         <RectangleGeometry Rect="0,0,140,37" RadiusX="10" RadiusY="10"/>
                                     </Button.Clip>

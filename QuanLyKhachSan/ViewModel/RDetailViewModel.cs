@@ -21,7 +21,11 @@ namespace QuanLyKhachSan.ViewModel
 
         public RDetailViewModel()
         {
-            ServiceCommand = new RelayCommand<object>((p) => { return true; }, (p) => { AddServiceWindow wd = new AddServiceWindow(); wd.ShowDialog();});
+            ServiceCommand = new RelayCommand<object>((p) => { return true; }, (p) => 
+            { 
+                AddServiceWindow wd = new AddServiceWindow(); 
+                wd.ShowDialog();
+            });
         }
     }
 }

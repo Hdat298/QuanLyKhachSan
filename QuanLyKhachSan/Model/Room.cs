@@ -12,7 +12,7 @@ namespace QuanLyKhachSan.Model
         //public Phong phong { get; set; }
         //public LoaiPhong loaiPhong { get; set; }
         //public KhachHang khachHang { get; set; }
-        private string _MaCTPT;
+        private int? _MaCTPT;
         private string _TrangThai;
         private string _MaPhong;
         private string _TinHTrangPhong;
@@ -20,7 +20,7 @@ namespace QuanLyKhachSan.Model
         public string MaPhong { get => _MaPhong; set { _MaPhong = value; OnPropertyChanged(); } }
         public string TinhTrangPhong { get => _TinHTrangPhong; set { _TinHTrangPhong = value; OnPropertyChanged(); } }
         public string TenKH { get => _TenKH; set { _TenKH = value; OnPropertyChanged(); } }
-        public string MaCTPT { get => _MaCTPT; set { _MaCTPT = value; OnPropertyChanged(); } }
+        public int? MaCTPT { get => _MaCTPT; set { _MaCTPT = value; OnPropertyChanged(); } }
         public string TrangThai { get => _TrangThai; set { _TrangThai = value; OnPropertyChanged(); } }
 
         public Room()

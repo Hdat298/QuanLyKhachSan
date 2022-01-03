@@ -176,7 +176,7 @@
                                                 <DataTemplate>
                                                     <TextBox
                                                         Text="{Binding SoLuong}"
-                                                        materialDesign:HintAssist.Hint="Nhập số lượng">
+                                                        materialDesign:HintAssist.Hint="Nhập số lượng" KeyUp="TextBoxSL_KeyUp" LostFocus="TextBoxSL_LostFocus">
                                                     </TextBox>
                                                 </DataTemplate>
                                             </GridViewColumn.CellTemplate>

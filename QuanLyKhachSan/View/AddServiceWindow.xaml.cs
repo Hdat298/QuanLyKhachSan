@@ -21,7 +21,8 @@ namespace QuanLyKhachSan.View
     /// </summary>
     public partial class AddServiceWindow : Window
     {
-
+        public delegate void Delegate_CTPDV(ObservableCollection<Service2> obDVCT);
+        public Delegate_CTPDV truyenData;
 
         private int? maCTPhieuThue;
         public ObservableCollection<Service> lsdichVu_Customs;
@@ -33,10 +34,15 @@ namespace QuanLyKhachSan.View
             InitializeComponent();
         }
 
+        public AddServiceWindow(int? mactpt) : this()
+        {
+            maCTPhieuThue = mactpt;
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Service dvct = (sender as Button).DataContext as Service;
-            lsDichVu_DaChon.Add(new Service2() { ThanhTien = dvct.DonGia, SoLuong = 1, TenDV = dvct.TenDV, Gia = dvct.DonGia, MaDV = dvct.MaDV });
+            lsDichVu_DaChon.Add(new Service2() { ThanhTien = dvct.Gia, SoLuong = 1, TenDV = dvct.TenDV, Gia = dvct.Gia, MaDV = dvct.MaDV });
             lsCache.Add(dvct);
             lsdichVu_Customs.Remove(dvct);
         }
@@ -50,7 +56,7 @@ namespace QuanLyKhachSan.View
                       {
                           MaDV = dv.ID,
                           TenDV = dv.TenDichVu,
-                          DonGia = dv.DonGia,
+                          Gia = dv.DonGia,
                           LoaiDV = ldv.LoaiDichVu1
                       }).ToList();
             lsdichVu_Customs = new ObservableCollection<Service>(ls);
@@ -65,9 +71,9 @@ namespace QuanLyKhachSan.View
         {
             foreach (var item in lsDichVu_DaChon)
             {
-                var dvp = new DichVuPhong()
+                DichVuPhong dvp = new DichVuPhong()
                 {
-                    //MaChiTietPhieuThue = dvp.MaChiTietPhieuThue,
+                    MaChiTietPhieuThue = maCTPhieuThue,
                     MaDichVu = item.MaDV,
                     SoLuong = item.SoLuong == null ? 0 : int.Parse(item.SoLuong.ToString()),
                     ThanhTien = item.ThanhTien == null ? 0 : int.Parse(item.ThanhTien.ToString())
@@ -76,6 +82,39 @@ namespace QuanLyKhachSan.View
                 //DataProvider.Ins.DB.SaveChanges();
                 MessageBox.Show("Thêm Thành Công!");
             }
+        }
+
+        private void TextBoxSL_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                TextBox txb = sender as TextBox;
+                Service2 dvdc = (sender as TextBox).DataContext as Service2;
+                int soLuong = 1;
+                if (!int.TryParse(txb.Text, out soLuong))
+                {
+                    MessageBox.Show("Nhập số nguyên");
+                    //new DialogCustoms("Lỗi: Nhập số lượng kiểu số nguyên!", "Thông báo", DialogCustoms.OK).ShowDialog();
+                    return;
+                }
+                dvdc.SoLuong = soLuong;
+                dvdc.ThanhTien = dvdc.Gia * soLuong;
+            }
+        }
+
+        private void TextBoxSL_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox txb = sender as TextBox;
+            Service2 dvdc = (sender as TextBox).DataContext as Service2;
+            int soLuong = 1;
+            if (!int.TryParse(txb.Text, out soLuong))
+            {
+                MessageBox.Show("Nhập số nguyên");
+                //new DialogCustoms("Lỗi: Nhập số lượng kiểu số nguyên!", "Thông báo", DialogCustoms.OK).ShowDialog();
+                return;
+            }
+            dvdc.SoLuong = soLuong;
+            dvdc.ThanhTien = dvdc.Gia * soLuong;
         }
     }
 }

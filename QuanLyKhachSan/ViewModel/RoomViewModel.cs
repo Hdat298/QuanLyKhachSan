@@ -46,7 +46,7 @@ namespace QuanLyKhachSan.ViewModel
                       where p.MaLoaiPhong == 1
                       select new Room()
                       {
-                          MaCTPT = ct.MaChiTietPhieuThue,
+                          MaCTPT = ct.ID,
                           TenKH = (ct.PhieuThue.KhachHang.TenKhachHang == null) ? "" : ct.PhieuThue.KhachHang.TenKhachHang,
                           MaPhong = p.MaPhong,
                           TrangThai = (ct.TrangThai == null) ? "Phòng trống" : "Phòng đang thuê",

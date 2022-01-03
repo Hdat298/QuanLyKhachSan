@@ -13,8 +13,8 @@ namespace QuanLyKhachSan.Model
         public int? MaDV { get => _MaDV; set { _MaDV = value; OnPropertyChanged(); } }
         private string _TenDV;
         public string TenDV { get => _TenDV; set { _TenDV = value; OnPropertyChanged(); } }
-        private int? _DonGia;
-        public int? DonGia { get => _DonGia; set { _DonGia = value; OnPropertyChanged(); } }
+        private int? _Gia;
+        public int? Gia { get => _Gia; set { _Gia = value; OnPropertyChanged(); } }
         private string _LoaiDV;
         public string LoaiDV { get => _LoaiDV; set { _LoaiDV = value; OnPropertyChanged(); } }
     }

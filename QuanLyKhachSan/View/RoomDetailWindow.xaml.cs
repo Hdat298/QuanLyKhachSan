@@ -1,6 +1,7 @@
 ﻿using QuanLyKhachSan.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,8 +23,9 @@ namespace QuanLyKhachSan.View
     {
         public delegate void truyenDataPhong(Room phong);
         public truyenDataPhong truyenData;
+        ObservableCollection<Service2> obDichVu;
         private Room phong_CTPhong;
-        private string maCTPhieuThue;
+        private int? maCTPhieuThue;
 
 
         public RoomDetailWindow()
@@ -51,6 +53,20 @@ namespace QuanLyKhachSan.View
         {
             this.DialogResult = true;
             this.Visibility = Visibility.Hidden;
+        }
+
+        private void ButtonService_Click(object sender, RoutedEventArgs e)
+        {
+            AddServiceWindow RoomService = new AddServiceWindow(maCTPhieuThue);
+            RoomService.truyenData = new AddServiceWindow.Delegate_CTPDV(nhanData);
+            RoomService.ShowDialog();
+        }
+        void nhanData(ObservableCollection<Service2> obDVCT)
+        {
+            foreach (var item in obDVCT)
+            {
+                obDichVu.Add(item);
+            }
         }
     }
 }
