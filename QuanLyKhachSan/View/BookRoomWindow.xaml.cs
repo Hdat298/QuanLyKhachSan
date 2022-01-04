@@ -25,11 +25,18 @@ namespace QuanLyKhachSan.View
         public ObservableCollection<PhongTrong> lsPhongTrongs;
         public ObservableCollection<CTThue> lsPDaChons;
         List<PhongTrong> lsPhongCaches;
+        private int maNV;
 
+        public int MaNV { get => maNV; set => maNV = value; }
 
         public BookRoomWindow()
         {
             InitializeComponent();
+        }
+
+        public BookRoomWindow(int maNV) : this()
+        {
+            this.MaNV = maNV;
         }
         private void getPhongTrongTheoNgayGio()
         {
@@ -52,6 +59,9 @@ namespace QuanLyKhachSan.View
 
         private void bookRoomWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            dtpNgayKT.Text = new DateTime().ToShortDateString();
+            dtpNgayBD.Text = new DateTime().ToShortDateString();
+
             lsPDaChons = new ObservableCollection<CTThue>();
             lsPhongCaches = new List<PhongTrong>();
             lvPhongDaChon.ItemsSource = lsPDaChons;
@@ -71,6 +81,142 @@ namespace QuanLyKhachSan.View
                 NgayKT = DateTime.Parse(dtpNgayKT.Text)
             };
             lsPDaChons.Add(phongDaChon);
+        }
+
+        private bool kiemTraDayDuThongTin()
+        {
+            if (string.IsNullOrWhiteSpace(txbHoTen.Text))
+            {
+                txbHoTen.Focus();
+                new DialogCustom("Nhập đầy đủ họ tên !", "Thông báo", DialogCustom.OK).ShowDialog();
+                return false;
+            }
+            //Kiểm tra textbox CCCD rỗng hoặc nhập kí tự chữ không
+            if (string.IsNullOrWhiteSpace(txbCCCD.Text))
+            {
+                txbCCCD.Focus();
+                new DialogCustom("Nhập đầy đủ căn cước công dân !", "Thông báo", DialogCustom.OK).ShowDialog();
+                return false;
+            }
+            else
+            {
+                if (!long.TryParse(txbCCCD.Text, out long temp))
+                {
+                    txbCCCD.Focus();
+                    new DialogCustom("Nhập căn cước công dân đúng định dạng số !", "Thông báo", DialogCustom.OK).ShowDialog();
+                    return false;
+                }
+                if (txbCCCD.Text.Length > 12)
+                {
+                    txbCCCD.Focus();
+                    new DialogCustom("Nhập căn cước công dân không quá 12 ký tự !", "Thông báo", DialogCustom.OK).ShowDialog();
+                    return false;
+                }
+            }
+            //Kiểm tra textbox SDT rỗng hoặc có nhập chữ không
+            if (string.IsNullOrWhiteSpace(txbSDT.Text))
+            {
+                txbSDT.Focus();
+                new DialogCustom("Nhập đầy đủ số điện thoại !", "Thông báo", DialogCustom.OK).ShowDialog();
+                return false;
+            }
+            else
+            {
+                if (!long.TryParse(txbSDT.Text, out long temp))
+                {
+                    txbSDT.Focus();
+                    new DialogCustom("Nhập số điện thoại đúng định dạng số !", "Thông báo", DialogCustom.OK).ShowDialog();
+                    return false;
+                }
+                if (txbSDT.Text.Length > 10)
+                {
+                    txbSDT.Focus();
+                    new DialogCustom("Nhập số điện thoại không quá 10 ký tự !", "Thông báo", DialogCustom.OK).ShowDialog();
+                    return false;
+                }
+            }
+            //Kiểm tra ô nhập địa chỉ
+            if (string.IsNullOrWhiteSpace(txbDiaChi.Text))
+            {
+                txbDiaChi.Focus();
+                new DialogCustom("Nhập đầy đủ địa chỉ !", "Thông báo", DialogCustom.OK).ShowDialog();
+                return false;
+            }
+            //kiểm tra ô quốc tịch
+            if (string.IsNullOrWhiteSpace(txbQuocTich.Text))
+            {
+                txbQuocTich.Focus();
+                new DialogCustom("Nhập đầy đủ quốc tịch !", "Thông báo", DialogCustom.OK).ShowDialog();
+                return false;
+            }
+            //Kiểm tra xem đã có phòng nào được chọn chưa
+            if (lsPDaChons.Count == 0)
+            {
+                new DialogCustom("Vui lòng chọn phòng trước khi lưu !", "Thông báo", DialogCustom.OK).ShowDialog();
+                return false;
+            }
+            return true;
+        }
+
+        private void DT_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string ngayBD = dtpNgayBD.Text;
+            string ngayKT = dtpNgayKT.Text;
+            DateTime dtNBD;
+            DateTime dtNKT;
+            if (!DateTime.TryParse(ngayBD, out dtNBD))
+            {
+                return;
+            }
+
+            if (!DateTime.TryParse(ngayKT, out dtNKT))
+            {
+                return;
+            }
+            //nếu ngày bắt đầu lớn hơn ngày kết thúc thì phải báo lỗi ngay
+            if (dtNBD > dtNKT)
+            {
+                new DialogCustom("Ngày bắt đầu không thể lớn hơn ngày kết thúc !", "Thông báo", DialogCustom.OK).ShowDialog();
+                dtpNgayBD.Text = ngayKT;
+                dtpNgayKT.Text = ngayKT;
+                return;
+            }
+            getPhongTrongTheoNgayGio();
+        }
+        #region method
+        private string checkKH(string CCCD)
+        {
+            List<KhachHang> lstKH = DataProvider.Ins.DB.KhachHangs.ToList();
+            foreach (var item in lstKH)
+            {
+                if (CCCD == item.CCCD)
+                {
+                    return item.CCCD;
+                }
+            }
+            return null;
+        }
+        #endregion
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            if (kiemTraDayDuThongTin())
+            {
+                KhachHang kh = new KhachHang()
+                {
+                    CCCD = txbCCCD.Text,
+                    TenKhachHang = txbHoTen.Text,
+                    DiaChi = txbDiaChi.Text,
+                    QuocTinh = txbQuocTich.Text,
+                    SDT = txbSDT.Text
+                };
+                
+                if (checkKH(txbCCCD.Text) == null)
+                {
+                    new DialogCustom("Thêm khách hàng thành công " , "Thông báo", DialogCustom.OK).ShowDialog();
+                    DataProvider.Ins.DB.KhachHangs.Add(kh);
+                    DataProvider.Ins.DB.SaveChanges();
+                }
+            }
         }
     }
 }

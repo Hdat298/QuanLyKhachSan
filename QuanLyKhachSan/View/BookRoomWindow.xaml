@@ -96,16 +96,7 @@
                                 <TextBox x:Name="txbQuocTich" Margin="30 0 0 0" materialDesign:HintAssist.Hint="Nhập quốc tịch"/>
                             </Grid>
 
-                            <Grid Height="25" Width="213" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="65 27 0 0">
-                                <materialDesign:PackIcon Kind="GenderTransgender" Height="25" Width="25"/>
-                                <ComboBox x:Name="cbGioiTinh" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="30 0 0 0"
-                                    Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                                    materialDesign:HintAssist.Hint="Giới tính"
-                                    Height="25" Padding="5" Width="180">
-                                    <ComboBoxItem Content="Nam" />
-                                    <ComboBoxItem Content="Nữ" />
-                                </ComboBox>
-                            </Grid>
+                        
                         </StackPanel>
 
                         <Grid  Grid.Column="1">
@@ -121,7 +112,7 @@
                                 <DatePicker Margin="-4,84,34,-93" x:Name="dtpNgayBD"
                                         
                             materialDesign:HintAssist.Hint="Ngày bắt đầu"
-                            Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                            Style="{StaticResource MaterialDesignFloatingHintDatePicker}" SelectedDateChanged="DT_SelectedDateChanged" />
                             </Grid>
 
                             <!--<Grid Height="33" Width="150" VerticalAlignment="Top" HorizontalAlignment="Right"
@@ -138,7 +129,7 @@
                                 <materialDesign:PackIcon Kind="CalendarToday" Height="26" Width="24" VerticalAlignment="Bottom" Margin="-42,0,0,-81"/>
                                 <DatePicker Margin="-6,82,36,-83" x:Name="dtpNgayKT"
                             materialDesign:HintAssist.Hint="Ngày kết thúc"
-                            Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                            Style="{StaticResource MaterialDesignFloatingHintDatePicker}" SelectedDateChanged="DT_SelectedDateChanged" />
                             </Grid>
 
                             <!--<Grid Height="33" Width="150" VerticalAlignment="Top" HorizontalAlignment="Right"
@@ -232,7 +223,7 @@
 
                     </Grid>
                     <Button Width="89" Height="36" Background="#478C10" Content="Lưu"
-                        HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 212 11" >
+                        HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 212 11" Click="Save_Click" >
                         <Button.Clip>
                             <RectangleGeometry Rect="0,0,89,36" RadiusX="10" RadiusY="10"/>
                         </Button.Clip>

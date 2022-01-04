@@ -211,6 +211,9 @@
     <Compile Include="View\DetailConvenientWindow.xaml.cs">
       <DependentUpon>DetailConvenientWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\DialogCustom.xaml.cs">
+      <DependentUpon>DialogCustom.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
@@ -298,6 +301,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\DetailConvenientWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DialogCustom.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
