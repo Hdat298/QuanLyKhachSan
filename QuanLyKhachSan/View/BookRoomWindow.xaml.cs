@@ -23,7 +23,9 @@ namespace QuanLyKhachSan.View
     public partial class BookRoomWindow : Window
     {
         public ObservableCollection<PhongTrong> lsPhongTrongs;
-        public ObservableCollection<CTThue> lsPDaChons;
+        public ObservableCollection<ChiTietPhieuThue> lsPDaChons;
+        public ObservableCollection<CTThueCustom> lsCT;
+
         List<PhongTrong> lsPhongCaches;
         private int maNV;
 
@@ -48,7 +50,7 @@ namespace QuanLyKhachSan.View
                       where ct.TrangThai == null || ct.TrangThai == "Đã thanh toán"
                       select new PhongTrong()
                       {
-                          MaPhong = p.MaPhong,
+                          MaPhong = p.ID,
                           LoaiPhong = p.LoaiPhong.TenLoaiPhong,
                       }
                       ).ToList();
@@ -62,7 +64,7 @@ namespace QuanLyKhachSan.View
             dtpNgayKT.Text = new DateTime().ToShortDateString();
             dtpNgayBD.Text = new DateTime().ToShortDateString();
 
-            lsPDaChons = new ObservableCollection<CTThue>();
+            lsPDaChons = new ObservableCollection<ChiTietPhieuThue>();
             lsPhongCaches = new List<PhongTrong>();
             lvPhongDaChon.ItemsSource = lsPDaChons;
             getPhongTrongTheoNgayGio();
@@ -74,9 +76,9 @@ namespace QuanLyKhachSan.View
             PhongTrong ephongTrong = (sender as Button).DataContext as PhongTrong;
             lsPhongCaches.Add(ephongTrong);
             lsPhongTrongs.Remove(ephongTrong);
-            CTThue phongDaChon = new CTThue()
+            ChiTietPhieuThue phongDaChon = new ChiTietPhieuThue()
             {
-                SoPhong = ephongTrong.MaPhong,
+                MaPhong = ephongTrong.MaPhong,
                 NgayBD = DateTime.Parse(dtpNgayBD.Text),
                 NgayKT = DateTime.Parse(dtpNgayKT.Text)
             };
@@ -186,7 +188,7 @@ namespace QuanLyKhachSan.View
         #region method
         private string checkKH(string CCCD)
         {
-            List<KhachHang> lstKH = DataProvider.Ins.DB.KhachHangs.ToList();
+            List <KhachHang> lstKH = DataProvider.Ins.DB.KhachHangs.ToList();
             foreach (var item in lstKH)
             {
                 if (CCCD == item.CCCD)
@@ -195,6 +197,19 @@ namespace QuanLyKhachSan.View
                 }
             }
             return null;
+        }
+        private string checkMaKH(string CCCDD)
+        {
+            List<KhachHang> lshKH2 = DataProvider.Ins.DB.KhachHangs.ToList();
+            foreach (var item in lshKH2)
+            {
+                if (CCCDD == item.CCCD)
+                {
+                    return item.ID.ToString();
+                }
+            }
+            return null;
+
         }
         #endregion
         private void Save_Click(object sender, RoutedEventArgs e)
@@ -215,6 +230,16 @@ namespace QuanLyKhachSan.View
                     new DialogCustom("Thêm khách hàng thành công " , "Thông báo", DialogCustom.OK).ShowDialog();
                     DataProvider.Ins.DB.KhachHangs.Add(kh);
                     DataProvider.Ins.DB.SaveChanges();
+                    PhieuThue pt = new PhieuThue()
+                    {
+                        Ngaylap = DateTime.Now,
+                        MaKhachHang = Convert.ToInt32(checkMaKH(txbCCCD.Text)),
+                        MaNhanVien = Convert.ToInt32(txtMaNV.Text)
+                    };
+                    DataProvider.Ins.DB.PhieuThues.Add(pt);
+                    DataProvider.Ins.DB.SaveChanges();
+
+                    }
                 }
             }
         }

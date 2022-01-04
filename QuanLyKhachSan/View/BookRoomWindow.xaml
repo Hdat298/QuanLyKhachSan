@@ -96,7 +96,7 @@
                                 <TextBox x:Name="txbQuocTich" Margin="30 0 0 0" materialDesign:HintAssist.Hint="Nhập quốc tịch"/>
                             </Grid>
 
-                        
+
                         </StackPanel>
 
                         <Grid  Grid.Column="1">
@@ -115,6 +115,9 @@
                             Style="{StaticResource MaterialDesignFloatingHintDatePicker}" SelectedDateChanged="DT_SelectedDateChanged" />
                             </Grid>
 
+                            <Grid VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 80 70 0">
+                                <materialDesign:PackIcon Kind="Account" Margin="-116,99,0,-45" />
+                            </Grid>
                             <!--<Grid Height="33" Width="150" VerticalAlignment="Top" HorizontalAlignment="Right"
                         Margin="0 80 70 0">
                                 <materialDesign:PackIcon Kind="ClockOutline" Height="25" Width="25" VerticalAlignment="Bottom"/>
@@ -200,7 +203,7 @@
                                                     <Setter Property="FontWeight" Value="Bold" />
                                                 </Style>
                                             </GridView.ColumnHeaderContainerStyle>
-                                            <GridViewColumn  Header="Số phòng"  Width="65" DisplayMemberBinding="{Binding SoPhong }" />
+                                            <GridViewColumn  Header="Số phòng"  Width="65" DisplayMemberBinding="{Binding MaPhong }" />
                                             <GridViewColumn  Header="Ngày BD"  Width="150" DisplayMemberBinding="{Binding NgayBD }" />
                                             <GridViewColumn  Header="Ngày KT"  Width="150" DisplayMemberBinding="{Binding NgayKT}" />
                                             <GridViewColumn Width="54" Header="Xóa">
@@ -218,6 +221,7 @@
                                     </ListView.View>
                                 </ListView>
                             </Grid>
+                            <TextBox x:Name="txtMaNV" materialDesign:HintAssist.Hint="Mã NV" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="368,165,123,269" />
 
                         </Grid>
 

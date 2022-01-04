@@ -89,6 +89,7 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\CTThue.cs" />
+    <Compile Include="Model\CTThueCustom.cs" />
     <Compile Include="Model\DataProvider.cs" />
     <Compile Include="Model\DichVu.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -175,6 +176,9 @@
     </Compile>
     <Compile Include="UserControlAll\QLTienNghiUC.xaml.cs">
       <DependentUpon>QLTienNghiUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlAll\RentRoomUC.xaml.cs">
+      <DependentUpon>RentRoomUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControlAll\ServiceUC.xaml.cs">
       <DependentUpon>ServiceUC.xaml</DependentUpon>
@@ -273,6 +277,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControlAll\QLTienNghiUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlAll\RentRoomUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
