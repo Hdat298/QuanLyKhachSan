@@ -64,8 +64,6 @@ namespace QuanLyKhachSan.ViewModel
 
             AddCommand = new RelayCommand<object>((p) =>
             {
-                if (SelectedItem == null || SelectedLoai == null)
-                    return false;
                 return true;
             }, (p) =>
             {

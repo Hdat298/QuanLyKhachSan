@@ -236,12 +236,12 @@
                 </Border>
                 <TextBlock Text="Thông tin khách hàng" Height="40" FontWeight="Bold" FontSize="25" Foreground="#001c1c"
                            VerticalAlignment="Top" HorizontalAlignment="Left" Margin="271,10,0,0"/>
-                <TextBox Text="{Binding TenKhachHang}"  Margin="5,55,400,170" materialDesign:HintAssist.Hint="Tên khách hàng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
-                <TextBox Text="{Binding DiaChi}"  Margin="400,55,5,170" materialDesign:HintAssist.Hint="Địa chỉ" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
+                <TextBox Text="{Binding TenKhachHang}"  Margin="5,55,400,163" materialDesign:HintAssist.Hint="Tên khách hàng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
+                <TextBox Text="{Binding DiaChi}"  Margin="400,55,5,163" materialDesign:HintAssist.Hint="Địa chỉ" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
                 <TextBox Text="{Binding SDT}"  Margin="5,130,400,90" materialDesign:HintAssist.Hint="Số điện thoại" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
                 <TextBox Text="{Binding QuocTinh}"  Margin="400,130,5,90" materialDesign:HintAssist.Hint="Quốc tịch" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
-                <TextBox Text="{Binding SoHoChieu}"  Margin="5,200,400,20" materialDesign:HintAssist.Hint="Số hộ chiếu" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
-                <TextBox Text="{Binding CCCD}"  Margin="400,200,5,20" materialDesign:HintAssist.Hint="CCCD" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
+                <TextBox Text="{Binding SoHoChieu}"  Margin="5,200,400,18" materialDesign:HintAssist.Hint="Số hộ chiếu" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
+                <TextBox Text="{Binding CCCD}"  Margin="400,200,5,18" materialDesign:HintAssist.Hint="CCCD" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
                 
             </Grid>
         </materialDesign:Card>
