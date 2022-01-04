@@ -230,18 +230,31 @@ namespace QuanLyKhachSan.View
                     new DialogCustom("Thêm khách hàng thành công " , "Thông báo", DialogCustom.OK).ShowDialog();
                     DataProvider.Ins.DB.KhachHangs.Add(kh);
                     DataProvider.Ins.DB.SaveChanges();
-                    PhieuThue pt = new PhieuThue()
-                    {
-                        Ngaylap = DateTime.Now,
-                        MaKhachHang = Convert.ToInt32(checkMaKH(txbCCCD.Text)),
-                        MaNhanVien = Convert.ToInt32(txtMaNV.Text)
-                    };
-                    DataProvider.Ins.DB.PhieuThues.Add(pt);
-                    DataProvider.Ins.DB.SaveChanges();
-
-                    }
+                    
                 }
             }
+
+            PhieuThue pt = new PhieuThue()
+            {
+                Ngaylap = DateTime.Now,
+                MaKhachHang = Convert.ToInt32(checkMaKH(txbCCCD.Text)),
+                MaNhanVien = Convert.ToInt32(txtMaNV.Text)
+            };
+            DataProvider.Ins.DB.PhieuThues.Add(pt);
+            DataProvider.Ins.DB.SaveChanges();
+
+            ChiTietPhieuThue ctpt = new ChiTietPhieuThue()
+            {
+                MaPhong = int.Parse(lvPhongDaChon.SelectedItems.ToString()),
+                NgayBD = dtpNgayBD.SelectedDate,
+                NgayKT = dtpNgayKT.SelectedDate,
+                TrangThai = "Phòng đang thuê",
+                MaPhieuThue = int.Parse((from p in DataProvider.Ins.DB.PhieuThues
+                               where p.Ngaylap == dtpNgayBD.SelectedDate
+                               select p.ID).ToString())
+            };
+            DataProvider.Ins.DB.ChiTietPhieuThues.Add(ctpt);
+            DataProvider.Ins.DB.SaveChanges();
         }
     }
 }
