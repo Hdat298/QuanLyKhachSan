@@ -230,6 +230,9 @@
     <Compile Include="View\PositionsWindow.xaml.cs">
       <DependentUpon>PositionsWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\RentRoomDetailWindow.xaml.cs">
+      <DependentUpon>RentRoomDetailWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\RoomDetailWindow.xaml.cs">
       <DependentUpon>RoomDetailWindow.xaml</DependentUpon>
     </Compile>
@@ -329,6 +332,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\PositionsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RentRoomDetailWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

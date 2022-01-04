@@ -53,10 +53,28 @@ namespace QuanLyKhachSan.View
 
         }
 
+        private string checkMP (string MaPhong)
+        {
+            List<Phong> lsPhong = DataProvider.Ins.DB.Phongs.ToList();
+            foreach (var item in lsPhong)
+            {
+                if (MaPhong == item.MaPhong)
+                {
+                    return item.ID.ToString();
+                }
+            }
+            return null;
+        }
+
         private void Click_Charge(object sender, RoutedEventArgs e)
         {
             this.DialogResult = true;
             this.Visibility = Visibility.Hidden;
+
+            ChiTietPhieuThue lsCTHD = DataProvider.Ins.DB.ChiTietPhieuThues.FirstOrDefault(p => p.MaPhong.ToString() == checkMP(txblTieuDe.Text).FirstOrDefault().ToString());
+            ChiTietPhieuThue ctpt = new ChiTietPhieuThue() { TrangThai = "Đã thanh toán" };
+            DataProvider.Ins.DB.ChiTietPhieuThues.Add(ctpt);
+            DataProvider.Ins.DB.SaveChanges();
         }
 
         private void ButtonService_Click(object sender, RoutedEventArgs e)

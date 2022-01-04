@@ -209,7 +209,7 @@
                                             <GridViewColumn Width="54" Header="Xóa">
                                                 <GridViewColumn.CellTemplate>
                                                     <DataTemplate>
-                                                        <Button Width="25" Height="25" BorderThickness="0" Padding="0"  >
+                                                        <Button Width="25" Height="25" BorderThickness="0" Padding="0" Click="Click_Delete">
                                                             <Button.Background>
                                                                 <ImageBrush ImageSource="/Source/img_delete.png"/>
                                                             </Button.Background>

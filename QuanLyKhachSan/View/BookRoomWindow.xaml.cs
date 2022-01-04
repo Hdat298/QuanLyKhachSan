@@ -52,6 +52,7 @@ namespace QuanLyKhachSan.View
                       {
                           MaPhong = p.ID,
                           LoaiPhong = p.LoaiPhong.TenLoaiPhong,
+                          MaLoaiPhong = p.MaLoaiPhong
                       }
                       ).ToList();
 
@@ -64,6 +65,7 @@ namespace QuanLyKhachSan.View
             dtpNgayKT.Text = new DateTime().ToShortDateString();
             dtpNgayBD.Text = new DateTime().ToShortDateString();
 
+            lsCT = new ObservableCollection<CTThueCustom>();
             lsPDaChons = new ObservableCollection<ChiTietPhieuThue>();
             lsPhongCaches = new List<PhongTrong>();
             lvPhongDaChon.ItemsSource = lsPDaChons;
@@ -80,7 +82,8 @@ namespace QuanLyKhachSan.View
             {
                 MaPhong = ephongTrong.MaPhong,
                 NgayBD = DateTime.Parse(dtpNgayBD.Text),
-                NgayKT = DateTime.Parse(dtpNgayKT.Text)
+                NgayKT = DateTime.Parse(dtpNgayKT.Text),
+                TienPhong = tienPhong((int)ephongTrong.MaLoaiPhong)
             };
             lsPDaChons.Add(phongDaChon);
         }
@@ -211,6 +214,28 @@ namespace QuanLyKhachSan.View
             return null;
 
         }
+
+        private int tienPhong(int MaPhong)
+        {
+            int a = 0;
+            if (MaPhong == 1)
+            {
+                a = 200000;
+            }
+            if (MaPhong == 2)
+            {
+                a = 240000;
+            }
+            if (MaPhong == 3)
+            {
+                a = 240000;
+            }
+            if (MaPhong == 4)
+            {
+                a = 260000;
+            }
+            return a;
+        }
         #endregion
         private void Save_Click(object sender, RoutedEventArgs e)
         {
@@ -243,18 +268,40 @@ namespace QuanLyKhachSan.View
             DataProvider.Ins.DB.PhieuThues.Add(pt);
             DataProvider.Ins.DB.SaveChanges();
 
-            ChiTietPhieuThue ctpt = new ChiTietPhieuThue()
+            foreach (var item in lsPDaChons)
             {
-                MaPhong = int.Parse(lvPhongDaChon.SelectedItems.ToString()),
-                NgayBD = dtpNgayBD.SelectedDate,
-                NgayKT = dtpNgayKT.SelectedDate,
-                TrangThai = "Phòng đang thuê",
-                MaPhieuThue = int.Parse((from p in DataProvider.Ins.DB.PhieuThues
-                               where p.Ngaylap == dtpNgayBD.SelectedDate
-                               select p.ID).ToString())
-            };
-            DataProvider.Ins.DB.ChiTietPhieuThues.Add(ctpt);
-            DataProvider.Ins.DB.SaveChanges();
+                ChiTietPhieuThue ctpt = new ChiTietPhieuThue()
+                {
+                    //MaPhong = int.Parse(lvPhongDaChon.SelectedItems.ToString()),
+                    MaPhong = item.MaPhong,
+                    NgayBD = dtpNgayBD.SelectedDate,
+                    NgayKT = dtpNgayKT.SelectedDate,
+                    TrangThai = "Phòng đang thuê",
+                    MaPhieuThue = pt.ID,
+                    TienPhong = item.TienPhong
+                    //MaPhieuThue = int.Parse((from p in DataProvider.Ins.DB.PhieuThues
+                    // where p.Ngaylap == dtpNgayBD.SelectedDate
+                    //select p.ID).ToString())
+                };
+                DataProvider.Ins.DB.ChiTietPhieuThues.Add(ctpt);
+                DataProvider.Ins.DB.SaveChanges();
+            }
+            
+        }
+
+        private void Click_Delete(object sender, RoutedEventArgs e)
+        {
+            ChiTietPhieuThue phongDaChon = (sender as Button).DataContext as ChiTietPhieuThue;
+            foreach (PhongTrong pt in lsPhongCaches)
+            {
+                if (pt.MaPhong.Equals(phongDaChon.MaPhong))
+                {
+                    lsPhongTrongs.Add(pt);
+                    lsPhongCaches.Remove(pt);
+                    break;
+                }
+            }
+            lsPDaChons.Remove(phongDaChon);
         }
     }
 }

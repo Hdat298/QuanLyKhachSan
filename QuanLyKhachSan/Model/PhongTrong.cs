@@ -11,6 +11,8 @@ namespace QuanLyKhachSan.Model
     {
         private int? _MaPhong;
         public int? MaPhong { get => _MaPhong; set { _MaPhong = value; OnPropertyChanged(); }  }
+        private int? _MaLoaiPhong;
+        public int? MaLoaiPhong { get => _MaLoaiPhong; set { _MaLoaiPhong = value; OnPropertyChanged(); } }
         private string _LoaiPhong;
         public string LoaiPhong { get => _LoaiPhong; set { _LoaiPhong = value; OnPropertyChanged(); } }
     }
