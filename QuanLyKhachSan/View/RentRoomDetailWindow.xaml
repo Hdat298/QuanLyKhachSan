@@ -28,12 +28,10 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="63"></RowDefinition>
                 <RowDefinition></RowDefinition>
-                <RowDefinition Height="69"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0">
-                <TextBlock x:Name="txblTieuDe" Text="Chi Tiết Phiếu Thuê " FontSize="30" Foreground="#00A3FF" FontWeight="Bold" 
-                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Grid Grid.Row="0" Margin="0,0,2,0">
+                <uc:ControlBarUC Background="LightPink" Tag="{Binding Title, ElementName=rentRoomWindow}" VerticalAlignment="Top" Margin="2,0,0,0"></uc:ControlBarUC>
             </Grid>
             <!--#region Main-->
             <Grid Grid.Row="1">
@@ -92,7 +90,6 @@
                                             <GridViewColumn  Header="Số phòng"  Width="100" DisplayMemberBinding="{Binding SoPhong}" />
                                             <GridViewColumn Header="Ngày bắt đầu" Width="230" DisplayMemberBinding="{Binding NgayBD}"  />
                                             <GridViewColumn Header="Ngày kết thúc" Width="230" DisplayMemberBinding="{Binding NgayKT}"  />
-                                            <GridViewColumn Header="Số người" Width="130" DisplayMemberBinding="{Binding SoNguoiO}"  />
                                         </GridView>
                                     </ListView.View>
 
@@ -106,7 +103,10 @@
             </Grid>
             <!--#endregion-->
 
-            <Grid Grid.Row="2"/>
+            <Grid Grid.Row="2">
+                <TextBlock x:Name="txblTieuDe" Text="Chi Tiết Phiếu Thuê " FontSize="30" Foreground="#00A3FF" FontWeight="Bold" 
+                           HorizontalAlignment="Center" VerticalAlignment="Center" Margin="325,10,252,439" Width="411"/>
+            </Grid>
         </Grid>
     </Border>
 </Window>

@@ -37,5 +37,9 @@ namespace QuanLyKhachSan.View
 
             public string TenKH { get; set; }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+        }
     }
 }

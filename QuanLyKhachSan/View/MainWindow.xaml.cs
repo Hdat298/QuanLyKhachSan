@@ -91,6 +91,10 @@ namespace QuanLyKhachSan.View
                         {
                             phongUC = new PhongUC();
                         }
+                        else
+                        {
+                            phongUC.Refresh();
+                        }
                         contenDisplayMain.Content = phongUC;
                         break;
                     case 2:

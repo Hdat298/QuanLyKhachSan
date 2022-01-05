@@ -272,16 +272,12 @@ namespace QuanLyKhachSan.View
             {
                 ChiTietPhieuThue ctpt = new ChiTietPhieuThue()
                 {
-                    //MaPhong = int.Parse(lvPhongDaChon.SelectedItems.ToString()),
                     MaPhong = item.MaPhong,
                     NgayBD = dtpNgayBD.SelectedDate,
                     NgayKT = dtpNgayKT.SelectedDate,
                     TrangThai = "Chưa thanh toán",
                     MaPhieuThue = pt.ID,
                     TienPhong = item.TienPhong
-                    //MaPhieuThue = int.Parse((from p in DataProvider.Ins.DB.PhieuThues
-                    // where p.Ngaylap == dtpNgayBD.SelectedDate
-                    //select p.ID).ToString())
                 };
                 DataProvider.Ins.DB.ChiTietPhieuThues.Add(ctpt);
                 DataProvider.Ins.DB.SaveChanges();

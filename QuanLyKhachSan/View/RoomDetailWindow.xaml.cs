@@ -1,4 +1,5 @@
 ﻿using QuanLyKhachSan.Model;
+using QuanLyKhachSan.UserControlAll;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -69,21 +70,15 @@ namespace QuanLyKhachSan.View
         private void Click_Charge(object sender, RoutedEventArgs e)
         {
             this.DialogResult = true;
-            this.Visibility = Visibility.Hidden;
-
             string temp = checkMP(txblTieuDe.Text);
 
-            //var lsPT = (from pt in DataProvider.Ins.DB.PhieuThues
-            //            join ctpt in DataProvider.Ins.DB.ChiTietPhieuThues on pt.ID equals ctpt.MaPhieuThue
-            //            where pt.Ngaylap = ctpt.NgayBD
-            //            select)
-
-            ChiTietPhieuThue lsCTHD = DataProvider.Ins.DB.ChiTietPhieuThues.FirstOrDefault(p => p.MaPhong.ToString() == temp && p.TrangThai == "Chưa thanh toán");
-
-
-            //ChiTietPhieuThue ctpt = new ChiTietPhieuThue() { TrangThai = "Đã thanh toán" };
-            //DataProvider.Ins.DB.ChiTietPhieuThues.Add(ctpt);
-            //DataProvider.Ins.DB.SaveChanges();
+            var ctp = DataProvider.Ins.DB.ChiTietPhieuThues.Where(p => p.MaPhong.ToString() == temp && p.TrangThai == "Chưa thanh toán").ToList();
+            foreach (var item in ctp)
+            {
+                item.TrangThai = "Đã thanh toán";
+            }
+            DataProvider.Ins.DB.SaveChanges();
+            this.Close();
         }
 
         private void ButtonService_Click(object sender, RoutedEventArgs e)

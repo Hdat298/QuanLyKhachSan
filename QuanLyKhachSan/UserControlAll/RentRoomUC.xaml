@@ -14,12 +14,18 @@
              TextElement.FontSize="13"
              TextOptions.TextFormattingMode="Ideal"
              TextOptions.TextRenderingMode="Auto"
+             Loaded="UserControl_Loaded"
              FontFamily="{DynamicResource MaterialDesignFont}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
+        <Border Grid.Row="0" Grid.RowSpan="2">
+            <Border.Background>
+                <ImageBrush ImageSource="/Source/BG.png"/>
+            </Border.Background>
+        </Border>
         <!--Các button-->
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
@@ -63,10 +69,12 @@
             </Grid>
         </Grid>
 
-
         <!--Listview hiển thị-->
         <Grid Grid.Row="1">
-            <Grid Width="1000" Height="500" Background="#F2F1F1">
+            <Grid Width="1000" Height="500">
+                <Grid.Background>
+                    <SolidColorBrush Color="#F2F1F1" Opacity="0.8"/>
+                </Grid.Background>
                 <Grid.Clip>
                     <RectangleGeometry Rect="0,0,1000,500" RadiusX="10" RadiusY="10" >
                     </RectangleGeometry>
@@ -90,12 +98,12 @@
 
                             <GridViewColumn  Header="Số phiếu thuê"  Width="190" DisplayMemberBinding="{Binding MaPhieuThue}" />
                             <GridViewColumn Header="Tên khách hàng" Width="230" DisplayMemberBinding="{Binding TenKH}" />
-                            <GridViewColumn Header="Ngày lập phiếu" Width="230" DisplayMemberBinding="{Binding NgayLapPhieu, StringFormat=dd//MM/yyy }" />
+                            <GridViewColumn Header="Ngày lập phiếu" Width="230" DisplayMemberBinding="{Binding NgayLap, StringFormat=dd//MM/yyy }" />
                             <GridViewColumn Header="Tên nhân viên" Width="230" DisplayMemberBinding="{Binding TenNV }" />
                             <GridViewColumn Width="55" Header="Chi tiết">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button Width="25" Height="25" BorderThickness="0" Padding="0" Background="Transparent">
+                                        <Button Width="25" Height="25" BorderThickness="0" Padding="0" Background="Transparent" Click="Detail_Click">
                                             <materialDesign:PackIcon Kind="More" Foreground="Black"/>
                                         </Button>
                                     </DataTemplate>

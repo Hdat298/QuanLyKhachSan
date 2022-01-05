@@ -114,6 +114,7 @@
                     <RadioButton x:Name="rdoPSuaChua" Content="Phòng đang thuê" Margin="5"/>
                     <RadioButton x:Name="rdoTatCa" Content="Tất cả phòng" Margin="5"/>
                 </StackPanel>
+                <Button Content="Refresh" Margin="141,540,14,18" Click="Button_Click"></Button>
             </Grid>
             <Grid Grid.Column="1">
                 <ScrollViewer >

@@ -113,6 +113,7 @@
                     <RadioButton x:Name="rdoPSuaChua" Content="Phòng đang thuê" Margin="5"/>
                     <RadioButton x:Name="rdoTatCa" Content="Tất cả phòng" Margin="5"/>
                 </StackPanel>
+                <Button Margin="66,539,62,19" Click="Button_Click"></Button>
             </Grid>
             <Grid Grid.Column="1">
                 <ScrollViewer >
@@ -127,11 +128,6 @@
                             <ListView ItemsSource="{Binding List1}" x:Name="lvSingleRoom" Width="1091" Margin="50 10 0 0"
                               ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                                 ScrollViewer.VerticalScrollBarVisibility="Disabled" PreviewMouseLeftButtonUp="LvPhongDon_PreviewMouseLeftButtonUp">
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="PreviewMouseLeftButtonUp">
-                                        <i:InvokeCommandAction Command="{Binding PreviewMouseLeftButtonUpCommand}" CommandParameter="{Binding ElementName=lvSingleRoom}"/>
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
                                 <!--#region-->
                                 <ListView.Template>
                                     <ControlTemplate>
@@ -333,10 +329,10 @@
                                                 <Style TargetType="Grid">
                                                     <Setter Property="Background" Value="#71D693"/>
                                                     <Style.Triggers>
-                                                        <DataTrigger Binding="{Binding TinhTrangPhong}" Value="Phòng đang thuê">
+                                                        <DataTrigger Binding="{Binding TrangThai}" Value="Phòng đang thuê">
                                                             <Setter Property="Background" Value="#89B5CE"/>
                                                         </DataTrigger>
-                                                        <DataTrigger Binding="{Binding TinhTrangPhong}" Value="Phòng đã đặt">
+                                                        <DataTrigger Binding="{Binding TrangThai}" Value="Phòng đã đặt">
                                                             <Setter Property="Background" Value="#7D7D7D"/>
                                                         </DataTrigger>
                                                     </Style.Triggers>
@@ -360,7 +356,7 @@
                                                 <Grid Grid.Row="0">
                                                     <TextBlock Text="{Binding MaPhong}" HorizontalAlignment="Left" VerticalAlignment="Center"
                                            Margin="18 0 0 0" FontSize="15" Foreground="#FFFFFF" FontWeight="Bold"/>
-                                                    <TextBlock Text="{Binding TinhTrangPhong}" HorizontalAlignment="Right" VerticalAlignment="Center"
+                                                    <TextBlock Text="{Binding TrangThai}" HorizontalAlignment="Right" VerticalAlignment="Center"
                                            Margin="0 0 9 0" FontSize="11" Foreground="#FFFFFF"/>
                                                 </Grid>
 
@@ -376,10 +372,10 @@
                                                             <Style TargetType="materialDesign:PackIcon">
                                                                 <Setter Property="Kind" Value="CheckboxMarkedCircle"/>
                                                                 <Style.Triggers>
-                                                                    <DataTrigger Binding="{Binding TinhTrangPhong}" Value="Phòng đang thuê">
+                                                                    <DataTrigger Binding="{Binding TrangThai}" Value="Phòng đang thuê">
                                                                         <Setter Property="Kind" Value="AccountMultiple"/>
                                                                     </DataTrigger>
-                                                                    <DataTrigger Binding="{Binding TinhTrangPhong}" Value="Phòng đã đặt">
+                                                                    <DataTrigger Binding="{Binding TrangThai}" Value="Phòng đã đặt">
                                                                         <Setter Property="Kind" Value="AccountMultiple"/>
                                                                     </DataTrigger>
                                                                 </Style.Triggers>
@@ -393,7 +389,7 @@
                                                                 <Style TargetType="TextBlock">
                                                                     <Setter Property="Text" Value="{Binding TenKH}"/>
                                                                     <Style.Triggers>
-                                                                        <DataTrigger Binding="{Binding TinhTrangPhong}" Value="Phòng trống" >
+                                                                        <DataTrigger Binding="{Binding TrangThai}" Value="Phòng trống" >
                                                                             <Setter Property="Text" Value="Phòng trống"/>
                                                                         </DataTrigger>
                                                                     </Style.Triggers>
@@ -510,10 +506,10 @@
                                                 <Style TargetType="Grid">
                                                     <Setter Property="Background" Value="#71D693"/>
                                                     <Style.Triggers>
-                                                        <DataTrigger Binding="{Binding TinhTrangPhong}" Value="Phòng đang thuê">
+                                                        <DataTrigger Binding="{Binding TrangThai}" Value="Phòng đang thuê">
                                                             <Setter Property="Background" Value="#89B5CE"/>
                                                         </DataTrigger>
-                                                        <DataTrigger Binding="{Binding TinhTrangPhong}" Value="Phòng đã đặt">
+                                                        <DataTrigger Binding="{Binding TrangThai}" Value="Phòng đã đặt">
                                                             <Setter Property="Background" Value="#7D7D7D"/>
                                                         </DataTrigger>
                                                     </Style.Triggers>
@@ -537,7 +533,7 @@
                                                 <Grid Grid.Row="0">
                                                     <TextBlock Text="{Binding MaPhong}" HorizontalAlignment="Left" VerticalAlignment="Center"
                                            Margin="18 0 0 0" FontSize="15" Foreground="#FFFFFF" FontWeight="Bold"/>
-                                                    <TextBlock Text="{Binding TinhTrangPhong}" HorizontalAlignment="Right" VerticalAlignment="Center"
+                                                    <TextBlock Text="{Binding TrangThai}" HorizontalAlignment="Right" VerticalAlignment="Center"
                                            Margin="0 0 9 0" FontSize="11" Foreground="#FFFFFF"/>
                                                 </Grid>
 
@@ -553,10 +549,10 @@
                                                             <Style TargetType="materialDesign:PackIcon">
                                                                 <Setter Property="Kind" Value="CheckboxMarkedCircle"/>
                                                                 <Style.Triggers>
-                                                                    <DataTrigger Binding="{Binding TinhTrangPhong}" Value="Phòng đang thuê">
+                                                                    <DataTrigger Binding="{Binding TrangThai}" Value="Phòng đang thuê">
                                                                         <Setter Property="Kind" Value="AccountMultiple"/>
                                                                     </DataTrigger>
-                                                                    <DataTrigger Binding="{Binding TinhTrangPhong}" Value="Phòng đã đặt">
+                                                                    <DataTrigger Binding="{Binding TrangThai}" Value="Phòng đã đặt">
                                                                         <Setter Property="Kind" Value="AccountMultiple"/>
                                                                     </DataTrigger>
                                                                 </Style.Triggers>
@@ -570,7 +566,7 @@
                                                                 <Style TargetType="TextBlock">
                                                                     <Setter Property="Text" Value="{Binding TenKH}"/>
                                                                     <Style.Triggers>
-                                                                        <DataTrigger Binding="{Binding TinhTrangPhong}" Value="Phòng trống" >
+                                                                        <DataTrigger Binding="{Binding TrangThai}" Value="Phòng trống" >
                                                                             <Setter Property="Text" Value="Phòng trống"/>
                                                                         </DataTrigger>
                                                                     </Style.Triggers>
@@ -686,10 +682,10 @@
                                                 <Style TargetType="Grid">
                                                     <Setter Property="Background" Value="#71D693"/>
                                                     <Style.Triggers>
-                                                        <DataTrigger Binding="{Binding TinhTrangPhong}" Value="Phòng đang thuê">
+                                                        <DataTrigger Binding="{Binding TrangThai}" Value="Phòng đang thuê">
                                                             <Setter Property="Background" Value="#89B5CE"/>
                                                         </DataTrigger>
-                                                        <DataTrigger Binding="{Binding TinhTrangPhong}" Value="Phòng đã đặt">
+                                                        <DataTrigger Binding="{Binding TrangThai}" Value="Phòng đã đặt">
                                                             <Setter Property="Background" Value="#7D7D7D"/>
                                                         </DataTrigger>
                                                     </Style.Triggers>
@@ -713,7 +709,7 @@
                                                 <Grid Grid.Row="0">
                                                     <TextBlock Text="{Binding MaPhong}" HorizontalAlignment="Left" VerticalAlignment="Center"
                                            Margin="18 0 0 0" FontSize="15" Foreground="#FFFFFF" FontWeight="Bold"/>
-                                                    <TextBlock Text="{Binding TinhTrangPhong}" HorizontalAlignment="Right" VerticalAlignment="Center"
+                                                    <TextBlock Text="{Binding TrangThai}" HorizontalAlignment="Right" VerticalAlignment="Center"
                                            Margin="0 0 9 0" FontSize="11" Foreground="#FFFFFF"/>
                                                 </Grid>
 
@@ -729,10 +725,10 @@
                                                             <Style TargetType="materialDesign:PackIcon">
                                                                 <Setter Property="Kind" Value="CheckboxMarkedCircle"/>
                                                                 <Style.Triggers>
-                                                                    <DataTrigger Binding="{Binding TinhTrangPhong}" Value="Phòng đang thuê">
+                                                                    <DataTrigger Binding="{Binding TrangThai}" Value="Phòng đang thuê">
                                                                         <Setter Property="Kind" Value="AccountGroup"/>
                                                                     </DataTrigger>
-                                                                    <DataTrigger Binding="{Binding TinhTrangPhong}" Value="Phòng đã đặt">
+                                                                    <DataTrigger Binding="{Binding TrangThai}" Value="Phòng đã đặt">
                                                                         <Setter Property="Kind" Value="AccountGroup"/>
                                                                     </DataTrigger>
                                                                 </Style.Triggers>
@@ -746,7 +742,7 @@
                                                                 <Style TargetType="TextBlock">
                                                                     <Setter Property="Text" Value="{Binding TenKH}"/>
                                                                     <Style.Triggers>
-                                                                        <DataTrigger Binding="{Binding TinhTrangPhong}" Value="Phòng trống" >
+                                                                        <DataTrigger Binding="{Binding TrangThai}" Value="Phòng trống" >
                                                                             <Setter Property="Text" Value="Phòng trống"/>
                                                                         </DataTrigger>
                                                                     </Style.Triggers>
