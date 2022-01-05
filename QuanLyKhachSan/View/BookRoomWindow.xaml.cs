@@ -252,7 +252,7 @@ namespace QuanLyKhachSan.View
                 
                 if (checkKH(txbCCCD.Text) == null)
                 {
-                    new DialogCustom("Thêm khách hàng thành công " , "Thông báo", DialogCustom.OK).ShowDialog();
+                    new DialogCustom("Thêm khách hàng mới và đặt phòng thành công " , "Thông báo", DialogCustom.OK).ShowDialog();
                     DataProvider.Ins.DB.KhachHangs.Add(kh);
                     DataProvider.Ins.DB.SaveChanges();
                     
@@ -276,7 +276,7 @@ namespace QuanLyKhachSan.View
                     MaPhong = item.MaPhong,
                     NgayBD = dtpNgayBD.SelectedDate,
                     NgayKT = dtpNgayKT.SelectedDate,
-                    TrangThai = "Phòng đang thuê",
+                    TrangThai = "Chưa thanh toán",
                     MaPhieuThue = pt.ID,
                     TienPhong = item.TienPhong
                     //MaPhieuThue = int.Parse((from p in DataProvider.Ins.DB.PhieuThues

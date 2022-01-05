@@ -71,10 +71,19 @@ namespace QuanLyKhachSan.View
             this.DialogResult = true;
             this.Visibility = Visibility.Hidden;
 
-            ChiTietPhieuThue lsCTHD = DataProvider.Ins.DB.ChiTietPhieuThues.FirstOrDefault(p => p.MaPhong.ToString() == checkMP(txblTieuDe.Text).FirstOrDefault().ToString());
-            ChiTietPhieuThue ctpt = new ChiTietPhieuThue() { TrangThai = "Đã thanh toán" };
-            DataProvider.Ins.DB.ChiTietPhieuThues.Add(ctpt);
-            DataProvider.Ins.DB.SaveChanges();
+            string temp = checkMP(txblTieuDe.Text);
+
+            //var lsPT = (from pt in DataProvider.Ins.DB.PhieuThues
+            //            join ctpt in DataProvider.Ins.DB.ChiTietPhieuThues on pt.ID equals ctpt.MaPhieuThue
+            //            where pt.Ngaylap = ctpt.NgayBD
+            //            select)
+
+            ChiTietPhieuThue lsCTHD = DataProvider.Ins.DB.ChiTietPhieuThues.FirstOrDefault(p => p.MaPhong.ToString() == temp && p.TrangThai == "Chưa thanh toán");
+
+
+            //ChiTietPhieuThue ctpt = new ChiTietPhieuThue() { TrangThai = "Đã thanh toán" };
+            //DataProvider.Ins.DB.ChiTietPhieuThues.Add(ctpt);
+            //DataProvider.Ins.DB.SaveChanges();
         }
 
         private void ButtonService_Click(object sender, RoutedEventArgs e)

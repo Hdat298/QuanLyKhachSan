@@ -17,11 +17,10 @@
         AllowsTransparency="True" 
         WindowStyle="None"
         ResizeMode="NoResize"
-        Loaded="Window_Loaded"
         WindowStartupLocation="CenterScreen"
         Name="rentRoomWindow">
     <Window.Clip>
-        <RectangleGeometry Rect="0,0,950,500" RadiusX="10" RadiusY="10">
+        <RectangleGeometry Rect="0,0,990,550" RadiusX="10" RadiusY="10">
         </RectangleGeometry>
     </Window.Clip>
     <Border BorderThickness="1" BorderBrush="#FF807D7D" CornerRadius="10">
@@ -107,14 +106,7 @@
             </Grid>
             <!--#endregion-->
 
-            <Grid Grid.Row="2">
-                <Button Width="130" Height="37" Background="#9D9999" Content="Thoát"
-                        HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 90 0" Click="click_Thoat"   >
-                    <Button.Clip>
-                        <RectangleGeometry Rect="0,0,130,37" RadiusX="10" RadiusY="10"/>
-                    </Button.Clip>
-                </Button>
-            </Grid>
+            <Grid Grid.Row="2"/>
         </Grid>
     </Border>
 </Window>
