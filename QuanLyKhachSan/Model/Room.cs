@@ -9,9 +9,6 @@ namespace QuanLyKhachSan.Model
 {
     public class Room : BaseViewModel
     {
-        //public Phong phong { get; set; }
-        //public LoaiPhong loaiPhong { get; set; }
-        //public KhachHang khachHang { get; set; }
         private int? _SoNgayO;
         public int? SoNgayO { get => _SoNgayO; set { _SoNgayO = value; OnPropertyChanged(); } }
         private DateTime? _NgayDen;
@@ -37,15 +34,6 @@ namespace QuanLyKhachSan.Model
 
         public Room()
         {
-            //var obj = from p in DataProvider.Ins.DB.Phongs
-            //          join c in DataProvider.Ins.DB.KhachHangs on p.ID equals c.ID
-            //          join s in DataProvider.Ins.DB.PhieuThues on c.ID equals s.ID
-            //          select new 
-            //          {
-            //              MaPhong = p.MaPhong,
-            //              TinhTrangPhong = p.TinhTrangPhong,
-            //              TenKH = c.TenKhachHang
-            //          };
         }
        
     }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,7 +24,6 @@ namespace QuanLyKhachSan.View
     {
         private ObservableCollection<CTThueCustom> _List1;
         public ObservableCollection<CTThueCustom> List1 { get => _List1; set { _List1 = value; } }
-        List<CTThueCustom> lsCTPT;
 
         public RentRoomDetailWindow()
         {
@@ -63,5 +63,6 @@ namespace QuanLyKhachSan.View
             }
             return 0;
         }
+
     }
 }

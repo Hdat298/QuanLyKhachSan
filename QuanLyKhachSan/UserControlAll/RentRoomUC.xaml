@@ -62,7 +62,7 @@
                                 BorderThickness="0"
                                 MinWidth="200"
                                 FlowDirection="LeftToRight"
-                                VerticalAlignment="Center" />
+                                VerticalAlignment="Center" TextChanged="Find_TextChanged" />
 
                     </Grid>
                 </materialDesign:ColorZone>
