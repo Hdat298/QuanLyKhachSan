@@ -52,6 +52,25 @@ namespace QuanLyKhachSan.View
             //Lấy ra mã CT phiếu thuê
             maCTPhieuThue = phong.MaCTPT;
 
+            if (maCTPhieuThue != null)
+            {
+                var ds = (from dvp in DataProvider.Ins.DB.DichVuPhongs
+                          where dvp.MaChiTietPhieuThue == maCTPhieuThue
+                          select new Service2()
+                          {
+                              MaDV = dvp.MaDichVu,
+                              TenDV = dvp.DichVu.TenDichVu,
+                              SoLuong = dvp.SoLuong,
+                              ThanhTien = dvp.ThanhTien
+                          }).ToList();
+                obDichVu = new ObservableCollection<Service2>(ds);
+            }
+            else
+            {
+                obDichVu = new ObservableCollection<Service2>();
+            }
+            lvSuDungDV.ItemsSource = obDichVu;
+
         }
 
         private string checkMP (string MaPhong)
@@ -78,6 +97,9 @@ namespace QuanLyKhachSan.View
                 item.TrangThai = "Đã thanh toán";
             }
             DataProvider.Ins.DB.SaveChanges();
+            this.Visibility = Visibility.Hidden;
+            InvoiceWindow invoice = new InvoiceWindow(phong_CTPhong, obDichVu);
+            invoice.ShowDialog();
             this.Close();
         }
 

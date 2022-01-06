@@ -74,9 +74,10 @@
           <Property Name="MaHoaDon" Type="varchar" MaxLength="7" StoreGeneratedPattern="Computed" />
           <Property Name="MaPhong" Type="int" />
           <Property Name="MaKhachHang" Type="int" />
-          <Property Name="MaDichVu" Type="int" />
+          <Property Name="MaCTPT" Type="int" />
           <Property Name="TongTienDichVu" Type="int" />
           <Property Name="TongTienThanhToan" Type="int" />
+          <Property Name="NgayLap" Type="date" />
         </EntityType>
         <EntityType Name="KhachHang">
           <Key>
@@ -264,7 +265,7 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="HoaDon">
-              <PropertyRef Name="MaDichVu" />
+              <PropertyRef Name="MaCTPT" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -613,9 +614,10 @@
           <Property Name="MaHoaDon" Type="String" MaxLength="7" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
           <Property Name="MaPhong" Type="Int32" />
           <Property Name="MaKhachHang" Type="Int32" />
-          <Property Name="MaDichVu" Type="Int32" />
+          <Property Name="MaCTPT" Type="Int32" />
           <Property Name="TongTienDichVu" Type="Int32" />
           <Property Name="TongTienThanhToan" Type="Int32" />
+          <Property Name="NgayLap" Type="DateTime" Precision="0" />
           <NavigationProperty Name="DichVu" Relationship="QLKSModel.FK__HoaDon__MaDichVu__6383C8BA" FromRole="HoaDon" ToRole="DichVu" />
           <NavigationProperty Name="KhachHang" Relationship="QLKSModel.FK__HoaDon__MaKhachH__628FA481" FromRole="HoaDon" ToRole="KhachHang" />
           <NavigationProperty Name="Phong" Relationship="QLKSModel.FK__HoaDon__MaPhong__619B8048" FromRole="HoaDon" ToRole="Phong" />
@@ -835,7 +837,7 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="HoaDon">
-              <PropertyRef Name="MaDichVu" />
+              <PropertyRef Name="MaCTPT" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -999,9 +1001,10 @@
           <EntitySetMapping Name="HoaDons">
             <EntityTypeMapping TypeName="QLKSModel.HoaDon">
               <MappingFragment StoreEntitySet="HoaDon">
+                <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
                 <ScalarProperty Name="TongTienThanhToan" ColumnName="TongTienThanhToan" />
                 <ScalarProperty Name="TongTienDichVu" ColumnName="TongTienDichVu" />
-                <ScalarProperty Name="MaDichVu" ColumnName="MaDichVu" />
+                <ScalarProperty Name="MaCTPT" ColumnName="MaCTPT" />
                 <ScalarProperty Name="MaKhachHang" ColumnName="MaKhachHang" />
                 <ScalarProperty Name="MaPhong" ColumnName="MaPhong" />
                 <ScalarProperty Name="MaHoaDon" ColumnName="MaHoaDon" />
