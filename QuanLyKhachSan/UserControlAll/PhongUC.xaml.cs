@@ -61,6 +61,7 @@ namespace QuanLyKhachSan.UserControlAll
                           NgayDen = ct.NgayBD,
                           NgayDi = ct.NgayKT,
                           SoNgayO = (ct.NgayBD == null) ? 0 : (int)SqlFunctions.DateDiff("day", ct.NgayBD, ct.NgayKT) + 1,
+                          TinhTrangPhong = p.TinhTrangPhong
                       }
                       ).ToList();
             List1 = new ObservableCollection<Room>(ls);

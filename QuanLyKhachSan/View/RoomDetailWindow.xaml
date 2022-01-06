@@ -94,11 +94,7 @@
                                 <materialDesign:PackIcon x:Name="icDayorHour" Width="25" Height="25"/>
                                 <TextBlock x:Name="txblSoNgay"  FontSize="15" VerticalAlignment="Center" Margin="10 0 0 0"></TextBlock>
                             </StackPanel>
-                            <StackPanel Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <materialDesign:PackIcon Kind="AccountMultiplePlus" Width="25" Height="25"/>
-                                <TextBlock x:Name="txblSoNguoi"  FontSize="15" VerticalAlignment="Center" Margin="10 0 0 0"></TextBlock>
-                                <TextBlock Text="người" FontSize="15" VerticalAlignment="Center" Margin="15 0 0 0"></TextBlock>
-                            </StackPanel>
+                         
                         </Grid>
                         <!--1-->
                         <Grid Grid.Row="1">
@@ -227,18 +223,13 @@
                         </Button.Style>
                     </Button>
                     <Button Width="130" Height="37" Background="#478C10" Content="Lưu"
-                        HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 280 0" >
+                        HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 280 0" Click="Save_Click" >
                         <Button.Clip>
                             <RectangleGeometry Rect="0,0,130,37" RadiusX="10" RadiusY="10"/>
                         </Button.Clip>
                     </Button>
 
-                    <Button Width="130" Height="37" Background="#9D9999" Content="Thoát"
-                        HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 90 0">
-                        <Button.Clip>
-                            <RectangleGeometry Rect="0,0,130,37" RadiusX="10" RadiusY="10"/>
-                        </Button.Clip>
-                    </Button>
+                    
                 </Grid>
             </Grid>
         </Border>

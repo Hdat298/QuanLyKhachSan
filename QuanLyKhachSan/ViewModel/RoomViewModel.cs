@@ -56,6 +56,7 @@ namespace QuanLyKhachSan.ViewModel
                           NgayDen = ct.NgayBD,
                           NgayDi = ct.NgayKT,
                           SoNgayO = (ct.NgayBD == null) ? 0 : (int)SqlFunctions.DateDiff("day", ct.NgayBD, ct.NgayKT) + 1,
+                          TinhTrangPhong = p.TinhTrangPhong
                       }
                       ).ToList();
             List1 = new ObservableCollection<Room>(ls1);
@@ -74,6 +75,7 @@ namespace QuanLyKhachSan.ViewModel
                           NgayDen = ct.NgayBD,
                           NgayDi = ct.NgayKT,
                           SoNgayO = (ct.NgayBD == null) ? 0 : (int)SqlFunctions.DateDiff("day", ct.NgayBD, ct.NgayKT) + 1,
+                          TinhTrangPhong = p.TinhTrangPhong
                       }
                       ).ToList();
             List2 = new ObservableCollection<Room>(ls2);
@@ -92,6 +94,7 @@ namespace QuanLyKhachSan.ViewModel
                           NgayDen = ct.NgayBD,
                           NgayDi = ct.NgayKT,
                           SoNgayO = (ct.NgayBD == null) ? 0 : (int)SqlFunctions.DateDiff("day", ct.NgayBD, ct.NgayKT) + 1,
+                          TinhTrangPhong = p.TinhTrangPhong
                       }
                       ).ToList();
             List3 = new ObservableCollection<Room>(ls3);
@@ -110,6 +113,7 @@ namespace QuanLyKhachSan.ViewModel
                           NgayDen = ct.NgayBD,
                           NgayDi = ct.NgayKT,
                           SoNgayO = (ct.NgayBD == null) ? 0 : (int)SqlFunctions.DateDiff("day", ct.NgayBD, ct.NgayKT) + 1,
+                          TinhTrangPhong = p.TinhTrangPhong
                       }
                       ).ToList();
             List4 = new ObservableCollection<Room>(ls4);

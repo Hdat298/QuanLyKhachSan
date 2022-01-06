@@ -30,6 +30,7 @@ namespace QuanLyKhachSan.View
         private ServiceUC serviceUC;
         private SuplierUC suplierUC;
         private RentRoomUC rentRoomUC;
+        private QLPhongUC manageRoomUC;
 
         NhanVien nhanVien;
         public MainWindow()
@@ -98,6 +99,11 @@ namespace QuanLyKhachSan.View
                         contenDisplayMain.Content = phongUC;
                         break;
                     case 2:
+                        if (manageRoomUC == null)
+                        {
+                            manageRoomUC = new QLPhongUC();
+                        }
+                        contenDisplayMain.Content = manageRoomUC;
                         break;
                     case 3:
                         if (rentRoomUC == null)

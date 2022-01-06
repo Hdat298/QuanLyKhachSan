@@ -111,5 +111,16 @@ namespace QuanLyKhachSan.View
             lvServiceRoomDetail = new ObservableCollection<ServiceRoomDetail>(list);
             lvSuDungDV.ItemsSource = lvServiceRoomDetail;
         }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            var ct = DataProvider.Ins.DB.Phongs.Where(p => p.MaPhong == txblTieuDe.Text).ToList();
+            foreach (var item in ct)
+            {
+                item.TinhTrangPhong = cbDonDep.Text;
+            }
+            DataProvider.Ins.DB.SaveChanges();
+            this.Close();
+        }
     }
 }

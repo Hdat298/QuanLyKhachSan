@@ -143,6 +143,7 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PhongTrong.cs" />
+    <Compile Include="Model\QLPhongCustom.cs" />
     <Compile Include="Model\RentRoomCustom.cs" />
     <Compile Include="Model\Room.cs" />
     <Compile Include="Model\Service.cs" />
@@ -461,6 +462,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Source\img_edit.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.3.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.3.0\build\MaterialDesignThemes.targets')" />
