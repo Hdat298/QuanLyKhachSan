@@ -47,7 +47,7 @@ namespace QuanLyKhachSan.View
             var ls = (from p in DataProvider.Ins.DB.Phongs
                       join ct in lsCTPT on p.ID equals ct.MaPhong into t
                       from ct in t.DefaultIfEmpty()
-                      where ct.TrangThai == null || ct.TrangThai == "Đã thanh toán"
+                      where ct.TrangThai == null || (ct.TrangThai == "Đã thanh toán" && p.TinhTrangPhong == "Đã dọn dẹp")
                       select new PhongTrong()
                       {
                           MaPhong = p.ID,

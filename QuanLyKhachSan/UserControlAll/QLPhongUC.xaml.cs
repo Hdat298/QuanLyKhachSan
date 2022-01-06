@@ -1,4 +1,5 @@
 ﻿using QuanLyKhachSan.Model;
+using QuanLyKhachSan.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -22,6 +23,7 @@ namespace QuanLyKhachSan.UserControlAll
     /// </summary>
     public partial class QLPhongUC : UserControl
     {
+        public ObservableCollection<Phong> room;
         private ObservableCollection<QLPhongCustom> _lsQLPhong;
         public ObservableCollection<QLPhongCustom> lsQLPhong { get => _lsQLPhong; set { _lsQLPhong = value; } }
 
@@ -45,6 +47,25 @@ namespace QuanLyKhachSan.UserControlAll
                       ).ToList();
             lsQLPhong = new ObservableCollection<QLPhongCustom>(ls);
             lsvPhong.ItemsSource = lsQLPhong;
+        }
+
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+            AddRoomWindow arw = new AddRoomWindow();
+            arw.ShowDialog();
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            QLPhongCustom phong = (sender as Button).DataContext as QLPhongCustom;
+            var thongbao = new DialogCustom("Bạn có thật sự muốn xóa phòng " + phong.MaPhong, "Thông báo", DialogCustom.YesNo);
+            if (thongbao.ShowDialog() == true)
+            {
+                new DialogCustom("Xóa thành công", "Thông báo", DialogCustom.OK).Show();
+                var p = DataProvider.Ins.DB.Phongs.Where(l => l.MaPhong == phong.MaPhong).SingleOrDefault();
+                DataProvider.Ins.DB.Phongs.Remove(p);
+                DataProvider.Ins.DB.SaveChanges();
+            }
         }
     }
 }
