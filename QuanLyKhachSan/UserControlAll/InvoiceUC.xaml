@@ -30,9 +30,6 @@
             <ImageBrush ImageSource="/Source/Pic5.png"/>
         </Grid.Background>
         <Grid Width="1300" Grid.Row="0" VerticalAlignment="Center">
-            <DatePicker Margin="630,2,0,-1" Width="150" x:Name="dtpChonNgay" 
-                        VerticalAlignment="Center" HorizontalAlignment="Left"
-                        materialDesign:HintAssist.Hint="Chọn ngày" Padding="10 10 10 5" Style="{StaticResource MaterialDesignOutlinedDatePicker}" />
             <!--ô tìm kiếm-->
             <materialDesign:ColorZone Mode="Standard" CornerRadius="5" HorizontalAlignment="Right" Margin="0,0,208,0" 
                                           VerticalAlignment="Center" materialDesign:ShadowAssist.ShadowDepth="Depth1" Width="250">
@@ -51,7 +48,7 @@
                                 BorderThickness="0"
                                 MinWidth="200"
                                 FlowDirection="LeftToRight"
-                                VerticalAlignment="Center" />
+                                VerticalAlignment="Center" TextChanged="Filter_TextChanged" />
                 </Grid>
             </materialDesign:ColorZone>
 

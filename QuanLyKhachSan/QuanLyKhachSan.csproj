@@ -88,6 +88,8 @@
     <Compile Include="Model\ChiTietTienNghi.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\classInvoiceWindow.cs" />
+    <Compile Include="Model\classInvoiceWindow2.cs" />
     <Compile Include="Model\CTThue.cs" />
     <Compile Include="Model\CTThueCustom.cs" />
     <Compile Include="Model\DataProvider.cs" />
@@ -248,9 +250,6 @@
     <Compile Include="View\RoomDetailWindow.xaml.cs">
       <DependentUpon>RoomDetailWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\RoomWindow.xaml.cs">
-      <DependentUpon>RoomWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -364,10 +363,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\RoomDetailWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\RoomWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

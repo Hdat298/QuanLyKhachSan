@@ -40,7 +40,7 @@ namespace QuanLyKhachSan.UserControlAll
                               NgayLap = hd.NgayLap,
                               TienDV = hd.TongTienDichVu,
                               TongTien = hd.TongTienThanhToan,
-                              MaCTPT = hd.MaCTPT
+                              MaCTPT = hd.MaChiTietPhieuThue
                           }
                           ).ToList();
             lsInvoice = new ObservableCollection<classInvoiceUC>(HoaDon);
@@ -49,6 +49,24 @@ namespace QuanLyKhachSan.UserControlAll
 
         private void Detail_Click(object sender, RoutedEventArgs e)
         {
+            classInvoiceUC hd = (sender as Button).DataContext as classInvoiceUC;
+            new InvoiceWindow((int)hd.MaHD).ShowDialog();
+        }
+
+        private void Filter_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lsvHoaDon.ItemsSource);
+            view.Filter = HoaDonFilter;
+            CollectionViewSource.GetDefaultView(lsvHoaDon.ItemsSource).Refresh();
+        }
+        private bool HoaDonFilter(object obj)
+        {
+            if (String.IsNullOrEmpty(txtFilter.Text))
+            {
+                return true;
+            }
+            else
+                return (obj as classInvoiceUC).MaHD == int.Parse(txtFilter.Text);
         }
     }
 }

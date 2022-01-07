@@ -27,7 +27,7 @@ namespace QuanLyKhachSan.Model
         public string CCCD { get; set; }
         public string DiaChi { get; set; }
         public string SDT { get; set; }
-        public string QuocTinh { get; set; }
+        public string QuocTich { get; set; }
         public string SoHoChieu { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

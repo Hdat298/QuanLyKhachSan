@@ -23,6 +23,10 @@ namespace QuanLyKhachSan.ViewModel
         public ObservableCollection<Room> List3 { get => _List3; set { _List3 = value; OnPropertyChanged(); } }
         private ObservableCollection<Room> _List4;
         public ObservableCollection<Room> List4 { get => _List4; set { _List4 = value; OnPropertyChanged(); } }
+        ObservableCollection<Room> lsTrong;
+        List<Room> lsPhong;
+
+
 
         //public Phong phong { get; set; }
         //public LoaiPhong loaiPhong { get; set; }
@@ -39,7 +43,8 @@ namespace QuanLyKhachSan.ViewModel
 
         public RoomViewModel()
         {
-
+            lsPhong = new List<Room>();
+            lsTrong = new ObservableCollection<Room>();
             var lsCTPT = DataProvider.Ins.DB.ChiTietPhieuThues.Where(p => p.TrangThai.CompareTo("Đã thanh toán") != 0).AsEnumerable();
 
             var ls1 = (from p in DataProvider.Ins.DB.Phongs

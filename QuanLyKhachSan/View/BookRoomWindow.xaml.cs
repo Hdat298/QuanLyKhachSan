@@ -246,7 +246,7 @@ namespace QuanLyKhachSan.View
                     CCCD = txbCCCD.Text,
                     TenKhachHang = txbHoTen.Text,
                     DiaChi = txbDiaChi.Text,
-                    QuocTinh = txbQuocTich.Text,
+                    QuocTich = txbQuocTich.Text,
                     SDT = txbSDT.Text
                 };
                 

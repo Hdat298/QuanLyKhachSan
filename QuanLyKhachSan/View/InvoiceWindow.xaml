@@ -19,7 +19,7 @@
         WindowStartupLocation="CenterScreen" 
         Name="mainWindow"
         DataContext="{StaticResource MainVM}"
-        Title="Hóa Đơn" Height="670" Width="535">
+        Title="Hóa Đơn" Height="600" Width="535">
 
     <Border BorderThickness="1" BorderBrush="#FF807D7D" >
         <StackPanel Height="600">

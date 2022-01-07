@@ -31,6 +31,7 @@ namespace QuanLyKhachSan.View
         private SuplierUC suplierUC;
         private RentRoomUC rentRoomUC;
         private QLPhongUC manageRoomUC;
+        private InvoiceUC invoiceUC;
 
         NhanVien nhanVien;
         public MainWindow()
@@ -131,7 +132,13 @@ namespace QuanLyKhachSan.View
                     case 7:
                         break;
                     case 8:
+                        if (invoiceUC == null)
+                        {
+                            invoiceUC = new InvoiceUC();
+                        }
+                        contenDisplayMain.Content = invoiceUC;
                         break;
+                       
                 }
             }
         }

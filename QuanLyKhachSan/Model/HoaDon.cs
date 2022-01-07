@@ -18,12 +18,12 @@ namespace QuanLyKhachSan.Model
         public string MaHoaDon { get; set; }
         public Nullable<int> MaPhong { get; set; }
         public Nullable<int> MaKhachHang { get; set; }
-        public Nullable<int> MaCTPT { get; set; }
+        public Nullable<int> MaChiTietPhieuThue { get; set; }
         public Nullable<int> TongTienDichVu { get; set; }
         public Nullable<int> TongTienThanhToan { get; set; }
         public Nullable<System.DateTime> NgayLap { get; set; }
     
-        public virtual DichVu DichVu { get; set; }
+        public virtual ChiTietPhieuThue ChiTietPhieuThue { get; set; }
         public virtual KhachHang KhachHang { get; set; }
         public virtual Phong Phong { get; set; }
     }

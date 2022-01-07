@@ -64,7 +64,7 @@ namespace QuanLyKhachSan.View
                 {
                     MaPhong = temp,
                     MaKhachHang = temp1,
-                    MaCTPT = Phong.MaCTPT,
+                    MaChiTietPhieuThue = Phong.MaCTPT,
                     TongTienDichVu = (tienDV == null ? 0 : tienDV),
                     TongTienThanhToan = (tienDV == null ? 0 : tienDV) + tienPhong,
                     NgayLap = DateTime.Now,
@@ -77,7 +77,6 @@ namespace QuanLyKhachSan.View
                 {
                     SoLuong = Phong.SoNgayO,
                     TenDV = "Thuê phòng",
-                    //Gia = PhongBUS.GetInstance().layTienPhongTheoSoPhong(Phong),
                     ThanhTien = tienPhong
                 };
                 ls.Add(dv);
@@ -90,7 +89,131 @@ namespace QuanLyKhachSan.View
             }
         }
 
+        public InvoiceWindow(int mahd) : this()
+        {
+            try
+            {
+                int MACT = 0;
+                
+                var hd = DataProvider.Ins.DB.HoaDons.Where(h => h.ID == mahd).ToList();
+                if (hd == null)
+                {
+                    new DialogCustom("Hóa đơn không tồn tại!", "Thông báo", DialogCustom.OK).ShowDialog();
+                    return;
+                }
+                var hd1 = (from p in hd
+                           join ctpt in DataProvider.Ins.DB.ChiTietPhieuThues on p.MaChiTietPhieuThue equals ctpt.ID into k
+                           from q in k.DefaultIfEmpty()
+                           select new classInvoiceWindow()
+                           {
+                               SoPhong = p.ChiTietPhieuThue.MaPhong,
+                               NgayBD = p.ChiTietPhieuThue.NgayBD,
+                               NgayKT = p.ChiTietPhieuThue.NgayKT,
+                               TenKH = checkMaKH(p.ChiTietPhieuThue.MaPhieuThue.ToString()),
+                               NgayLap = p.NgayLap,
+                               TongTien = p.TongTienThanhToan
+                           }
+                           ).ToList();
+                foreach (var item in hd1)
+                {
+                    txbSoPhong.Text = item.SoPhong.ToString();
+                    txbSoNgay.Text = (item.NgayKT - item.NgayBD).ToString();
+                    txbTenKH.Text = item.TenKH;
+                    txbNgayLapHD.Text = item.NgayLap.ToString();
+                    txbTongTien.Text = string.Format("{0:0,0 VND}", item.TongTien);
+                }
+
+                foreach (var item in hd)
+                {
+                    MACT = (int)item.MaChiTietPhieuThue;
+                }
+                var listDV = DataProvider.Ins.DB.DichVuPhongs.Where(dvp => dvp.MaChiTietPhieuThue == MACT).ToList();
+                var listDV2 = (from ldv in listDV
+                               select new Service2()
+                               {
+                                   MaDV = ldv.MaDichVu,
+                                   TenDV = checkDV(ldv.MaDichVu.ToString()),
+                                   SoLuong = ldv.SoLuong,
+                                   Gia = checkPrice((int)ldv.MaDichVu),
+                                   ThanhTien = ldv.ThanhTien
+                               }
+                               );
+                ls = new List<Service2>(listDV2);
+
+                int temp = 0;
+                int temp1 = 0;
+                var lsDV = DataProvider.Ins.DB.ChiTietPhieuThues.Where(ctpt => ctpt.ID == MACT).ToList();
+                var lsDV2 = (from p in hd
+                             join r in DataProvider.Ins.DB.Phongs on p.MaPhong equals r.ID into t
+                             from o in t.DefaultIfEmpty()
+                             select new classInvoiceWindow2()
+                             {
+                                 Gia = p.Phong.LoaiPhong.GiaNgay,
+                             }
+                             );
+                foreach (var item in lsDV2)
+                {
+                    temp1 = (int)item.Gia;
+                }
+
+                foreach (var item in lsDV)
+                {
+                    temp = (int)item.TienPhong;
+                }
+                Service2 dv = new Service2()
+                {
+                    TenDV = "Thuê phòng",
+                    ThanhTien = temp,
+                    Gia = temp1
+                };
+                ls.Add(dv);
+                lvDichVuDaSD.ItemsSource = ls;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         #region method
+        private int checkPrice (int MaDV)
+        {
+            List<DichVu> lsDichVu = DataProvider.Ins.DB.DichVus.ToList();
+            foreach (var item in lsDichVu)
+            {
+                if (MaDV == item.ID)
+                {
+                    return (int)item.DonGia;
+                }
+            }
+            return 0;
+        }
+        private string checkDV (string MaDV)
+        {
+            List<DichVu> lsDichVu = DataProvider.Ins.DB.DichVus.ToList();
+            foreach (var item in lsDichVu)
+            {
+                if (MaDV == item.ID.ToString())
+                {
+                    return item.TenDichVu;
+                }
+            }
+            return null;
+        }
+        private string checkMaKH (string MaKH)
+        {
+            List<KhachHang> lsCustom = DataProvider.Ins.DB.KhachHangs.ToList();
+            foreach (var item in lsCustom)
+            {
+                if (MaKH == item.ID.ToString())
+                {
+                    return item.TenKhachHang;
+                }
+            }
+            return null;
+        }
+
         private string checkMP (string MaPhong)
         {
             List<Phong> dsPhong = DataProvider.Ins.DB.Phongs.ToList();

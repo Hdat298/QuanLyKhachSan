@@ -95,6 +95,7 @@ namespace QuanLyKhachSan.View
             foreach (var item in ctp)
             {
                 item.TrangThai = "Đã thanh toán";
+                item.TienPhong = item.Phong.LoaiPhong.GiaNgay * ((TimeSpan)(item.NgayKT - item.NgayBD)).Days;
             }
             DataProvider.Ins.DB.SaveChanges();
             this.Visibility = Visibility.Hidden;
