@@ -1,4 +1,6 @@
-﻿using QuanLyKhachSan.UserControlAll;
+﻿using QuanLyKhachSan.Model;
+using QuanLyKhachSan.UserControlAll;
+using QuanLyKhachSan.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Data.Linq;
@@ -27,20 +29,22 @@ namespace QuanLyKhachSan.View
         private CustomerUC customerUC;
         private ServiceUC serviceUC;
         private SuplierUC suplierUC;
+        private RentRoomUC rentRoomUC;
+        private QLPhongUC manageRoomUC;
+        private InvoiceUC invoiceUC;
 
+        NhanVien nhanVien;
         public MainWindow()
         {
             InitializeComponent();
         }
-
-
-        //private void mainWindow_Loaded(object sender, RoutedEventArgs e)
-        //{
-        //    this.DataContext = this;
-        //    Home = new HomeUC();
-        //    contenDisplayMain.Content = Home;
-
-        //}
+        private int maNV;
+        public int MaNV { get => maNV; set => maNV = value; }
+        public MainWindow(NhanVien nv) : this()
+        {
+            this.nhanVien = nv;
+            this.MaNV = nv.ID;
+        }
 
         private void ListViewItem_MouseEnter(object sender, MouseEventArgs e)
         {
@@ -89,11 +93,25 @@ namespace QuanLyKhachSan.View
                         {
                             phongUC = new PhongUC();
                         }
+                        else
+                        {
+                            phongUC.Refresh();
+                        }
                         contenDisplayMain.Content = phongUC;
                         break;
                     case 2:
+                        if (manageRoomUC == null)
+                        {
+                            manageRoomUC = new QLPhongUC();
+                        }
+                        contenDisplayMain.Content = manageRoomUC;
                         break;
                     case 3:
+                        if (rentRoomUC == null)
+                        {
+                            rentRoomUC = new RentRoomUC(MaNV);
+                        }
+                        contenDisplayMain.Content = rentRoomUC;
                         break;
                     case 4:
                         if (customerUC == null)
@@ -114,7 +132,13 @@ namespace QuanLyKhachSan.View
                     case 7:
                         break;
                     case 8:
+                        if (invoiceUC == null)
+                        {
+                            invoiceUC = new InvoiceUC();
+                        }
+                        contenDisplayMain.Content = invoiceUC;
                         break;
+                       
                 }
             }
         }

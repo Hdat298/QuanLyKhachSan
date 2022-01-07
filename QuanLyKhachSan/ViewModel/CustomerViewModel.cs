@@ -27,7 +27,7 @@ namespace QuanLyKhachSan.ViewModel
                     TenKhachHang = SelectedItem.TenKhachHang;
                     DiaChi = SelectedItem.DiaChi;
                     SDT = SelectedItem.SDT;
-                    QuocTinh = SelectedItem.QuocTinh;
+                    QuocTinh = SelectedItem.QuocTich;
                     SoHoChieu = SelectedItem.SoHoChieu;
                     CCCD = SelectedItem.CCCD;
                 }
@@ -63,7 +63,7 @@ namespace QuanLyKhachSan.ViewModel
                 return true;
             }, (p) => 
             {
-                var KH = new KhachHang() { TenKhachHang = TenKhachHang , CCCD = CCCD , DiaChi = DiaChi , SDT = SDT , QuocTinh = QuocTinh , SoHoChieu = SoHoChieu};
+                var KH = new KhachHang() { TenKhachHang = TenKhachHang , CCCD = CCCD , DiaChi = DiaChi , SDT = SDT , QuocTich = QuocTinh , SoHoChieu = SoHoChieu};
 
                 DataProvider.Ins.DB.KhachHangs.Add(KH);
                 DataProvider.Ins.DB.SaveChanges();
@@ -90,7 +90,7 @@ namespace QuanLyKhachSan.ViewModel
                 KH.CCCD = CCCD;
                 KH.DiaChi = DiaChi;
                 KH.SDT = SDT;
-                KH.QuocTinh = QuocTinh;
+                KH.QuocTich = QuocTinh;
                 KH.SoHoChieu = SoHoChieu;
 
                 DataProvider.Ins.DB.SaveChanges();
@@ -125,7 +125,7 @@ namespace QuanLyKhachSan.ViewModel
             {
                 List.Clear();
 
-                List<KhachHang> KH = DataProvider.Ins.DB.KhachHangs.Where(x => x.TenKhachHang == TenKhachHang || x.DiaChi == DiaChi || x.CCCD == CCCD || x.SDT == SDT || x.QuocTinh ==QuocTinh || x.SoHoChieu == SoHoChieu ).ToList();
+                List<KhachHang> KH = DataProvider.Ins.DB.KhachHangs.Where(x => x.TenKhachHang == TenKhachHang || x.DiaChi == DiaChi || x.CCCD == CCCD || x.SDT == SDT || x.QuocTich == QuocTinh || x.SoHoChieu == SoHoChieu ).ToList();
                 if (KH.Count == 0) 
                     List = new ObservableCollection<KhachHang>(DataProvider.Ins.DB.KhachHangs);
                 else

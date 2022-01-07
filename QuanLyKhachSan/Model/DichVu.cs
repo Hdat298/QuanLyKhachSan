@@ -18,7 +18,6 @@ namespace QuanLyKhachSan.Model
         public DichVu()
         {
             this.DichVuPhongs = new HashSet<DichVuPhong>();
-            this.HoaDons = new HashSet<HoaDon>();
         }
     
         public int ID { get; set; }
@@ -30,7 +29,5 @@ namespace QuanLyKhachSan.Model
         public virtual LoaiDichVu LoaiDichVu { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DichVuPhong> DichVuPhongs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HoaDon> HoaDons { get; set; }
     }
 }
