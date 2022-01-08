@@ -11,8 +11,9 @@ namespace QuanLyKhachSan.Model
 {
     using System;
     using System.Collections.Generic;
+    using QuanLyKhachSan.ViewModel;
     
-    public partial class NhanVien
+    public partial class NhanVien : BaseViewModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public NhanVien()
@@ -22,20 +23,45 @@ namespace QuanLyKhachSan.Model
     
         public int ID { get; set; }
         public string MaNhanVien { get; set; }
-        public string TenNhanVien { get; set; }
-        public Nullable<System.DateTime> NgaySinh { get; set; }
-        public string DiaChi { get; set; }
-        public string SDT { get; set; }
-        public string CCCD { get; set; }
-        public Nullable<int> MaBoPhan { get; set; }
-        public Nullable<int> MaTaiKhoan { get; set; }
-        public Nullable<int> Phai { get; set; }
-        public string TenTaiKhoan { get; set; }
-        public string MatKhau { get; set; }
-    
-        public virtual BoPhan BoPhan { get; set; }
-        public virtual GioiTinh GioiTinh { get; set; }
-        public virtual LoaiTK LoaiTK { get; set; }
+
+        private string _TenNhanVien;
+        public string TenNhanVien { get => _TenNhanVien; set { _TenNhanVien = value; OnPropertyChanged(); } }
+
+        private Nullable<System.DateTime> _NgaySinh;
+        public Nullable<System.DateTime> NgaySinh { get => _NgaySinh; set { _NgaySinh = value; OnPropertyChanged(); } }
+
+        private string _DiaChi;
+        public string DiaChi { get => _DiaChi; set { _DiaChi = value; OnPropertyChanged(); } }
+
+        private string _SDT;
+        public string SDT { get => _SDT; set { _SDT = value; OnPropertyChanged(); } }
+
+        private string _CCCD;
+        public string CCCD { get => _CCCD; set { _CCCD = value; OnPropertyChanged(); } }
+
+        private Nullable<int> _MaBoPhan;
+        public Nullable<int> MaBoPhan { get => _MaBoPhan; set { _MaBoPhan = value; OnPropertyChanged(); } }
+
+        private Nullable<int> _MaTaiKhoan;
+        public Nullable<int> MaTaiKhoan { get => _MaTaiKhoan; set { _MaTaiKhoan = value; OnPropertyChanged(); } }
+
+        private Nullable<int> _Phai;
+        public Nullable<int> Phai { get => _Phai; set { _Phai = value; OnPropertyChanged(); } }
+
+        private string _TenTaiKhoan;
+        public string TenTaiKhoan { get => _TenTaiKhoan; set { _TenTaiKhoan = value; OnPropertyChanged(); } }
+
+        private string _MatKhau;
+        public string MatKhau { get => _MatKhau; set { _MatKhau = value; OnPropertyChanged(); } }
+
+        private BoPhan _BoPhan;
+        public virtual BoPhan BoPhan { get => _BoPhan; set { _BoPhan = value; OnPropertyChanged(); } }
+
+        private GioiTinh _GioiTinh;
+        public virtual GioiTinh GioiTinh { get => _GioiTinh; set { _GioiTinh = value; OnPropertyChanged(); } }
+
+        private LoaiTK _LoaiTK;
+        public virtual LoaiTK LoaiTK { get => _LoaiTK; set { _LoaiTK = value; OnPropertyChanged(); } }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PhieuThue> PhieuThues { get; set; }
     }

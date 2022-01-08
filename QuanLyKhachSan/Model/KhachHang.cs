@@ -9,10 +9,11 @@
 
 namespace QuanLyKhachSan.Model
 {
+    using QuanLyKhachSan.ViewModel;
     using System;
     using System.Collections.Generic;
     
-    public partial class KhachHang
+    public partial class KhachHang : BaseViewModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public KhachHang()
@@ -23,13 +24,25 @@ namespace QuanLyKhachSan.Model
     
         public int ID { get; set; }
         public string MaKhachHang { get; set; }
-        public string TenKhachHang { get; set; }
-        public string CCCD { get; set; }
-        public string DiaChi { get; set; }
-        public string SDT { get; set; }
-        public string QuocTich { get; set; }
-        public string SoHoChieu { get; set; }
-    
+
+        private string _TenKhachHang;
+        public string TenKhachHang { get => _TenKhachHang; set { _TenKhachHang = value; OnPropertyChanged(); } }
+
+        private string _CCCD;
+        public string CCCD { get => _CCCD; set { _CCCD = value; OnPropertyChanged(); } }
+
+        private string _DiaChi;
+        public string DiaChi { get => _DiaChi; set { _DiaChi = value; OnPropertyChanged(); } }
+
+        private string _SDT;
+        public string SDT { get => _SDT; set { _SDT = value; OnPropertyChanged(); } }
+
+        private string _QuocTich;
+        public string QuocTich { get => _QuocTich; set { _QuocTich = value; OnPropertyChanged(); } }
+
+        private string _SoHoChieu;
+        public string SoHoChieu { get => _SoHoChieu; set { _SoHoChieu = value; OnPropertyChanged(); } }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HoaDon> HoaDons { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

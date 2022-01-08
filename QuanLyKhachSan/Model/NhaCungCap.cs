@@ -11,13 +11,20 @@ namespace QuanLyKhachSan.Model
 {
     using System;
     using System.Collections.Generic;
+    using QuanLyKhachSan.ViewModel;
     
-    public partial class NhaCungCap
+    public partial class NhaCungCap : BaseViewModel
     {
         public int ID { get; set; }
         public string MaNhaCungCap { get; set; }
-        public string TenNhaCungCap { get; set; }
-        public string DiaChi { get; set; }
-        public string SDT { get; set; }
+
+        private string _TenNhaCungCap;
+        public string TenNhaCungCap { get => _TenNhaCungCap; set { _TenNhaCungCap = value; OnPropertyChanged(); } }
+
+        private string _DiaChi;
+        public string DiaChi { get => _DiaChi; set { _DiaChi = value; OnPropertyChanged(); } }
+
+        private string _SDT;
+        public string SDT { get => _SDT; set { _SDT = value; OnPropertyChanged(); } }
     }
 }
