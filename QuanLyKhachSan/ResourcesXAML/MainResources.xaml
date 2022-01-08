@@ -13,4 +13,5 @@
     <viewmodel:DetailConvenientViewModel x:Key="DetailConvenientVM"></viewmodel:DetailConvenientViewModel>
     <viewmodel:AddServiceRoomViewModel x:Key="AddServiceRoomVM"></viewmodel:AddServiceRoomViewModel>
     <viewmodel:RDetailViewModel x:Key="RDetailVM"></viewmodel:RDetailViewModel>
+    <viewmodel:ServiceThingViewModel x:Key="SeviceTVM"></viewmodel:ServiceThingViewModel>
 </ResourceDictionary>

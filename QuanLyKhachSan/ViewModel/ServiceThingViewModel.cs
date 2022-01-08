@@ -10,18 +10,15 @@ using System.Windows.Input;
 
 namespace QuanLyKhachSan.ViewModel
 {
-    class ConvenientViewModel : BaseViewModel
+    class ServiceThingViewModel : BaseViewModel
     {
-        private ObservableCollection<TienNghi> _List;
-        public ObservableCollection<TienNghi> List { get => _List; set { _List = value; OnPropertyChanged(); } }
+        private ObservableCollection<LoaiDichVu> _List;
+        public ObservableCollection<LoaiDichVu> List { get => _List; set { _List = value; OnPropertyChanged(); } }
 
 
 
         private string _TenTienNghi;
         public string TenTienNghi { get => _TenTienNghi; set { _TenTienNghi = value; OnPropertyChanged(); } }
-        private int? _Luong;
-        public int? Luong { get => _Luong; set { _Luong = value; OnPropertyChanged(); } }
-
 
 
         public ICommand AddCommand { get; set; }
@@ -29,7 +26,7 @@ namespace QuanLyKhachSan.ViewModel
 
 
 
-        public ConvenientViewModel()
+        public ServiceThingViewModel()
         {
 
             AddCommand = new RelayCommand<object>((p) =>
@@ -37,9 +34,9 @@ namespace QuanLyKhachSan.ViewModel
                 return true;
             }, (p) =>
             {
-                var KH = new TienNghi() { TenTienNghi = TenTienNghi };
+                var KH = new LoaiDichVu() { LoaiDichVu1 = TenTienNghi };
 
-                DataProvider.Ins.DB.TienNghis.Add(KH);
+                DataProvider.Ins.DB.LoaiDichVus.Add(KH);
                 DataProvider.Ins.DB.SaveChanges();
 
                 MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
