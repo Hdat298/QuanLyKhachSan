@@ -130,6 +130,11 @@ namespace QuanLyKhachSan.View
                     case 6:
                         break;
                     case 7:
+                        if (suplierUC == null)
+                        {
+                            suplierUC = new SuplierUC();
+                        }
+                        contenDisplayMain.Content = suplierUC;
                         break;
                     case 8:
                         if (invoiceUC == null)

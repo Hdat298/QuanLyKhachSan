@@ -60,7 +60,7 @@ namespace QuanLyKhachSan.ViewModel
             else
             {
                 IsLogin = false;
-                MessageBox.Show("Sai tài khoản hoặc mật khẩu!");
+                new DialogCustom("Nhập sai tài khoản hoặc mật khẩu!", "Thông báo!", DialogCustom.OK).ShowDialog();
             }
         }
     }
