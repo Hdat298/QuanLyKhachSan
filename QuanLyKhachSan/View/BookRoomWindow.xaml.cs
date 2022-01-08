@@ -62,8 +62,8 @@ namespace QuanLyKhachSan.View
 
         private void bookRoomWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            dtpNgayKT.Text = new DateTime().ToShortDateString();
-            dtpNgayBD.Text = new DateTime().ToShortDateString();
+            dtpNgayKT.Text = new DateTime(2021, 8, 1).ToShortDateString();
+            dtpNgayBD.Text = new DateTime(2021, 8, 1).ToShortDateString();
 
             lsCT = new ObservableCollection<CTThueCustom>();
             lsPDaChons = new ObservableCollection<ChiTietPhieuThue>();

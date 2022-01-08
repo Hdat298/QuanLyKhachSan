@@ -333,7 +333,7 @@
 
                                             <DoubleAnimation
                                                 
-                                                Storyboard.TargetName="dm"
+                                                Storyboard.TargetName="Pic"
                                                 Storyboard.TargetProperty="Width"
                                                 BeginTime="0:0:0"
                                                 From="130" To="50"
@@ -348,7 +348,7 @@
 
                                             <DoubleAnimation
                                                 
-                                                Storyboard.TargetName="dm"
+                                                Storyboard.TargetName="Pic"
                                                 Storyboard.TargetProperty="Height"
                                                 BeginTime="0:0:0"
                                                 From="130" To="50"
@@ -385,7 +385,7 @@
 
                                             <DoubleAnimation
                                                 
-                                                Storyboard.TargetName="dm"
+                                                Storyboard.TargetName="Pic"
                                                 Storyboard.TargetProperty="Width"
                                                 BeginTime="0:0:0"
                                                 From="50" To="130"
@@ -401,7 +401,7 @@
 
                                             <DoubleAnimation
                                                 
-                                                Storyboard.TargetName="dm"
+                                                Storyboard.TargetName="Pic"
                                                 Storyboard.TargetProperty="Height"
                                                 BeginTime="0:0:0"
                                                 From="50" To="130"
@@ -431,7 +431,7 @@
 
                             <TextBlock Text="Đăng xuất" Foreground="Black" />
                         </Button>
-                        <Grid x:Name="dm" Margin="0 0 0 30" Height="50" Width="50">
+                        <Grid x:Name="Pic" Margin="0 0 0 30" Height="50" Width="50">
                             <Ellipse>
                                 <Ellipse.Fill>
                                     <ImageBrush ImageSource="/Source/img_avatar.png"/>

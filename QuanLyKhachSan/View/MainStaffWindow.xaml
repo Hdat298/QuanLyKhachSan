@@ -317,6 +317,37 @@
 
                                     </BeginStoryboard>
 
+                                    <!--event đóng nút width-->
+                                    <BeginStoryboard>
+                                        <Storyboard x:Name="HideWitdhpicture">
+
+                                            <DoubleAnimation
+                                                
+                                                Storyboard.TargetName="Pic"
+                                                Storyboard.TargetProperty="Width"
+                                                BeginTime="0:0:0"
+                                                From="130" To="50"
+                                                Duration="0:0:0.2">
+
+                                            </DoubleAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                    <!--event đóng nút height-->
+                                    <BeginStoryboard>
+                                        <Storyboard x:Name="HideHeightpicture">
+
+                                            <DoubleAnimation
+                                                
+                                                Storyboard.TargetName="Pic"
+                                                Storyboard.TargetProperty="Height"
+                                                BeginTime="0:0:0"
+                                                From="130" To="50"
+                                                Duration="0:0:0.2">
+
+                                            </DoubleAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+
                                 </EventTrigger>
 
                                 <EventTrigger RoutedEvent="ToggleButton.Checked">
@@ -338,7 +369,38 @@
                                         </Storyboard>
 
                                     </BeginStoryboard>
+                                    <!--event mở nút width-->
+                                    <BeginStoryboard>
+                                        <Storyboard x:Name="OpenWidthpicture">
 
+                                            <DoubleAnimation
+                                                
+                                                Storyboard.TargetName="Pic"
+                                                Storyboard.TargetProperty="Width"
+                                                BeginTime="0:0:0"
+                                                From="50" To="130"
+                                                Duration="0:0:0.2">
+
+                                            </DoubleAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+
+                                    <!--event mở nút height-->
+                                    <BeginStoryboard>
+                                        <Storyboard x:Name="OpenHeightpicture">
+
+                                            <DoubleAnimation
+                                                
+                                                Storyboard.TargetName="Pic"
+                                                Storyboard.TargetProperty="Height"
+                                                BeginTime="0:0:0"
+                                                From="50" To="130"
+                                                Duration="0:0:0.2">
+
+                                            </DoubleAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                    
                                 </EventTrigger>
 
                             </ToggleButton.Triggers>
