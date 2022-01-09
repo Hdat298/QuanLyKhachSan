@@ -504,6 +504,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Source\img_mainbackground.png" />
     <Resource Include="Source\img_employee.ico" />
     <Resource Include="Source\img_revenue.ico" />
   </ItemGroup>

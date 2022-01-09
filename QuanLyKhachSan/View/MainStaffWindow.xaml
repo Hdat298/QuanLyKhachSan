@@ -176,8 +176,8 @@
         <ContentControl Grid.Row="1" Grid.Column="1" x:Name="contenDisplayMain"/>
         <!--// Background Color //-->
 
-        <Grid Grid.Row="0" Grid.ColumnSpan="2" Background="DarkBlue">
-            <uc:ControlBarUC Tag="{Binding Title, ElementName=loginWindow}" VerticalAlignment="Top" Margin="600,0,0,0"></uc:ControlBarUC>
+        <Grid Grid.Row="0" Grid.ColumnSpan="2" Background="LightPink">
+            <uc:ControlBarUC Tag="{Binding Title, ElementName=mainWindow}" VerticalAlignment="Top"/>
         </Grid>
 
         <Grid Grid.Row="1" Grid.ColumnSpan="2" >
@@ -185,17 +185,17 @@
 
             <!--// Background Image //-->
 
-            <!--<Grid x:Name="BG" PreviewMouseLeftButtonDown="BG_PreviewMouseLeftButtonDown">
+            <Grid x:Name="BG" >
 
                 <Grid.Background>
 
                     <ImageBrush x:Name="img_bg"
-                                ImageSource="/Source/BG3.png"
+                                ImageSource="/Source/img_mainbackground.png"
                                 Stretch="Fill"/>
 
                 </Grid.Background>
 
-            </Grid>-->
+            </Grid>
 
             <!--// App Close Button //-->
 
@@ -237,7 +237,7 @@
             <Grid   x:Name="nav_pnl"
                     HorizontalAlignment="Left"
                     Width="61"
-                    Background="#2E333A">
+                    Background="#F79BB4">
 
                 <StackPanel x:Name="st_pnl">
 
@@ -298,7 +298,7 @@
                             <ToggleButton.Triggers>
 
                                 <EventTrigger RoutedEvent="ToggleButton.Unchecked">
-
+                                    <!--event toggle-->
                                     <BeginStoryboard>
 
                                         <Storyboard x:Name="HideStackPanel">
@@ -351,7 +351,7 @@
                                 </EventTrigger>
 
                                 <EventTrigger RoutedEvent="ToggleButton.Checked">
-
+                                    <!--event toggle-->
                                     <BeginStoryboard>
 
                                         <Storyboard x:Name="ShowStackPanel">
@@ -400,7 +400,6 @@
                                             </DoubleAnimation>
                                         </Storyboard>
                                     </BeginStoryboard>
-                                    
                                 </EventTrigger>
 
                             </ToggleButton.Triggers>
@@ -417,19 +416,23 @@
                                 <GradientStop Color="#F9D8D6" Offset="0.8"/>
                             </LinearGradientBrush>
                         </Grid.Background>
-                        <Button x:Name="btnDangXuat" Width="80" Height="30" HorizontalAlignment="Left" Padding="0" Foreground="DarkKhaki"
-                                VerticalAlignment="Top" FontSize="11"  BorderThickness="0" Background="Transparent" BorderBrush="White">
+                        <!--<Button x:Name="btnDangXuat" Width="63" Height="30" Padding="0" Foreground="DarkKhaki"
+                                VerticalAlignment="Top" FontSize="11"  BorderThickness="0" Background="Transparent" BorderBrush="White" Margin="0,0,-2,0" Click="Logout_Click">
 
                             <TextBlock Text="Đăng xuất" Foreground="Black" />
-                        </Button>
-                        <Grid Margin="0 0 0 30" Height="130" Width="130">
+                        </Button>-->
+                        <Grid x:Name="Pic" Margin="0 0 0 30" Height="50" Width="50">
                             <Ellipse>
                                 <Ellipse.Fill>
-                                    <ImageBrush ImageSource="/Source/img_avatar.png"/>
+                                    <ImageBrush ImageSource="/Source/logo3.png"/>
                                 </Ellipse.Fill>
                             </Ellipse>
                         </Grid>
-                        <TextBlock x:Name="txblAvatarBinding" />
+                        <TextBlock x:Name="txblAvatar" >
+                            <InlineUIContainer>
+                                <Button Height="22" Width="47" Click="Logout_Click"/>
+
+                            </InlineUIContainer></TextBlock>
                         <Button x:Name="btnThayAnh" Background="Transparent" Opacity="0.6"
                                     BorderThickness="0" Height="30" Width="30" Margin="0 120 0 0">
                             <Button.Style>
@@ -493,7 +496,7 @@
 
                         </ListViewItem>
 
-                        <!--// Customer //-->
+                        <!--// Room //-->
 
                         <ListViewItem HorizontalAlignment="Left"
                                       Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
@@ -524,8 +527,9 @@
 
                         </ListViewItem>
 
-                      
-                        <!--// Book room //-->
+                     
+
+                        <!--// Book Room //-->
 
                         <ListViewItem HorizontalAlignment="Left"
                                       Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
@@ -580,7 +584,6 @@
                             <ListViewItem.ToolTip>
 
                                 <ToolTip x:Name="tt_customer"
-                                         Width="auto"
                                          Content="QL khách hàng"
                                          Style="{StaticResource tt_style}"/>
 
@@ -588,7 +591,13 @@
 
                         </ListViewItem>
 
-                        <!--// Customer //-->
+                      
+
+                        
+                      
+
+                      
+                        <!--// Invoice //-->
                         <ListViewItem HorizontalAlignment="Left"
                                       Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
 
@@ -617,6 +626,9 @@
                             </ListViewItem.ToolTip>
 
                         </ListViewItem>
+
+
+                      
 
 
                         <!--// Listview items style template //-->

@@ -75,7 +75,7 @@ namespace QuanLyKhachSan.View
 
                 Service2 dv = new Service2()
                 {
-                    SoLuong = Phong.SoNgayO,
+                    SoLuong = Phong.SoNgayO-1,
                     TenDV = "Thuê phòng",
                     ThanhTien = tienPhong
                 };

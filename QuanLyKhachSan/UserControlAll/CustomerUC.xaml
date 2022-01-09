@@ -294,7 +294,7 @@
                             <GridViewColumn Header="CCCD" DisplayMemberBinding="{Binding CCCD}"></GridViewColumn>
                             <GridViewColumn Header="Địa chỉ" DisplayMemberBinding="{Binding DiaChi}"></GridViewColumn>
                             <GridViewColumn Header="Số điện thoại" DisplayMemberBinding="{Binding SDT}"></GridViewColumn>
-                            <GridViewColumn Header="Quốc tịch" DisplayMemberBinding="{Binding QuocTinh}"></GridViewColumn>
+                            <GridViewColumn Header="Quốc tịch" DisplayMemberBinding="{Binding QuocTich}"></GridViewColumn>
                             <GridViewColumn Header="Số hộ chiếu" DisplayMemberBinding="{Binding SoHoChieu}"></GridViewColumn>
                         </GridView>
                     </ListView.View>

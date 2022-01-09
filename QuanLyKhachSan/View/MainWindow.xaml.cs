@@ -62,6 +62,7 @@ namespace QuanLyKhachSan.View
                 tt_furniture.Visibility = Visibility.Collapsed;
                 tt_invoice.Visibility = Visibility.Collapsed;
                 tt_revenue.Visibility = Visibility.Collapsed;
+                tt_employee.Visibility = Visibility.Collapsed;
             }
             else
             {
@@ -75,6 +76,7 @@ namespace QuanLyKhachSan.View
                 tt_furniture.Visibility = Visibility.Visible;
                 tt_invoice.Visibility = Visibility.Visible;
                 tt_revenue.Visibility = Visibility.Visible;
+                tt_employee.Visibility = Visibility.Visible;
             }
         }
 
@@ -89,6 +91,7 @@ namespace QuanLyKhachSan.View
                         {
                             Home = new HomeUC();
                         }
+                        BG.Visibility = Visibility.Collapsed;
                         contenDisplayMain.Content = Home;
                         break;
                     case 1:
@@ -124,29 +127,36 @@ namespace QuanLyKhachSan.View
                         contenDisplayMain.Content = customerUC;
                         break;
                     case 5:
+                        if (employeeUC == null)
+                        {
+                            employeeUC = new EmployeesUC();
+                        }
+                        contenDisplayMain.Content = employeeUC;
+                        break;
+                    case 6:
                         if (serviceUC == null)
                         {
                             serviceUC = new ServiceUC();
                         }
                         contenDisplayMain.Content = serviceUC;
                         break;
-                    case 6:
-                        break;
                     case 7:
+                        break;
+                    case 8:
                         if (suplierUC == null)
                         {
                             suplierUC = new SuplierUC();
                         }
                         contenDisplayMain.Content = suplierUC;
                         break;
-                    case 8:
+                    case 9:
                         if (invoiceUC == null)
                         {
                             invoiceUC = new InvoiceUC();
                         }
                         contenDisplayMain.Content = invoiceUC;
                         break;
-                    case 9:
+                    case 10:
                         if (revenueUC == null)
                         {
                             revenueUC = new Revenue();
@@ -156,6 +166,11 @@ namespace QuanLyKhachSan.View
 
                 }
             }
+        }
+
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
 
         //private void Tg_Btn_Unchecked(object sender, RoutedEventArgs e)

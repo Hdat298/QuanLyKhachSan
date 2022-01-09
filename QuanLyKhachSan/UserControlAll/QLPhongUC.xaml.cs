@@ -67,5 +67,6 @@ namespace QuanLyKhachSan.UserControlAll
                 DataProvider.Ins.DB.SaveChanges();
             }
         }
+
     }
 }

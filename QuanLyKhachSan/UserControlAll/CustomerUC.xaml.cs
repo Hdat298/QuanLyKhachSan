@@ -52,7 +52,7 @@ namespace QuanLyKhachSan.UserControlAll
                         ws.Cells[i, 2] = item.CCCD;
                         ws.Cells[i, 3] = item.DiaChi;
                         ws.Cells[i, 4] = item.SDT;
-                        ws.Cells[i, 5] = item.QuocTinh;
+                        ws.Cells[i, 5] = item.QuocTich;
                         ws.Cells[i, 6] = item.SoHoChieu;
                         i++;
                     }
