@@ -50,32 +50,32 @@ namespace QuanLyKhachSan.View
         private void ListViewItem_MouseEnter(object sender, MouseEventArgs e)
         {
 
-            //if (Tg_Btn.IsChecked == true)
-            //{
-            //    tt_home.Visibility = Visibility.Collapsed;
-            //    tt_room.Visibility = Visibility.Collapsed;
-            //    tt_room2.Visibility = Visibility.Collapsed;
-            //    tt_bookroom.Visibility = Visibility.Collapsed;
-            //    tt_customer.Visibility = Visibility.Collapsed;
-            //    tt_service.Visibility = Visibility.Collapsed;
-            //    tt_furniture.Visibility = Visibility.Collapsed;
-            //    tt_invoice.Visibility = Visibility.Collapsed;
-            //    tt_revenue.Visibility = Visibility.Collapsed;
-            //    tt_employee.Visibility = Visibility.Collapsed;
-            //}
-            //else
-            //{
-            //    tt_home.Visibility = Visibility.Visible;
-            //    tt_room.Visibility = Visibility.Visible;
-            //    tt_room2.Visibility = Visibility.Visible;
-            //    tt_bookroom.Visibility = Visibility.Visible;
-            //    tt_customer.Visibility = Visibility.Visible;
-            //    tt_service.Visibility = Visibility.Visible;
-            //    tt_furniture.Visibility = Visibility.Visible;
-            //    tt_invoice.Visibility = Visibility.Visible;
-            //    tt_revenue.Visibility = Visibility.Visible;
-            //    tt_employee.Visibility = Visibility.Visible;
-            //}
+            if (Tg_Btn.IsChecked == true)
+            {
+                tt_home.Visibility = Visibility.Collapsed;
+                tt_room.Visibility = Visibility.Collapsed;
+                tt_room2.Visibility = Visibility.Collapsed;
+                tt_bookroom.Visibility = Visibility.Collapsed;
+                tt_customer.Visibility = Visibility.Collapsed;
+                tt_service.Visibility = Visibility.Collapsed;
+                tt_furniture.Visibility = Visibility.Collapsed;
+                tt_invoice.Visibility = Visibility.Collapsed;
+                tt_revenue.Visibility = Visibility.Collapsed;
+                tt_employee.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                tt_home.Visibility = Visibility.Visible;
+                tt_room.Visibility = Visibility.Visible;
+                tt_room2.Visibility = Visibility.Visible;
+                tt_bookroom.Visibility = Visibility.Visible;
+                tt_customer.Visibility = Visibility.Visible;
+                tt_service.Visibility = Visibility.Visible;
+                tt_furniture.Visibility = Visibility.Visible;
+                tt_invoice.Visibility = Visibility.Visible;
+                tt_revenue.Visibility = Visibility.Visible;
+                tt_employee.Visibility = Visibility.Visible;
+            }
         }
 
         private void LV_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)

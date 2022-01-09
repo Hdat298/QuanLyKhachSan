@@ -612,7 +612,7 @@
                                        Stretch="None"
                                        Margin="12,0,0,0"/>
 
-                                <TextBlock Text="QL khách hàng"
+                                <TextBlock Text="QLKH"
                                            Margin="25,0,0,0"
                                            Style="{StaticResource font_style}"/>
 

@@ -115,7 +115,7 @@ namespace QuanLyKhachSan.ViewModel
                 return true;
             }, (p) =>
             {
-                var KH = new NhanVien() { TenNhanVien = TenNhanVien, CCCD = CCCD, DiaChi = DiaChi, SDT = SDT, TenTaiKhoan = TenTaiKhoan, MatKhau = MatKhau, MaBoPhan = SelectedBoPhan.ID , MaTaiKhoan = SelectedAccount.ID , Phai = SelectedGender.ID};
+                var KH = new NhanVien() { TenNhanVien = TenNhanVien, CCCD = CCCD, NgaySinh = NgaySinh, DiaChi = DiaChi, SDT = SDT, TenTaiKhoan = TenTaiKhoan, MatKhau = MatKhau, MaBoPhan = SelectedBoPhan.ID , MaTaiKhoan = SelectedAccount.ID , Phai = SelectedGender.ID};
 
                 DataProvider.Ins.DB.NhanViens.Add(KH);
                 DataProvider.Ins.DB.SaveChanges();
