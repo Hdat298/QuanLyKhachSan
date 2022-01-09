@@ -20,7 +20,7 @@
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <materialDesign:ColorZone Grid.Row="0" Mode="PrimaryLight">
+        <materialDesign:ColorZone Grid.Row="0" Background="LightPink">
             <Grid>
                 <materialDesign:PackIcon Width="20" Height="50" Kind="SearchWeb" Margin="11,4,0,-4" />
                 <TextBox x:Name="txbTimKiemLoaiDV"

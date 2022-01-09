@@ -35,7 +35,7 @@
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0">
-                <materialDesign:ColorZone Mode="PrimaryDark" Background="#3b0057">
+                <materialDesign:ColorZone Mode="PrimaryDark" Background="LightPink">
                     <uc:ControlBarUC Tag="{Binding Title, ElementName=bookRoomWindow}" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="2,-6,0,0"></uc:ControlBarUC>
                 </materialDesign:ColorZone>
             </Grid>

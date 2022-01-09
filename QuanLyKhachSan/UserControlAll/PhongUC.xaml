@@ -24,7 +24,7 @@
             <RowDefinition Height="60"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <materialDesign:ColorZone Height="60" Grid.Row="0" Mode="PrimaryLight">
+        <materialDesign:ColorZone Height="60" Grid.Row="0" Background="LightPink">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
@@ -77,7 +77,7 @@
                 <Border>
                     <Border.Background>
                         <LinearGradientBrush>
-                            <GradientStop Color="#A44CD3" Offset="-1"/>
+                            <GradientStop Color="LightPink" Offset="-1"/>
                             <GradientStop Color="#FBBEDE" Offset="0.8"/>
                         </LinearGradientBrush>
                     </Border.Background>

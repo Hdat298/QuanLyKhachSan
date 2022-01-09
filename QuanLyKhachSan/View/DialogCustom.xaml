@@ -25,8 +25,8 @@
     <Border BorderThickness="1" BorderBrush="#FF807D7D" CornerRadius="10">
             <Border.Background>
                 <LinearGradientBrush>
-                    <GradientStop Color="#ff781f" Offset="0.0"/>
-                    <GradientStop Color="#ffaf7a" Offset="0.8"/>
+                    <GradientStop Color="LightPink" Offset="0.0"/>
+                    <GradientStop Color="#f79bb4" Offset="0.8"/>
                 </LinearGradientBrush>
             </Border.Background>
         <Grid>
