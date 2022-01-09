@@ -612,7 +612,7 @@
                                        Stretch="None"
                                        Margin="12,0,0,0"/>
 
-                                <TextBlock Text="QLKH"
+                                <TextBlock Text="QL khách hàng"
                                            Margin="25,0,0,0"
                                            Style="{StaticResource font_style}"/>
 
@@ -623,7 +623,7 @@
                             <ListViewItem.ToolTip>
 
                                 <ToolTip x:Name="tt_customer"
-                                         Content="QL khách hàng"
+                                         Content="QLKH"
                                          Style="{StaticResource tt_style}"/>
 
                             </ListViewItem.ToolTip>
