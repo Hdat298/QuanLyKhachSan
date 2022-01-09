@@ -179,9 +179,6 @@
     <Compile Include="UserControlAll\PhongUC.xaml.cs">
       <DependentUpon>PhongUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControlAll\QLDichVuUC.xaml.cs">
-      <DependentUpon>QLDichVuUC.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UserControlAll\QLLoaiDichVuUC.xaml.cs">
       <DependentUpon>QLLoaiDichVuUC.xaml</DependentUpon>
     </Compile>
@@ -292,10 +289,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControlAll\PhongUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControlAll\QLDichVuUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -506,6 +499,8 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Source\img_employee.ico" />
+    <Resource Include="Source\img_revenue.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.3.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.3.0\build\MaterialDesignThemes.targets')" />

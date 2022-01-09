@@ -32,6 +32,7 @@ namespace QuanLyKhachSan.View
         private RentRoomUC rentRoomUC;
         private QLPhongUC manageRoomUC;
         private InvoiceUC invoiceUC;
+        private Revenue revenueUC;
 
         NhanVien nhanVien;
         public MainWindow()
@@ -60,6 +61,7 @@ namespace QuanLyKhachSan.View
                 tt_service2.Visibility = Visibility.Collapsed;
                 tt_furniture.Visibility = Visibility.Collapsed;
                 tt_invoice.Visibility = Visibility.Collapsed;
+                tt_revenue.Visibility = Visibility.Collapsed;
             }
             else
             {
@@ -72,6 +74,7 @@ namespace QuanLyKhachSan.View
                 tt_service2.Visibility = Visibility.Visible;
                 tt_furniture.Visibility = Visibility.Visible;
                 tt_invoice.Visibility = Visibility.Visible;
+                tt_revenue.Visibility = Visibility.Visible;
             }
         }
 
@@ -143,7 +146,14 @@ namespace QuanLyKhachSan.View
                         }
                         contenDisplayMain.Content = invoiceUC;
                         break;
-                       
+                    case 9:
+                        if (revenueUC == null)
+                        {
+                            revenueUC = new Revenue();
+                        }
+                        contenDisplayMain.Content = revenueUC;
+                        break;
+
                 }
             }
         }
