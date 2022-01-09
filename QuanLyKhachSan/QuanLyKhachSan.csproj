@@ -172,6 +172,9 @@
     <Compile Include="UserControlAll\CustomerUC.xaml.cs">
       <DependentUpon>CustomerUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControlAll\DetailConvenientUC.xaml.cs">
+      <DependentUpon>DetailConvenientUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControlAll\EmployeesUC.xaml.cs">
       <DependentUpon>EmployeesUC.xaml</DependentUpon>
     </Compile>
@@ -278,6 +281,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControlAll\CustomerUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlAll\DetailConvenientUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -492,6 +499,10 @@
     <Resource Include="Source\IncomeIcon.png" />
     <Resource Include="Source\Pic5.png" />
     <Resource Include="Source\img_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Source\img_employee.ico" />
+    <Resource Include="Source\img_revenue.ico" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Model\Model1.Context.tt">

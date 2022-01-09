@@ -140,8 +140,8 @@
                         BorderThickness="0"
                         >
                 <Button.Content>
-                    <TextBlock Text="Setting" VerticalAlignment="Center" Margin="-2,20,-5,0">
-                          <materialDesign:PackIcon Kind="AccountService" Margin="-29,0,0,25"/>
+                    <TextBlock Text="Edit" VerticalAlignment="Center" Margin="-2,20,-5,0">
+                          <materialDesign:PackIcon Kind="AccountService" Margin="-19,0,0,25"/>
                     </TextBlock>
                 </Button.Content>
                 <Button.Style>
