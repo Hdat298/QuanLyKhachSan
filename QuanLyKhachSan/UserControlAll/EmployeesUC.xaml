@@ -212,6 +212,42 @@
                 </Button.Content>
             </Button>
 
+            <Button x:Name="btn_Export" Grid.Column="4"                                    
+                        Width="70"
+                        Height="80"
+                        ToolTip="Resource name: MaterialDesignRaisedButton"
+                        Foreground="Black"
+                        HorizontalAlignment="Left"
+                        BorderThickness="0" Click="btn_Export_Click"
+                        >
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#e0ffff"/>
+                        <Setter Property="BorderBrush" Value="Transparent"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}" BorderThickness="1">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#6AFFFF"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Button.Content>
+                    <TextBlock Text="Export" VerticalAlignment="Center" Margin="-2,20,-5,0">
+                          <materialDesign:PackIcon Kind="FileExport" Margin="-27,0,-25,25"/>
+                    </TextBlock>
+                </Button.Content>
+            </Button>
+
             <Separator Grid.Column="3" Height="1" Width="75" Background="Silver" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" Margin="41,39,34,40" Grid.ColumnSpan="2">
                 <Separator.RenderTransform>
                     <TransformGroup>
