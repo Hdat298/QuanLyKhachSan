@@ -430,7 +430,7 @@
                         </Grid>
                         <TextBlock x:Name="txblAvatar" >
                             <InlineUIContainer>
-                                <Button Height="22" Width="47" Click="Logout_Click"/>
+                                <Button Background="Transparent" FontSize="10" Content="Log out" Foreground="Black" Height="22" Width="68" Click="Logout_Click"/>
 
                             </InlineUIContainer></TextBlock>
                         <Button x:Name="btnThayAnh" Background="Transparent" Opacity="0.6"
