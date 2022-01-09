@@ -305,16 +305,16 @@
                 </Border>
                 <TextBlock Text="Thông tin nhân viên" Height="40" FontWeight="Bold" FontSize="25" Foreground="#001c1c"
                            VerticalAlignment="Top" HorizontalAlignment="Left" Margin="271,10,0,0"/>
-                <TextBox Text="{Binding TenNhanVien}"  Margin="5,55,780,170" materialDesign:HintAssist.Hint="Tên nhân viên" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
+                <TextBox Text="{Binding TenNhanVien}"  Margin="5,39,780,170" materialDesign:HintAssist.Hint="Tên nhân viên" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
                 <ComboBox  DisplayMemberPath="GioiTinh1" ItemsSource ="{Binding Gender}" SelectedItem="{Binding SelectedGender, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Margin="258,55,528,170" materialDesign:HintAssist.Hint="Giới tính" Foreground="#001c1c"/>
                 <DatePicker VerticalAlignment="Center" SelectedDate="{Binding NgaySinh}"  Margin="5,138,780,90" materialDesign:HintAssist.Hint="Ngày sinh" Foreground="#001c1c" Height="32"/>
-                <TextBox Text="{Binding DiaChi}"  Margin="257,200,528,20" materialDesign:HintAssist.Hint="Địa chỉ" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
-                <TextBox Text="{Binding SDT}"  Margin="5,200,780,20" materialDesign:HintAssist.Hint="Số điện thoại" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
+                <TextBox Text="{Binding DiaChi}"  Margin="257,191,528,20" materialDesign:HintAssist.Hint="Địa chỉ" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
+                <TextBox Text="{Binding SDT}"  Margin="5,191,780,20" materialDesign:HintAssist.Hint="Số điện thoại" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
                 <TextBox Text="{Binding CCCD}"  Margin="257,130,528,90" materialDesign:HintAssist.Hint="CCCD" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
                 <ComboBox DisplayMemberPath="TenBoPhan" ItemsSource ="{Binding Object}" SelectedItem="{Binding SelectedBoPhan, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="512,130,273,90" materialDesign:HintAssist.Hint="Loại Tài Khoản"  Foreground="#001c1c"/>
                 <ComboBox DisplayMemberPath="TenTaiKhoan" ItemsSource ="{Binding Account}" SelectedItem="{Binding SelectedAccount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="512,50,273,170" materialDesign:HintAssist.Hint="Bộ phận"  Foreground="#001c1c"/>
-                <TextBox Text="{Binding TenTaiKhoan}"  Margin="775,39,10,181" materialDesign:HintAssist.Hint="Tên tài khoản" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
-                <TextBox Text="{Binding MatKhau}"  Margin="775,130,10,90" materialDesign:HintAssist.Hint="Mật khẩu" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
+                <TextBox Text="{Binding TenTaiKhoan}"  Margin="775,39,10,170" materialDesign:HintAssist.Hint="Tên tài khoản" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
+                <TextBox Text="{Binding MatKhau}"  Margin="775,120,10,90" materialDesign:HintAssist.Hint="Mật khẩu" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
             </Grid>
         </materialDesign:Card>
 
