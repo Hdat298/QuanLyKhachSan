@@ -265,7 +265,7 @@ namespace QuanLyKhachSan.UserControlAll
                        }
                       ).ToList();
             List2 = new ObservableCollection<Room>(ls2);
-            lvDoubleRoom.ItemsSource = List2;
+            lvTwinRoom.ItemsSource = List2;
 
             var ls3 = (from p in DataProvider.Ins.DB.Phongs
                        join ct in lsCTPT on p.ID equals ct.MaPhong into t
@@ -285,7 +285,7 @@ namespace QuanLyKhachSan.UserControlAll
                        }
                       ).ToList();
             List3 = new ObservableCollection<Room>(ls3);
-            lvTwinRoom.ItemsSource = List3;
+            lvDoubleRoom.ItemsSource = List3;
 
             var ls4 = (from p in DataProvider.Ins.DB.Phongs
                        join ct in lsCTPT on p.ID equals ct.MaPhong into t

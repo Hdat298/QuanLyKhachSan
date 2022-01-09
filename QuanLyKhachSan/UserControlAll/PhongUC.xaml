@@ -283,7 +283,7 @@
                         <StackPanel>
                             <TextBlock Text="Double Room" FontSize="20" Foreground="#00A3FF"
                                Margin="40 20 0 0"/>
-                            <ListView ItemsSource="{Binding List2}" x:Name="lvDoubleRoom" Width="1091" Margin="50 10 0 0"
+                            <ListView ItemsSource="{Binding List3}" x:Name="lvDoubleRoom" Width="1091" Margin="50 10 0 0"
                               ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
                               ScrollViewer.VerticalScrollBarVisibility="Disabled" PreviewMouseLeftButtonUp="LvPhongDon_PreviewMouseLeftButtonUp" >
                                 <!--#region-->
@@ -460,7 +460,7 @@
                         <StackPanel>
                             <TextBlock Text="Twin Room" FontSize="20" Foreground="#00A3FF"
                                Margin="40 20 0 0"/>
-                            <ListView ItemsSource="{Binding List3}" x:Name="lvTwinRoom" Width="1091" Margin="50 10 0 0"
+                            <ListView ItemsSource="{Binding List2}" x:Name="lvTwinRoom" Width="1091" Margin="50 10 0 0"
                               ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
                               ScrollViewer.VerticalScrollBarVisibility="Disabled" PreviewMouseLeftButtonUp="LvPhongDon_PreviewMouseLeftButtonUp" >
                                 <!--#region-->

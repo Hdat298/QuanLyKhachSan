@@ -118,8 +118,8 @@
                                 Width="143"                                                                        
                                 materialDesign:HintAssist.Hint="Loại phòng">
                                 <ComboBoxItem Content="Single Room"/>
-                                <ComboBoxItem Content="Double Room"/>
                                 <ComboBoxItem Content="Twin Room"/>
+                                <ComboBoxItem Content="Double Room"/>
                                 <ComboBoxItem Content="Family Room"/>
                             </ComboBox>
 
