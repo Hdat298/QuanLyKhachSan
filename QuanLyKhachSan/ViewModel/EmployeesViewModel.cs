@@ -112,8 +112,6 @@ namespace QuanLyKhachSan.ViewModel
 
             AddCommand = new RelayCommand<object>((p) =>
             {
-                if (SelectedItem == null || SelectedBoPhan == null || SelectedAccount == null || SelectedGender == null)
-                    return false;
                 return true;
             }, (p) =>
             {

@@ -11,16 +11,26 @@ namespace QuanLyKhachSan.Model
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class ChiTietTienNghi
+    using QuanLyKhachSan.ViewModel;
+
+    public partial class ChiTietTienNghi : BaseViewModel
     {
         public int ID { get; set; }
         public string MaChiTietTienNghi { get; set; }
-        public Nullable<int> Soluong { get; set; }
-        public Nullable<int> MaTienNghi { get; set; }
-        public Nullable<int> MaPhong { get; set; }
-    
-        public virtual Phong Phong { get; set; }
-        public virtual TienNghi TienNghi { get; set; }
+
+        private Nullable<int> _Soluong;
+        public Nullable<int> Soluong { get => _Soluong; set { _Soluong = value; OnPropertyChanged(); } }
+
+        private Nullable<int> _MaTienNghi;
+        public Nullable<int> MaTienNghi { get => _MaTienNghi; set { _MaTienNghi = value; OnPropertyChanged(); } }
+
+        private Nullable<int> _MaPhong;
+        public Nullable<int> MaPhong { get => _MaPhong; set { _MaPhong = value; OnPropertyChanged(); } }
+
+        private Phong _Phong;
+        public virtual Phong Phong { get => _Phong; set { _Phong = value; OnPropertyChanged(); } }
+
+        private TienNghi _TienNghi;
+        public virtual TienNghi TienNghi { get => _TienNghi; set { _TienNghi = value; OnPropertyChanged(); } }
     }
 }
