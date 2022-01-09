@@ -56,7 +56,7 @@ namespace QuanLyKhachSan.View
             List<ChiTietPhieuThue> lsPhong = DataProvider.Ins.DB.ChiTietPhieuThues.ToList();
             foreach (var item in lsPhong)
             {
-                if (MaPT == item.MaPhong)
+                if (MaPT == item.MaPhieuThue)
                 {
                     return item.ID;
                 }

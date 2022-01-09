@@ -434,17 +434,17 @@
                                                             <Style TargetType="materialDesign:PackIcon">
                                                                 <Setter Property="Kind" Value="Check"/>
                                                                 <Style.Triggers>
-                                                                    <DataTrigger Binding="{Binding DonDep}" Value="Chưa dọn dẹp">
+                                                                    <DataTrigger Binding="{Binding TinhTrangPhong}" Value="Chưa dọn dẹp">
                                                                         <Setter Property="Kind" Value="Close"/>
                                                                     </DataTrigger>
-                                                                    <DataTrigger Binding="{Binding DonDep}" Value="Sửa chữa">
+                                                                    <DataTrigger Binding="{Binding TinhTrangPhong}" Value="Sửa chữa">
                                                                         <Setter Property="Kind" Value="ProgressWrench"/>
                                                                     </DataTrigger>
                                                                 </Style.Triggers>
                                                             </Style>
                                                         </materialDesign:PackIcon.Style>
                                                     </materialDesign:PackIcon>
-                                                    <TextBlock Grid.Column="1" Text="{Binding DonDep}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                    <TextBlock Grid.Column="1" Text="{Binding TinhTrangPhong}" HorizontalAlignment="Center" VerticalAlignment="Center"
                                                         Margin="0 0 10 0" FontSize="11"/>
                                                 </Grid>
                                             </Grid>
@@ -611,17 +611,17 @@
                                                             <Style TargetType="materialDesign:PackIcon">
                                                                 <Setter Property="Kind" Value="Check"/>
                                                                 <Style.Triggers>
-                                                                    <DataTrigger Binding="{Binding DonDep}" Value="Chưa dọn dẹp">
+                                                                    <DataTrigger Binding="{Binding TinhTrangPhong}" Value="Chưa dọn dẹp">
                                                                         <Setter Property="Kind" Value="Close"/>
                                                                     </DataTrigger>
-                                                                    <DataTrigger Binding="{Binding DonDep}" Value="Sửa chữa">
+                                                                    <DataTrigger Binding="{Binding TinhTrangPhong}" Value="Sửa chữa">
                                                                         <Setter Property="Kind" Value="ProgressWrench"/>
                                                                     </DataTrigger>
                                                                 </Style.Triggers>
                                                             </Style>
                                                         </materialDesign:PackIcon.Style>
                                                     </materialDesign:PackIcon>
-                                                    <TextBlock Grid.Column="1" Text="{Binding DonDep}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                    <TextBlock Grid.Column="1" Text="{Binding TinhTrangPhong}" HorizontalAlignment="Center" VerticalAlignment="Center"
                                                         Margin="0 0 10 0" FontSize="11"/>
                                                 </Grid>
                                             </Grid>
@@ -788,17 +788,17 @@
                                                             <Style TargetType="materialDesign:PackIcon">
                                                                 <Setter Property="Kind" Value="Check"/>
                                                                 <Style.Triggers>
-                                                                    <DataTrigger Binding="{Binding DonDep}" Value="Chưa dọn dẹp">
+                                                                    <DataTrigger Binding="{Binding TinhTrangPhong}" Value="Chưa dọn dẹp">
                                                                         <Setter Property="Kind" Value="Close"/>
                                                                     </DataTrigger>
-                                                                    <DataTrigger Binding="{Binding DonDep}" Value="Sửa chữa">
+                                                                    <DataTrigger Binding="{Binding TinhTrangPhong}" Value="Sửa chữa">
                                                                         <Setter Property="Kind" Value="ProgressWrench"/>
                                                                     </DataTrigger>
                                                                 </Style.Triggers>
                                                             </Style>
                                                         </materialDesign:PackIcon.Style>
                                                     </materialDesign:PackIcon>
-                                                    <TextBlock Grid.Column="1" Text="{Binding DonDep}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                    <TextBlock Grid.Column="1" Text="{Binding TinhTrangPhong}" HorizontalAlignment="Center" VerticalAlignment="Center"
                                                         Margin="0 0 10 0" FontSize="11"/>
                                                 </Grid>
                                             </Grid>

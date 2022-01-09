@@ -82,7 +82,6 @@ namespace QuanLyKhachSan.View
                 DataProvider.Ins.DB.DichVuPhongs.Add(dvp);
                 DataProvider.Ins.DB.SaveChanges();
                 new DialogCustom("Thêm thành công!", "Thông báo!", DialogCustom.OK).ShowDialog();
-                return;
                 this.Close();
             }
         }

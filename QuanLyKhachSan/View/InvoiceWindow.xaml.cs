@@ -109,7 +109,7 @@ namespace QuanLyKhachSan.View
                                SoPhong = p.ChiTietPhieuThue.MaPhong,
                                NgayBD = p.ChiTietPhieuThue.NgayBD,
                                NgayKT = p.ChiTietPhieuThue.NgayKT,
-                               TenKH = checkMaKH(p.ChiTietPhieuThue.MaPhieuThue.ToString()),
+                               TenKH = checkMaKH(p.MaKhachHang.ToString()),
                                NgayLap = p.NgayLap,
                                TongTien = p.TongTienThanhToan
                            }

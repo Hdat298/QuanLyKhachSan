@@ -50,7 +50,7 @@ namespace QuanLyKhachSan.UserControlAll
                 RoomDetailWindow ct = new RoomDetailWindow();
                 ct.truyenData(phong);
                 ct.ShowDialog();
-                //lv.UnselectAll();
+                lv.UnselectAll();
             }
         }
         public void Refresh()
