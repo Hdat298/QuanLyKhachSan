@@ -1,5 +1,6 @@
 ﻿using Microsoft.Office.Interop.Excel;
 using QuanLyKhachSan.Model;
+using QuanLyKhachSan.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,6 +56,12 @@ namespace QuanLyKhachSan.UserControlAll
                     System.Windows.MessageBox.Show("Your data has been successfully exported.", "Message", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
+        }
+
+        private void Something_Click(object sender, RoutedEventArgs e)
+        {
+            ServiceThing serviceThing = new ServiceThing();
+            serviceThing.Show();
         }
     }
 }

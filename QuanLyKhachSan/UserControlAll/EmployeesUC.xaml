@@ -139,8 +139,8 @@
                         BorderThickness="0" Margin="2,0,0,0"
                         >
                 <Button.Content>
-                    <TextBlock Text="Setting" VerticalAlignment="Center" Margin="-2,20,-5,0">
-                          <materialDesign:PackIcon Kind="AccountService" Margin="-29,0,0,25"/>
+                    <TextBlock Text="Edit" VerticalAlignment="Center" Margin="-2,20,-5,0">
+                          <materialDesign:PackIcon Kind="AccountService" Margin="-19,0,0,25"/>
                     </TextBlock>
                 </Button.Content>
                 <Button.Style>
@@ -248,6 +248,40 @@
                 </Button.Content>
             </Button>
 
+            <Button x:Name="Something" Grid.Column="5"                                    
+                        Width="91"
+                        ToolTip="Resource name: MaterialDesignRaisedButton"
+                        Foreground="Black"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        BorderThickness="0" Margin="0,0,-634,0" Click="Something_Click" Height="80"
+                        >
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#e0ffff"/>
+                        <Setter Property="BorderBrush" Value="Transparent"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}" BorderThickness="1">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#6AFFFF"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                <Button.Content>
+                    <TextBlock Text="Thêm chức vụ" VerticalAlignment="Center" HorizontalAlignment="Center" Height="19" Width="80" TextAlignment="Center"/>
+                </Button.Content>
+            </Button>
+
             <Separator Grid.Column="3" Height="1" Width="75" Background="Silver" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" Margin="41,39,34,40" Grid.ColumnSpan="2">
                 <Separator.RenderTransform>
                     <TransformGroup>
@@ -280,7 +314,7 @@
                 <ComboBox DisplayMemberPath="TenBoPhan" ItemsSource ="{Binding Object}" SelectedItem="{Binding SelectedBoPhan, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="512,130,273,90" materialDesign:HintAssist.Hint="Loại Tài Khoản"  Foreground="#001c1c"/>
                 <ComboBox DisplayMemberPath="TenTaiKhoan" ItemsSource ="{Binding Account}" SelectedItem="{Binding SelectedAccount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="512,50,273,170" materialDesign:HintAssist.Hint="Bộ phận"  Foreground="#001c1c"/>
                 <TextBox Text="{Binding TenTaiKhoan}"  Margin="775,39,10,181" materialDesign:HintAssist.Hint="Tên tài khoản" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
-                <TextBox Text="{Binding MatKhau}"  Margin="775,130,10,90" materialDesign:HintAssist.Hint="Mật khẩu" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>            
+                <TextBox Text="{Binding MatKhau}"  Margin="775,130,10,90" materialDesign:HintAssist.Hint="Mật khẩu" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
             </Grid>
         </materialDesign:Card>
 

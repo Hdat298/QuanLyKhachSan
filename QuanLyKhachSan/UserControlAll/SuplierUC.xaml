@@ -139,8 +139,8 @@
                         BorderThickness="0"
                         >
                 <Button.Content>
-                    <TextBlock Text="Setting" VerticalAlignment="Center" Margin="-2,20,-5,0">
-                          <materialDesign:PackIcon Kind="AccountService" Margin="-29,0,0,25"/>
+                    <TextBlock Text="Edit" VerticalAlignment="Center" Margin="-2,20,-5,0">
+                          <materialDesign:PackIcon Kind="AccountService" Margin="-19,0,0,25"/>
                     </TextBlock>
                 </Button.Content>
                 <Button.Style>
@@ -271,9 +271,9 @@
                 </Border>
                 <TextBlock Text="Thông tin nhà cung cấp" Height="40" FontWeight="Bold" FontSize="25" Foreground="#001c1c"
                            VerticalAlignment="Top" HorizontalAlignment="Left" Margin="271,10,0,0"/>
-                <TextBox Text="{Binding TenNhaCungCap}"  Margin="5,55,400,170" materialDesign:HintAssist.Hint="Tên nhà cung cấp" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
-                <TextBox Text="{Binding DiaChi}"  Margin="5,200,400,20" materialDesign:HintAssist.Hint="Địa chỉ" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
-                <TextBox Text="{Binding SDT}"  Margin="5,133,400,87" materialDesign:HintAssist.Hint="Số điện thoại" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
+                <TextBox Text="{Binding TenNhaCungCap}"  Margin="220,55,185,170" materialDesign:HintAssist.Hint="Tên nhà cung cấp" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
+                <TextBox Text="{Binding DiaChi}"  Margin="220,210,185,10" materialDesign:HintAssist.Hint="Địa chỉ" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
+                <TextBox Text="{Binding SDT}"  Margin="220,133,185,87" materialDesign:HintAssist.Hint="Số điện thoại" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Foreground="#001c1c"/>
             </Grid>
         </materialDesign:Card>
 
