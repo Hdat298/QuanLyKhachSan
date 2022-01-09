@@ -28,11 +28,11 @@ namespace QuanLyKhachSan.View
         private EmployeesUC employeeUC;
         private CustomerUC customerUC;
         private ServiceUC serviceUC;
-        private SuplierUC suplierUC;
         private RentRoomUC rentRoomUC;
         private QLPhongUC manageRoomUC;
         private InvoiceUC invoiceUC;
         private Revenue revenueUC;
+        private DetailConvenientUC detailConUC;
 
         NhanVien nhanVien;
         public MainWindow()
@@ -50,34 +50,32 @@ namespace QuanLyKhachSan.View
         private void ListViewItem_MouseEnter(object sender, MouseEventArgs e)
         {
 
-            if (Tg_Btn.IsChecked == true)
-            {
-                tt_home.Visibility = Visibility.Collapsed;
-                tt_room.Visibility = Visibility.Collapsed;
-                tt_room2.Visibility = Visibility.Collapsed;
-                tt_bookroom.Visibility = Visibility.Collapsed;
-                tt_customer.Visibility = Visibility.Collapsed;
-                tt_service.Visibility = Visibility.Collapsed;
-                tt_service2.Visibility = Visibility.Collapsed;
-                tt_furniture.Visibility = Visibility.Collapsed;
-                tt_invoice.Visibility = Visibility.Collapsed;
-                tt_revenue.Visibility = Visibility.Collapsed;
-                tt_employee.Visibility = Visibility.Collapsed;
-            }
-            else
-            {
-                tt_home.Visibility = Visibility.Visible;
-                tt_room.Visibility = Visibility.Visible;
-                tt_room2.Visibility = Visibility.Visible;
-                tt_bookroom.Visibility = Visibility.Visible;
-                tt_customer.Visibility = Visibility.Visible;
-                tt_service.Visibility = Visibility.Visible;
-                tt_service2.Visibility = Visibility.Visible;
-                tt_furniture.Visibility = Visibility.Visible;
-                tt_invoice.Visibility = Visibility.Visible;
-                tt_revenue.Visibility = Visibility.Visible;
-                tt_employee.Visibility = Visibility.Visible;
-            }
+            //if (Tg_Btn.IsChecked == true)
+            //{
+            //    tt_home.Visibility = Visibility.Collapsed;
+            //    tt_room.Visibility = Visibility.Collapsed;
+            //    tt_room2.Visibility = Visibility.Collapsed;
+            //    tt_bookroom.Visibility = Visibility.Collapsed;
+            //    tt_customer.Visibility = Visibility.Collapsed;
+            //    tt_service.Visibility = Visibility.Collapsed;
+            //    tt_furniture.Visibility = Visibility.Collapsed;
+            //    tt_invoice.Visibility = Visibility.Collapsed;
+            //    tt_revenue.Visibility = Visibility.Collapsed;
+            //    tt_employee.Visibility = Visibility.Collapsed;
+            //}
+            //else
+            //{
+            //    tt_home.Visibility = Visibility.Visible;
+            //    tt_room.Visibility = Visibility.Visible;
+            //    tt_room2.Visibility = Visibility.Visible;
+            //    tt_bookroom.Visibility = Visibility.Visible;
+            //    tt_customer.Visibility = Visibility.Visible;
+            //    tt_service.Visibility = Visibility.Visible;
+            //    tt_furniture.Visibility = Visibility.Visible;
+            //    tt_invoice.Visibility = Visibility.Visible;
+            //    tt_revenue.Visibility = Visibility.Visible;
+            //    tt_employee.Visibility = Visibility.Visible;
+            //}
         }
 
         private void LV_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -141,22 +139,20 @@ namespace QuanLyKhachSan.View
                         contenDisplayMain.Content = serviceUC;
                         break;
                     case 7:
+                        if (detailConUC == null)
+                        {
+                            detailConUC = new DetailConvenientUC();
+                        }
+                        contenDisplayMain.Content = detailConUC;
                         break;
                     case 8:
-                        if (suplierUC == null)
-                        {
-                            suplierUC = new SuplierUC();
-                        }
-                        contenDisplayMain.Content = suplierUC;
-                        break;
-                    case 9:
                         if (invoiceUC == null)
                         {
                             invoiceUC = new InvoiceUC();
                         }
                         contenDisplayMain.Content = invoiceUC;
                         break;
-                    case 10:
+                    case 9:
                         if (revenueUC == null)
                         {
                             revenueUC = new Revenue();
@@ -170,7 +166,11 @@ namespace QuanLyKhachSan.View
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            DialogCustom dialog = new DialogCustom("Bạn có muốn đăng xuất ?", "Thông báo", DialogCustom.YesNo);
+            if (dialog.ShowDialog() == true)
+            {
+                this.Close();
+            }
         }
 
         //private void Tg_Btn_Unchecked(object sender, RoutedEventArgs e)

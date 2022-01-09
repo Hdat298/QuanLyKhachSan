@@ -108,7 +108,7 @@ namespace QuanLyKhachSan.View
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
-            DialogCustom dialog = new DialogCustom("Bạn có muốn đăng xuất ?", "Thông báo!", DialogCustom.YesNo);
+            DialogCustom dialog = new DialogCustom("Bạn có muốn đăng xuất ?", "Thông báo", DialogCustom.YesNo);
             if (dialog.ShowDialog() == true)
             {
                 this.Close();
